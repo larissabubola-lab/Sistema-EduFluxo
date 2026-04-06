@@ -1,6 +1,6 @@
 # Sistema-EduFluxo
 
-Colaboradoiores doo projeto:
+Colaboradores doo projeto:
 Larissa Palma,
 João,
 Brian,
