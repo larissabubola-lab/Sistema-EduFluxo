@@ -1,65 +1,409 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<style>
-* {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    <title>EDUFLUX</title>
+    <style>
+        
+        
+        .header h1 {
+            color: #333;
+            font-size: 26px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
-        body {
-            background-image: url('https://www.cobrareporter.com.br/wp-content/uploads/2016/09/Colegio-Souza-Naves-Rolandia.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            min-height: 100vh;
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .user-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            position: relative;
+            color: white;
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
         }
         
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            z-index: -1;
+        .user-email {
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        .container {
-            background: rgb(255, 255, 255);
-            border-radius: 15px;
-            box-shadow: 0 200px 40px rgba(0, 0, 0, 0.15);
-            padding: 30px;
-            width: 100%;
-            max-width: 500px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        .user-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .use-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 6px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
             backdrop-filter: blur(5px);
         }
         
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-            padding-bottom: 40px;
-            border-bottom: 2px solid #f0f0f0;
+        .user-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
-
+        
+        .user-btn.logout {
+            background: rgba(220, 53, 69, 0.7);
+        }
+        
+        .user-btn.logout:hover {
+            background: rgba(220, 53, 69, 0.9);
+        }
+        
+        .login-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .login-toggle {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: #667eea;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+        
+        .toggle-btn:hover {
+            color: #764ba2;
+        }
+        
+        .info {
+            background: #e3f2fd;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #1976d2;
+            border-left: 4px solid #2196f3;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .input-group {
+            margin-bottom: 18px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #555;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .input-group input.valido {
+            border-color: #28a745;
+            background-color: #f8fff9;
+        }
+        
+        .input-group input.invalido {
+            border-color: #dc3545;
+            background-color: #fffafa;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #5a6268 0%, #3d4348 100%);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+        
+        .btn-success:hover {
+            background: linear-gradient(135deg, #218838 0%, #1ba87e 100%);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .button-group .btn {
+            flex: 1;
+        }
+        
+        .results {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            display: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .results.visible {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-label {
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .result-value {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .final-result {
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .aprovado {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+        
+        .reprovado {
+            background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+        }
+        
+        .error {
+            color: #dc3545;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+            font-weight: 500;
+        }
+        
+        .error.visible {
+            display: block;
+            animation: shake 0.3s ease;
+        }
+        
+        .author {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+        
+        .history-section {
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .history-section.visible {
+            display: block;
+        }
+        
+        .history-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .history-list {
+            max-height: 150px;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+            background: white;
+        }
+        
+        .history-item {
+            padding: 10px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        
+        .history-item:hover {
+            background: #f8f9fa;
+        }
+        
+        .history-item:last-child {
+            border-bottom: none;
+        }
+        
+        .history-item-info {
+            flex: 1;
+        }
+        
+        .history-item-materia {
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .history-item-result {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .aprovado-text {
+            color: #28a745;
+        }
+        
+        .reprovado-text {
+            color: #dc3545;
+        }
+        
+        .history-item-actions {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .history-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        
+        .history-btn:hover {
+            background: #e9ecef;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 22px;
+            }
+            
+            .user-actions {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .user-btn {
+                font-size: 11px;
+                padding: 5px 8px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1></h1>
+            <h1>  EDUFLUX </h1>
             <p></p>
         </div>
         
@@ -79,7 +423,7 @@
             </div>
             
             <div id="login-form">
-                <h3 style="text-align: center; margin-bottom: 20px; color: #333;" id="login-title">LOGIN</h3>
+                <h3 style="text-align: center; margin-bottom: 20px; color: #333;" id="login-title">Criar Nova Conta</h3>
                 
                 <div class="input-group">
                     <label for="email">📧 Email:</label>
@@ -98,27 +442,268 @@
                 </div>
                 
                 <button class="btn" id="login-btn" onclick="login()">Criar Conta</button>
-
-
-                <button class="btn" id="login-btn" onclick="login()">ADMIN</button>
             </div>
         </div>
-<body>
-    
-</body>
-
-</style>
-
-</head>
-
-<body>
-    
-    <form>
-    Nome:    <input nome>
-    
-        <button>
+        
+        <div id="calculadora-section" style="display: none;">
+            <div class="info">
+                ⓘ <strong>Importante:</strong> As notas devem estar entre <strong>0.0</strong> e <strong>10.0</strong>
+            </div>
             
-        </button>
-    </form> 
+            <div class="input-group">
+                <label for="materia">📚 Matéria/Curso:</label>
+                <input type="text" id="materia" placeholder="Ex: Matemática, Português, etc.">
+            </div>
+            
+            <div class="input-group">
+                <label for="nota1">📝 Nota 1:</label>
+                <input type="number" id="nota1" step="0.1" min="0" max="10" placeholder="Ex: 6.0" required>
+                <div class="error" id="error1">⚠️ Digite um número entre 0.0 e 10.0</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="nota2">📝 Nota 2:</label>
+                <input type="number" id="nota2" step="0.1" min="0" max="10" placeholder="Ex: 6.0" required>
+                <div class="error" id="error2">⚠️ Digite um número entre 0.0 e 10.0</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="nota3">📝 Nota 3:</label>
+                <input type="number" id="nota3" step="0.1" min="0" max="10" placeholder="Ex: 6.0" required>
+                <div class="error" id="error3">⚠️ Digite um número entre 0.0 e 10.0</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="modo-calculo">📊 Método de cálculo:</label>
+                <select id="modo-calculo">
+                    <option value="soma-subtracao">Soma - Nota Mínima</option>
+                    <option value="media-simples">Média Simples</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="nota-minima">🎯 Nota mínima:</label>
+                <input type="number" id="nota-minima" step="0.1" min="0" max="100" value="18.0">
+            </div>
+            
+            <button class="btn" id="btn-calcular" onclick="calcular()">
+                🔄 Calcular Resultado
+            </button>
+            
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="limparCampos()">
+                    🧹 Limpar Campos
+                </button>
+                <button class="btn btn-success" id="btn-salvar" onclick="salvarNoHistorico()" disabled>
+                    💾 Salvar
+                </button>
+            </div>
+            
+            <div class="results" id="results">
+                <h3 style="margin-bottom: 15px; color: #333;">📈 Resultados:</h3>
+                
+                <div class="result-item">
+                    <span class="result-label">Matéria:</span>
+                    <span class="result-value" id="materia-resultado">-</span>
+                </div>
+                
+                <div class="result-item">
+                    <span class="result-label">Resultado final:</span>
+                    <span class="result-value" id="resultado-final-value">0.0</span>
+                </div>
+                
+                <div class="result-item">
+                    <span class="result-label">Nota mínima:</span>
+                    <span class="result-value" id="nota-minima-value">18.0</span>
+                </div>
+                
+                <div class="final-result" id="resultado-final">
+                    <div id="result-status">Status</div>
+                </div>
+            </div>
+            
+            <div class="history-section" id="history-section">
+                <div class="history-title">
+                    <span>📋 Histórico de Cálculos</span>
+                    <button class="history-btn" onclick="limparHistorico()" title="Limpar histórico">🗑️</button>
+                </div>
+                <div class="history-list" id="history-list">
+                
+                </div>
+            </div>
+        </div>
+        
+        <div class="author"></div>
+    </div>
+    
+    <script>
+        
+        let historico = JSON.parse(localStorage.getItem('calculadoraNotasHistorico')) || [];
+        let contasRegistradas = JSON.parse(localStorage.getItem('contasRegistradas')) || [];
+        let usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado')) || null;
+        let ultimoResultado = null;
+        let modoLogin = false;
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            if (usuarioLogado) {
+                mostrarCalculadora();
+            } else {
+                mostrarLogin();
+            }
+
+
+            document.getElementById('confirm-password').addEventListener('input', function() {
+                validarConfirmacaoSenha();
+            });
+
+            verificarEntradasCalculadora();
+        });
+
+        function toggleLoginMode() {
+            modoLogin = !modoLogin;
+            const toggleBtn = document.getElementById('toggle-login');
+            const loginTitle = document.getElementById('login-title');
+            const loginBtn = document.getElementById('login-btn');
+            const confirmPasswordGroup = document.getElementById('confirm-password-group');
+            
+            if (modoLogin) {
+                toggleBtn.textContent = 'Não tem uma conta? Criar conta';
+                loginTitle.textContent = 'Fazer Login';
+                loginBtn.textContent = 'Entrar';
+                confirmPasswordGroup.style.display = 'none';
+            } else {
+                toggleBtn.textContent = 'Já tem uma conta? Fazer login';
+                loginTitle.textContent = 'Criar Nova Conta';
+                loginBtn.textContent = 'Criar Conta';
+                confirmPasswordGroup.style.display = 'block';
+            }
+            
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+            document.getElementById('confirm-password').value = '';
+            document.getElementById('password-error').classList.remove('visible');
+        }
+
+        function validarConfirmacaoSenha() {
+            if (modoLogin) return true;
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const errorElement = document.getElementById('password-error');
+            
+            if (password !== confirmPassword) {
+                errorElement.classList.add('visible');
+                return false;
+            } else {
+                errorElement.classList.remove('visible');
+                return true;
+            }
+        }
+
+        function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (!email || !validarEmail(email)) {
+                alert('❌ Por favor, insira um email válido.');
+                return;
+            }
+            
+            if (!password || password.length < 6) {
+                alert('❌ A senha deve ter pelo menos 6 caracteres.');
+                return;
+            }
+            
+            if (!modoLogin && !validarConfirmacaoSenha()) {
+                alert('❌ As senhas não coincidem.');
+                return;
+            }
+            
+            let conta = contasRegistradas.find(c => c.email === email);
+            
+            if (modoLogin) {
+                
+                if (!conta) {
+                    alert('❌ Nenhuma conta encontrada com este email.');
+                    return;
+                }
+                
+                if (conta.password !== password) {
+                    alert('❌ Senha incorreta.');
+                    return;
+                }
+            } else {
+                
+                if (conta) {
+                    alert('❌ Já existe uma conta com este email.');
+                    return;
+                }
+                
+                conta = {
+                    email: email,
+                    password: password,
+                    dataRegistro: new Date().toISOString()
+                };
+                contasRegistradas.push(conta);
+                localStorage.setItem('contasRegistradas', JSON.stringify(contasRegistradas));
+            }
+
+            usuarioLogado = {
+                email: email,
+                dataLogin: new Date().toISOString()
+            };
+            
+            localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado));
+            mostrarCalculadora();
+        }
+
+        function logout() {
+            if (confirm('Tem certeza que deseja sair?')) {
+                usuarioLogado = null;
+                localStorage.removeItem('usuarioLogado');
+                mostrarLogin();
+            }
+        }
+
+        function trocarUsuario() {
+            if (confirm('Deseja trocar de usuário?')) {
+                logout();
+            }
+        }
+
+        function mostrarLogin() {
+            
+            document.getElementById('login-section').style.display = 'block';
+            document.getElementById('user-info').style.display = 'none';
+            document.getElementById('history-section').classList.remove('visible');
+            
+            modoLogin = false;
+            const toggleBtn = document.getElementById('toggle-login');
+            const loginTitle = document.getElementById('login-title');
+            const loginBtn = document.getElementById('login-btn');
+            const confirmPasswordGroup = document.getElementById('confirm-password-group');
+            
+            toggleBtn.textContent = 'Já tem uma conta? Fazer login';
+            loginTitle.textContent = 'Criar Nova Conta';
+            loginBtn.textContent = 'Criar Conta';
+            confirmPasswordGroup.style.display = 'block';
+        }
+
+        function validarEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+
+            
+            const itemSalvar = {
+                ...ultimoResultado,
+                data: new Date().toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' })
+            };
+          
+
+    </script>
 </body>
 </html>
