@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07/04/2026 às 15:25
+-- Tempo de geração: 08/04/2026 às 01:09
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `edufluxo`
+-- Banco de dados: `bancodb`
 --
 
 -- --------------------------------------------------------
@@ -68,10 +68,20 @@ CREATE TABLE `ocorrencias` (
 --
 
 CREATE TABLE `usuarios` (
-  `cpf` int(11) NOT NULL,
+  `cpf` varchar(50) NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `email` varchar(100) NOT NULL,
+  `permissao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`cpf`, `nome`, `email`, `permissao`) VALUES
+('139.840.669.45', 'Larissa', 'larissa.bubola@escola.pr.gov.br', 2),
+('463.443.975.23', 'Pedro', 'pedro.lopes@escola.pr.gov.br', 0),
+('Maria', '563.345.656.00', 'maria.souza@gmail.com', 1);
 
 --
 -- Índices para tabelas despejadas

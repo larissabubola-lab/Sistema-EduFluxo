@@ -1,12 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EDUFLUX</title>
     <style>
-        
-        
         .header h1 {
             color: #333;
             font-size: 26px;
@@ -15,12 +13,12 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .header p {
             color: #666;
             font-size: 14px;
         }
-        
+
         .user-info {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 12px 15px;
@@ -32,19 +30,19 @@
             color: white;
             box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
         }
-        
+
         .user-email {
             font-weight: 500;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        
+
         .user-actions {
             display: flex;
             gap: 10px;
         }
-        
+
         .use-btn {
             background: rgba(255, 255, 255, 0.2);
             color: white;
@@ -56,20 +54,20 @@
             transition: all 0.3s;
             backdrop-filter: blur(5px);
         }
-        
+
         .user-btn:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
         }
-        
+
         .user-btn.logout {
             background: rgba(220, 53, 69, 0.7);
         }
-        
+
         .user-btn.logout:hover {
             background: rgba(220, 53, 69, 0.9);
         }
-        
+
         .login-section {
             background: #f8f9fa;
             padding: 20px;
@@ -78,12 +76,12 @@
             border-left: 4px solid #667eea;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        
+
         .login-toggle {
             text-align: center;
             margin-bottom: 15px;
         }
-        
+
         .toggle-btn {
             background: none;
             border: none;
@@ -93,11 +91,11 @@
             text-decoration: underline;
             transition: color 0.3s;
         }
-        
+
         .toggle-btn:hover {
             color: #764ba2;
         }
-        
+
         .info {
             background: #e3f2fd;
             padding: 12px;
@@ -109,11 +107,11 @@
             border-left: 4px solid #2196f3;
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
         }
-        
+
         .input-group {
             margin-bottom: 18px;
         }
-        
+
         .input-group label {
             display: block;
             margin-bottom: 6px;
@@ -121,7 +119,7 @@
             font-weight: 500;
             font-size: 14px;
         }
-        
+
         .input-group input, .input-group select {
             width: 100%;
             padding: 12px 15px;
@@ -131,23 +129,23 @@
             transition: all 0.3s ease;
             background: white;
         }
-        
+
         .input-group input:focus, .input-group select:focus {
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
-        
+
         .input-group input.valido {
             border-color: #28a745;
             background-color: #f8fff9;
         }
-        
+
         .input-group input.invalido {
             border-color: #dc3545;
             background-color: #fffafa;
         }
-        
+
         .btn {
             width: 100%;
             padding: 15px;
@@ -162,49 +160,49 @@
             margin-top: 10px;
             box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
         }
-        
+
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 7px 15px rgba(102, 126, 234, 0.4);
         }
-        
+
         .btn:active {
             transform: translateY(0);
         }
-        
+
         .btn:disabled {
             background: #cccccc;
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
         }
-        
+
         .btn-secondary {
             background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
         }
-        
+
         .btn-secondary:hover {
             background: linear-gradient(135deg, #5a6268 0%, #3d4348 100%);
         }
-        
+
         .btn-success {
             background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
         }
-        
+
         .btn-success:hover {
             background: linear-gradient(135deg, #218838 0%, #1ba87e 100%);
         }
-        
+
         .button-group {
             display: flex;
             gap: 10px;
             margin-top: 15px;
         }
-        
+
         .button-group .btn {
             flex: 1;
         }
-        
+
         .results {
             margin-top: 30px;
             padding: 20px;
@@ -214,12 +212,12 @@
             display: none;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        
+
         .results.visible {
             display: block;
             animation: fadeIn 0.5s ease;
         }
-        
+
         .result-item {
             display: flex;
             justify-content: space-between;
@@ -227,21 +225,21 @@
             padding: 10px 0;
             border-bottom: 1px solid #e9ecef;
         }
-        
+
         .result-item:last-child {
             border-bottom: none;
         }
-        
+
         .result-label {
             font-weight: 500;
             color: #555;
         }
-        
+
         .result-value {
             font-weight: 600;
             color: #333;
         }
-        
+
         .final-result {
             padding: 18px;
             border-radius: 10px;
@@ -252,15 +250,15 @@
             color: white;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .aprovado {
             background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
         }
-        
+
         .reprovado {
             background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
         }
-        
+
         .error {
             color: #dc3545;
             font-size: 12px;
@@ -268,12 +266,12 @@
             display: none;
             font-weight: 500;
         }
-        
+
         .error.visible {
             display: block;
             animation: shake 0.3s ease;
         }
-        
+
         .author {
             text-align: center;
             margin-top: 20px;
@@ -282,16 +280,16 @@
             padding-top: 15px;
             border-top: 1px solid #f0f0f0;
         }
-        
+
         .history-section {
             margin-top: 20px;
             display: none;
         }
-        
+
         .history-section.visible {
             display: block;
         }
-        
+
         .history-title {
             font-weight: 600;
             margin-bottom: 10px;
@@ -300,7 +298,7 @@
             align-items: center;
             justify-content: space-between;
         }
-        
+
         .history-list {
             max-height: 150px;
             overflow-y: auto;
@@ -309,7 +307,7 @@
             padding: 10px;
             background: white;
         }
-        
+
         .history-item {
             padding: 10px;
             border-bottom: 1px solid #f0f0f0;
@@ -318,42 +316,42 @@
             align-items: center;
             transition: background 0.2s;
         }
-        
+
         .history-item:hover {
             background: #f8f9fa;
         }
-        
+
         .history-item:last-child {
             border-bottom: none;
         }
-        
+
         .history-item-info {
             flex: 1;
         }
-        
+
         .history-item-materia {
             font-weight: 600;
             font-size: 14px;
         }
-        
+
         .history-item-result {
             font-size: 12px;
             color: #666;
         }
-        
+
         .aprovado-text {
             color: #28a745;
         }
-        
+
         .reprovado-text {
             color: #dc3545;
         }
-        
+
         .history-item-actions {
             display: flex;
             gap: 5px;
         }
-        
+
         .history-btn {
             background: none;
             border: none;
@@ -363,22 +361,22 @@
             border-radius: 4px;
             transition: background 0.2s;
         }
-        
+
         .history-btn:hover {
             background: #e9ecef;
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
+
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
             25% { transform: translateX(-5px); }
             75% { transform: translateX(5px); }
         }
-        
+
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
@@ -422,7 +420,7 @@
                 <button class="toggle-btn" id="toggle-login" onclick="toggleLoginMode()">Já tem uma conta? Fazer login</button>
             </div>
             
-            <div id="login-form">
+            <form id="login-form" method="post" action="resultado.html">
                 <h3 style="text-align: center; margin-bottom: 20px; color: #333;" id="login-title">Criar Nova Conta</h3>
                 
                 <div class="input-group">
@@ -442,7 +440,7 @@
                 </div>
                 
                 <button class="btn" id="login-btn" onclick="login()">Criar Conta</button>
-            </div>
+            </form>
         </div>
         
         <div id="calculadora-section" style="display: none;">
@@ -706,4 +704,44 @@
 
     </script>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <title>EDUFLUX</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="index.css">
+    </head>
+
+    <body>
+        <form method="post" action="resultado.php">
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="escreva seu email" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" placeholder="escreva sua senha" required>
+
+            <div id="radios">
+
+                <input type="radio" id="professor" name="input_radio" value="2" >
+                <label for="professor">professor</label>
+
+                <input type="radio" id="portaria" value="1" name="input_radio">
+                <label for="portaria">portaria</label>
+                
+                <input type="radio" id="admin" name="input_radio" value="0" required>
+                <label for="admin">admin</label>
+
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+        <!--!PERMISSOES NO BANCO DE DADOS:-->
+        <!--! 0:ADMIN-->
+        <!--! 1:PORTARIA-->
+        <!--! 2: PROFESSOR-->
+        
+    </body>
 </html>
