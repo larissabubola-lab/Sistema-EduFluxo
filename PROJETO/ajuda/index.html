@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Notas</title>
+    <title>EDUFLUX</title>
     <style>
         
         
@@ -403,8 +403,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📊 Calculadora de Notas</h1>
-            <p>Calcule suas notas de forma simples e rápida</p>
+            <h1>  EDUFLUX </h1>
+            <p></p>
         </div>
         
         <div class="user-info" id="user-info" style="display: none;">
@@ -533,7 +533,7 @@
             </div>
         </div>
         
-        <div class="author">Desenvolvido por Alejandro</div>
+        <div class="author"></div>
     </div>
     
     <script>
@@ -552,23 +552,6 @@
                 mostrarLogin();
             }
 
-            const notas = [
-                document.getElementById('nota1'),
-                document.getElementById('nota2'),
-                document.getElementById('nota3')
-            ];
-            
-            notas.forEach(nota => {
-                nota.addEventListener('input', function() {
-                    validarNota(this);
-                    verificarEntradasCalculadora();
-                });
-                
-                nota.addEventListener('blur', function() {
-                    validarNota(this);
-                    verificarEntradasCalculadora();
-                });
-            });
 
             document.getElementById('confirm-password').addEventListener('input', function() {
                 validarConfirmacaoSenha();
@@ -690,23 +673,8 @@
             }
         }
 
-        function mostrarCalculadora() {
-            document.getElementById('login-section').style.display = 'none';
-            document.getElementById('calculadora-section').style.display = 'block';
-            document.getElementById('user-info').style.display = 'flex';
-            document.getElementById('user-email-text').textContent = usuarioLogado.email;
-            
-            const historicoUsuario = historico.filter(item => item.usuario === usuarioLogado.email);
-            if (historicoUsuario.length > 0) {
-                document.getElementById('history-section').classList.add('visible');
-                atualizarHistorico();
-            }
-            
-            verificarEntradasCalculadora();
-        }
-
         function mostrarLogin() {
-            document.getElementById('calculadora-section').style.display = 'none';
+            
             document.getElementById('login-section').style.display = 'block';
             document.getElementById('user-info').style.display = 'none';
             document.getElementById('history-section').classList.remove('visible');
@@ -728,255 +696,14 @@
             return re.test(email);
         }
 
-        function validarNota(input) {
-            const valor = input.value;
-            const elementoErro = document.getElementById('error' + input.id.slice(-1));
-            
-            input.classList.remove('valido', 'invalido');
-            elementoErro.classList.remove('visible');
-            
-            if (valor === '' || valor === null || valor === undefined) {
-                input.classList.add('invalido');
-                elementoErro.textContent = '⚠️ Este campo é obrigatório';
-                elementoErro.classList.add('visible');
-                return false;
-            }
-            
-            const valorNumerico = parseFloat(valor);
-            if (isNaN(valorNumerico)) {
-                input.classList.add('invalido');
-                elementoErro.textContent = '⚠️ Digite um número válido';
-                elementoErro.classList.add('visible');
-                return false;
-            }
-            
-            if (valorNumerico < 0 || valorNumerico > 10) {
-                input.classList.add('invalido');
-                elementoErro.textContent = '⚠️ A nota deve estar entre 0.0 e 10.0';
-                elementoErro.classList.add('visible');
-                return false;
-            }
-            
-            input.classList.add('valido');
-            return true;
-        }
 
-        function verificarEntradasCalculadora() {
-            const nota1 = document.getElementById('nota1');
-            const nota2 = document.getElementById('nota2');
-            const nota3 = document.getElementById('nota3');
-            const calcularBtn = document.getElementById('btn-calcular');
-
-            const nota1Valida = validarNota(nota1);
-            const nota2Valida = validarNota(nota2);
-            const nota3Valida = validarNota(nota3);
-
-            const todosValidos = nota1Valida && nota2Valida && nota3Valida;
-            
-            calcularBtn.disabled = !todosValidos;
-            document.getElementById('btn-salvar').disabled = true;
-        }
-
-        function limparCampos() {
-            document.getElementById('materia').value = '';
-            
-            const notas = [
-                document.getElementById('nota1'),
-                document.getElementById('nota2'),
-                document.getElementById('nota3')
-            ];
-            
-            notas.forEach(nota => {
-                nota.value = '';
-                nota.classList.remove('valido', 'invalido');
-                const elementoErro = document.getElementById('error' + nota.id.slice(-1));
-                elementoErro.classList.remove('visible');
-            });
-
-            document.getElementById('results').classList.remove('visible');
-            document.getElementById('btn-calcular').disabled = true;
-            document.getElementById('btn-salvar').disabled = true;
-        }
-
-        function calcular() {
-            if (!usuarioLogado) {
-                alert('Por favor, faça login para usar a calculadora.');
-                return;
-            }
-
-            verificarEntradasCalculadora();
-            
-            const nota1 = parseFloat(document.getElementById('nota1').value);
-            const nota2 = parseFloat(document.getElementById('nota2').value);
-            const nota3 = parseFloat(document.getElementById('nota3').value);
-            const modoCalculo = document.getElementById('modo-calculo').value;
-            const notaMinimaTotal = parseFloat(document.getElementById('nota-minima').value);
-            const materia = document.getElementById('materia').value.trim() || 'Cálculo Sem Título';
-
-            if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
-                alert('Por favor, preencha todas as notas com números válidos.');
-                return;
-            }
-
-            let resultadoFinal;
-            let status;
-            let notaTotal = nota1 + nota2 + nota3;
-
-            if (modoCalculo === 'soma-subtracao') {
-                resultadoFinal = notaTotal;
-                status = resultadoFinal >= notaMinimaTotal ? 'APROVADO' : 'REPROVADO';
-            } else if (modoCalculo === 'media-simples') {
-                resultadoFinal = notaTotal / 3;
-                let notaMinimaMedia = notaMinimaTotal > 10 ? notaMinimaTotal / 3 : notaMinimaTotal;
-                status = resultadoFinal >= notaMinimaMedia ? 'APROVADO' : 'REPROVADO';
-            }
-            
-            resultadoFinal = parseFloat(resultadoFinal.toFixed(2));
-            const resultsDiv = document.getElementById('results');
-            resultsDiv.classList.add('visible');            
-            
-            document.getElementById('materia-resultado').textContent = materia;
-            document.getElementById('resultado-final-value').textContent = resultadoFinal.toFixed(1);
-            document.getElementById('nota-minima-value').textContent = modoCalculo === 'soma-subtracao' ? 
-                notaMinimaTotal.toFixed(1) : 
-                (notaMinimaTotal > 10 ? (notaMinimaTotal/3).toFixed(1) : notaMinimaTotal.toFixed(1));
-            
-            const finalResultDiv = document.getElementById('resultado-final');
-            finalResultDiv.classList.remove('aprovado', 'reprovado');
-            
-            if (status === 'APROVADO') {
-                finalResultDiv.classList.add('aprovado');
-                document.getElementById('result-status').textContent = '🎉 APROVADO';
-            } else {
-                finalResultDiv.classList.add('reprovado');
-                document.getElementById('result-status').textContent = '❌ REPROVADO';
-            }
-            
-            ultimoResultado = { 
-                resultado: resultadoFinal, 
-                status: status, 
-                modo: modoCalculo, 
-                materia: materia,
-                usuario: usuarioLogado.email
-            };
-            
-            document.getElementById('btn-salvar').disabled = false;
-            
-            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        function salvarNoHistorico() {
-            if (!ultimoResultado) {
-                alert('Por favor, realize um cálculo antes de salvar.');
-                return;
-            }
             
             const itemSalvar = {
                 ...ultimoResultado,
                 data: new Date().toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' })
             };
-            
-            historico.push(itemSalvar);
-            if (historico.length > 10) {
-                historico = historico.slice(0, 10);
-            }
-            
-            localStorage.setItem('calculadoraNotasHistorico', JSON.stringify(historico));
-            atualizarHistorico();
-            document.getElementById('history-section').classList.add('visible');
-            
-            const btnSalvar = document.getElementById('btn-salvar');
-            const textoOriginal = btnSalvar.innerHTML;
-            btnSalvar.innerHTML = '✅ Salvo!';
-            setTimeout(() => {
-                btnSalvar.innerHTML = textoOriginal;
-            }, 2000);
-            
-            ultimoResultado = null;
-        }
+          
 
-        function atualizarHistorico() {
-            const historyList = document.getElementById('history-list');
-            historyList.innerHTML = '';
-            
-            if (!usuarioLogado) return;
-            
-            const historicoUsuario = historico.filter(item => item.usuario === usuarioLogado.email).reverse();
-            
-            if (historicoUsuario.length === 0) {
-                historyList.innerHTML = '<div style="text-align: center; padding: 20px; color: #666;">Nenhum cálculo salvo ainda.</div>';
-                return;
-            }
-            
-            historicoUsuario.forEach((item, index) => {
-                const historyItem = document.createElement('div');
-                historyItem.className = 'history-item';
-                
-                let statusClass = '';
-                if (item.status === 'APROVADO') statusClass = 'aprovado-text';
-                else if (item.status === 'REPROVADO') statusClass = 'reprovado-text';
-                
-                historyItem.innerHTML = `
-                    <div class="history-item-info">
-                        <div class="history-item-materia">${item.materia}</div>
-                        <div class="history-item-result ${statusClass}">
-                            ${item.resultado.toFixed(1)} - ${item.status}
-                        </div>
-                        <div style="font-size: 11px; color: #999;">${item.data}</div>
-                    </div>
-                    <div class="history-item-actions">
-                        <button class="history-btn" onclick="recarregarCalculo(${historico.length - 1 - index})" title="Recarregar">↩️</button>
-                        <button class="history-btn" onclick="removerDoHistorico(${historico.length - 1 - index})" title="Remover">❌</button>
-                    </div>
-                `;
-                
-                historyList.appendChild(historyItem);
-            });
-        }
-
-        function limparHistorico() {
-            if (!usuarioLogado) return;
-            
-            if (confirm('Tem certeza que deseja limpar todo o histórico?')) {
-                historico = historico.filter(item => item.usuario !== usuarioLogado.email);
-                localStorage.setItem('calculadoraNotasHistorico', JSON.stringify(historico));
-                atualizarHistorico();
-                
-                if (historico.filter(item => item.usuario === usuarioLogado.email).length === 0) {
-                    document.getElementById('history-section').classList.remove('visible');
-                }
-                
-                alert('✅ Histórico limpo com sucesso!');
-            }
-        }
-
-        function recarregarCalculo(index) {
-            if (!usuarioLogado) return;
-            
-            if (index >= 0 && index < historico.length) {
-                const item = historico[index];
-                document.getElementById('materia').value = item.materia;
-                document.getElementById('modo-calculo').value = item.modo;
-                
-                alert(`Cálculo de "${item.materia}" selecionado. Configure as notas manualmente.`);
-            }
-        }
-
-        function removerDoHistorico(index) {
-            if (!usuarioLogado) return;
-            
-            if (index >= 0 && index < historico.length) {
-                if (confirm(`Deseja remover o cálculo de "${historico[index].materia}"?`)) {
-                    historico.splice(index, 1);
-                    localStorage.setItem('calculadoraNotasHistorico', JSON.stringify(historico));
-                    atualizarHistorico();
-                    
-                    if (historico.filter(item => item.usuario === usuarioLogado.email).length === 0) {
-                        document.getElementById('history-section').classList.remove('visible');
-                    }
-                }
-            }
-        }
     </script>
 </body>
 </html>
