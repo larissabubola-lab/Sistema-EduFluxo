@@ -1,6 +1,6 @@
 <?php
     $hostname = "localhost";
-    $banco_de_dados = "bancodb"; //! vou mudar dps para "edufluxo"
+    $banco_de_dados = "edufluxo"; //! vou mudar dps para "edufluxo"
     $usuario = "root";
     $senha = "";
 
