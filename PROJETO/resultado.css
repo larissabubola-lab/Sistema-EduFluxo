@@ -1,0 +1,34 @@
+label{
+    display: block;
+}
+.label{
+    display: inline;
+}
+
+#ocorrencias{
+    display: none;
+    border:solid;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+#fluxos_saida{
+    display: none;
+    border:solid;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+#add_alunos{
+    display: none;
+    border:solid;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+#add_usuarios{
+    display: none;
+    border:solid;
+    border-radius: 15px;
+    display: inline-block;
+}
