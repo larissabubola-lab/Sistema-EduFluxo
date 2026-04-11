@@ -1,3 +1,18 @@
 label{
     display: block;
 }
+#ocorrencias{
+    display: none;
+}
+
+#fluxos_saida{
+    display: none;
+}
+
+#add_alunos{
+    display: none;
+}
+
+#add_usuarios{
+    display: none;
+}

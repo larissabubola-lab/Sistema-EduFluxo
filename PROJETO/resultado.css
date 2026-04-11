@@ -1,9 +1,6 @@
-label{
+/* label{
     display: block;
-}
-.label{
-    display: inline;
-}
+} */
 
 #ocorrencias{
     display: none;

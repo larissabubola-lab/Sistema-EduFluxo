@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sistema EduFlux</title>
+        <link href="resultado.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="ocorrencias">
+            <label for="nome_ocorrencia">Nome do aluno</label>
+            <input type="text" name="nome" id="nome_aluno_ocorrencias" placeholder="adcione o nome do aluno" required>
+            <label for="sala">Sala:</label>
+            <input type="text" name="sala_ocorrencia" id="serie_aluno_ocorrencias" placeholder="adcione a sala" required>
+            <label for="tipo">Tipo:</label>
+            <div id="div" name="tipo">
+                <label for="bom" class="label">Elogio</label>
+                <input type="radio" id="bom" name="radios" value="0" id="ocorrencia_boa" required>
+                <label for="ruim" class="label">Bronca</label>
+                <input type="radio" id="ruim" name="radios" value="1" ocorrencia_ruim>
+            </div>
+            <label for="campo_ocorrencia">O que esse aluno fez?</label>
+            <textarea name="campo_ocorrencia" id="motivo_ocorrencia" placeholder="escreva o motivo dessa ocorrencia" required></textarea>
+            <button onclick="checar_ocorrencias()">Confirma</button>
+        </div>
+
+        <div id="fluxos_saida">
+            <label for="nome_">Nome do aluno:</label>
+            <input type="text" name="nome" id="nome_aluno_fluxo" placeholder="escreva o nome do aluno">
+            <label for="serie">Serie:</label>
+            <input type="text" name="serie" id="serie_aluno_fluxo" placeholder="escreva a serie do aluno">
+            <label for="motivo">Motivo:</label>
+            <select name="motivo" id="motivo_fluxo">
+                <option value="atrasado" name="opcoes">O aluno chegou atrasado</option>
+                <option value="saiu mais cedo" name="opcoes">O aluno vai saiu mais cedo</option>
+            </select>
+            <button onclick="checar_fluxos()">Confirma</button>
+        </div>
+
+        <div id="add_alunos">
+            <label for="cgm">CGM:</label>
+            <input type="number" name="cgm" id="aluno_cgm" placeholder="escreva o cgm do aluno">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="aluno_add_nome" placeholder="escreva o nome do aluno">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email_aluno_add" placeholder="escreva o email do aluno">
+            <!-- <label for="serie">Serie:</label> -->
+            <select id="series">
+                <option value="6°">6°</option>
+                <option value="7°">7°</option>
+                <option value="8°">8°</option>
+                <option value="9°">9°</option>
+                <option value="1°">1°</option>
+                <option value="2°">2°</option>
+                <option value="3°">3°</option>
+            </select>
+
+            <select id="salas">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="TDS">TDS</option>
+                <option value="MKT">MKT</option>
+                <option value="outro">outro</option> <!--!DEPOIS VOU ADCIONAR UM INPUT CASO CLIQUE EM OUTRO-->
+            </select>
+            </div>
+            <button onclick="checar_add_alunos()">Confirma</button>
+        </div>
+
+        <div id="add_usuarios">
+            <label for="cpf">CPF:</label>
+            <input type="text" name="cpf" id="cpf_usuario" placeholder="escreva o cpf">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome_usuario" placeholder="escreva o nome">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email_usuario" placeholder="escreva o email">
+            <label for="senha">Senha:</label>
+            <input type="text" name="senha" id="senha_usuario" placeholder="escreva a senha">
+            <label for="permissao">Permissao:</label>
+            <select id="permissoes" name="permissao">
+                <option value="2">Professor</option>
+                <option value="1">Portaria</option>
+                <option value="0">Admin</option>
+            </select>
+            <button onclick="checar_add_usuarios()">Confirma</button>
+        </div>
+
+        <h1 id="h1"></h1>
+        <h2 id="h2"></h2>
+        <h3 id="h3"></h3>
+        <p id="p"></p>
+
+        <script src="pagina.js"></script>
+    </body>
+</html>
