@@ -61,19 +61,20 @@ function mostra_input(){
 
 function checar_add_alunos(){
 
-    let cgm = document.getElementById('aluno_cgm').value
+    let cgm = document.getElementById('aluno_cgm').value;
     let nome_aluno = document.getElementById("aluno_add_nome").value;
     let email_aluno = document.getElementById("email_aluno_add").value;
     let serie = document.getElementById("series").value;
     let sala = document.getElementById("salas").value;
 
-    let input_serie = document.getElementById("outra_serie")
-    let input_sala = document.getElementById("sala_outro")
+    let input_serie = document.getElementById("outra_serie");
+    let input_sala = document.getElementById("sala_outro");
     if(input_serie.style.display == "inline"){
-        serie = input_serie.value
+        serie = input_serie.value;
     }
     if(input_sala.style.display == "inline"){
-        sala = input_sala.value
+        sala = input_sala.value;
+        sala = sala.toUpperCase();
     }
     
     let serie_sala = serie + " " + sala;
@@ -106,6 +107,8 @@ function checar_add_alunos(){
     document.getElementById("salas").value = "";
     input_serie.style.display = "none";
     input_sala.style.display = "none";
+
+    alert("Aluno adicionado com sucesso!");
     
 }
 
@@ -174,3 +177,4 @@ pagina_fluxos.addEventListener("mouseleave", limpar_resultados_fluxos)
 function limpar_resultados_fluxos(){
     resultados_fluxos.innerHTML = ""
 }
+
