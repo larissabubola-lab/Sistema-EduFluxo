@@ -29,3 +29,9 @@
     border-radius: 15px;
     display: inline-block;
 }
+
+.nome_resultados{
+    color:red;
+    background: purple;
+    cursor: pointer;
+}

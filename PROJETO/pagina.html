@@ -10,30 +10,20 @@
         <div id="ocorrencias">
             <label for="nome_ocorrencia">Nome do aluno</label>
             <input type="text" name="nome" id="nome_aluno_ocorrencias" placeholder="adcione o nome do aluno" required>
-            <label for="sala">Sala:</label>
-            <input type="text" name="sala_ocorrencia" id="serie_aluno_ocorrencias" placeholder="adcione a sala" required>
-            <label for="tipo">Tipo:</label>
-            <div id="div" name="tipo">
-                <label for="bom" class="label">Elogio</label>
-                <input type="radio" id="bom" name="radios" value="0" id="ocorrencia_boa" required>
-                <label for="ruim" class="label">Bronca</label>
-                <input type="radio" id="ruim" name="radios" value="1" ocorrencia_ruim>
-            </div>
-            <label for="campo_ocorrencia">O que esse aluno fez?</label>
-            <textarea name="campo_ocorrencia" id="motivo_ocorrencia" placeholder="escreva o motivo dessa ocorrencia" required></textarea>
-            <button onclick="checar_ocorrencias()">Confirma</button>
+            <div id="resultado"></div>
         </div>
 
         <div id="fluxos_saida">
             <label for="nome_">Nome do aluno:</label>
             <input type="text" name="nome" id="nome_aluno_fluxo" placeholder="escreva o nome do aluno">
-            <label for="serie">Serie:</label>
+            <div id="resultado_fluxos"></div>
+            <!-- <label for="serie">Serie:</label>
             <input type="text" name="serie" id="serie_aluno_fluxo" placeholder="escreva a serie do aluno">
             <label for="motivo">Motivo:</label>
             <select name="motivo" id="motivo_fluxo">
                 <option value="atrasado" name="opcoes">O aluno chegou atrasado</option>
                 <option value="saiu mais cedo" name="opcoes">O aluno vai saiu mais cedo</option>
-            </select>
+            </select> -->
             <button onclick="checar_fluxos()">Confirma</button>
         </div>
 
@@ -86,11 +76,6 @@
             </select>
             <button onclick="checar_add_usuarios()">Confirma</button>
         </div>
-
-        <h1 id="h1"></h1>
-        <h2 id="h2"></h2>
-        <h3 id="h3"></h3>
-        <p id="p"></p>
 
         <script src="pagina.js"></script>
     </body>

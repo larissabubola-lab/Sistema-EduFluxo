@@ -28,27 +28,6 @@ switch(permissoes){
         break;
 };
 
-// history.replaceState(null, "", window.location.pathname);
-
-function checar_ocorrencias(){
-    let nome_aluno = document.getElementById("nome_aluno_ocorrencias").value;
-    let serie_aluno = document.getElementById("serie_aluno_ocorrencias").value;
-    let razao = document.getElementById("motivo_ocorrencia").value
-    let bom_ruim = document.querySelector("input[name='radios']:checked").value;
-    // document.getElementById('h1').innerHTML = nome_aluno;
-    // document.getElementById('h2').innerHTML = serie_aluno;
-    // document.getElementById("h3").innerHTML = bom_ruim == 0? "bom": "ruim";
-    // document.getElementById('p').innerHTML = razao;
-}
-
-function checar_fluxos(){
-    let nome_aluno = document.getElementById("nome_aluno_fluxo").value;
-    let serie_aluno = document.getElementById("serie_aluno_ocorrencias").value;
-    let razao = document.getElementById("motivo_fluxo").value;
-    // document.getElementById('h1').innerHTML = nome_aluno;
-    // document.getElementById('h2').innerHTML = serie_aluno;
-    // document.getElementById("h3").innerHTML = razao;
-}
 
 function checar_add_alunos(){
     let cgm = document.getElementById('aluno_cgm').value
@@ -95,7 +74,47 @@ function checar_add_usuarios(){
             senha:senha_usuario,
             permissao: permissao_usuario
         })
-    })
-    
+    })  
 }
 
+const pagina_ocorrencias = document.getElementById("ocorrencias")
+const input_ocorrencias = document.getElementById("nome_aluno_ocorrencias");
+const resultados = document.getElementById("resultado")
+
+input_ocorrencias.addEventListener("input", mostrar_resultados)
+input_ocorrencias.addEventListener("click", mostrar_resultados)
+
+function mostrar_resultados(){ 
+    fetch("buscar_alunos.php?busca=" + input_ocorrencias.value)
+        .then(resultado => resultado.text())
+        .then(data=>{
+            resultados.innerHTML = data;
+        })
+}
+
+pagina_ocorrencias.addEventListener("mouseleave", limpar_resultados)
+
+function limpar_resultados(){
+    resultados.innerHTML = "";
+}
+
+const pagina_fluxos = document.getElementById("fluxos_saida")
+const input_fluxos = document.getElementById("nome_aluno_fluxo");
+const resultados_fluxos = document.getElementById("resultado_fluxos")
+
+input_fluxos.addEventListener("input", mostrar_resultados_fluxos)
+input_fluxos.addEventListener("click", mostrar_resultados_fluxos)
+
+function mostrar_resultados_fluxos(){
+    fetch("buscar_alunos.php?busca=" + input_fluxos.value)
+        .then(resultado=>resultado.text())
+        .then(data=>{
+            resultados_fluxos.innerHTML = data
+        })
+}
+
+pagina_fluxos.addEventListener("mouseleave", limpar_resultados_fluxos)
+
+function limpar_resultados_fluxos(){
+    resultados_fluxos.innerHTML = ""
+}

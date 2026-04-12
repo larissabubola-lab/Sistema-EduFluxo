@@ -3,6 +3,10 @@
 
     $conexao = new mysqli("localhost", "root", "", "edufluxo");
 
+    if ($conexao->connect_error) {
+        die("Erro na conexão");
+    }
+
     $email = $_POST["email"];
     $senha = $_POST["senha"];
 
@@ -39,4 +43,4 @@
         
     }
         
-    ?>
+?>

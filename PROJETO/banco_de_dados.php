@@ -1,6 +1,10 @@
 <?php
     $conexao = new mysqli("localhost", "root", "", "edufluxo");
 
+    if ($conexao->connect_error) {
+        die("Erro na conexão");
+    }
+
     $data = json_decode(file_get_contents("php://input"), true);
     
     if (!is_array($data) || !isset($data["para"])) {  //! caso for null
