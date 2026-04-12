@@ -60,13 +60,30 @@ function mostra_input(){
 
 
 function checar_add_alunos(){
+
     let cgm = document.getElementById('aluno_cgm').value
     let nome_aluno = document.getElementById("aluno_add_nome").value;
     let email_aluno = document.getElementById("email_aluno_add").value;
     let serie = document.getElementById("series").value;
     let sala = document.getElementById("salas").value;
+
+    let input_serie = document.getElementById("outra_serie")
+    let input_sala = document.getElementById("sala_outro")
+    if(input_serie.style.display == "inline"){
+        serie = input_serie.value
+    }
+    if(input_sala.style.display == "inline"){
+        sala = input_sala.value
+    }
     
     let serie_sala = serie + " " + sala;
+
+    if (!cgm || !nome_aluno || !email_aluno || !serie || !sala ) {
+        alert("Preencha todos os campos!");
+        return;
+    }
+
+      
 
     fetch("banco_de_dados.php",{
         method: "POST",
@@ -81,6 +98,12 @@ function checar_add_alunos(){
             serie: serie_sala 
         })
     })
+
+    document.getElementById('aluno_cgm').value = "";
+    document.getElementById("aluno_add_nome").value = "";
+    document.getElementById("email_aluno_add").value = "";
+    document.getElementById("series").value = "";
+    document.getElementById("salas").value = "";
     
 }
 
