@@ -104,6 +104,8 @@ function checar_add_alunos(){
     document.getElementById("email_aluno_add").value = "";
     document.getElementById("series").value = "";
     document.getElementById("salas").value = "";
+    input_serie.style.display = "none";
+    input_sala.style.display = "none";
     
 }
 
