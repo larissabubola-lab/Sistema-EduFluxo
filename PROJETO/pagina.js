@@ -28,6 +28,36 @@ switch(permissoes){
         break;
 };
 
+let outros_serie = document.getElementById("series")
+let input_serie_outro = document.getElementById("outra_serie")
+
+outros_serie.addEventListener("change", mostra_input_serie)
+
+function mostra_input_serie(){
+    if(outros_serie.value === "outro_serie"){
+        input_serie_outro.style.display = "inline"
+    }
+    else{
+        input_serie_outro.style.display = "none"
+    }
+}
+
+
+let outros = document.getElementById("salas")
+let input_aparece = document.getElementById("sala_outro")
+
+outros.addEventListener("change", mostra_input)
+
+function mostra_input(){
+    outros_valor = outros.value
+    if(outros_valor === "outro"){
+        input_aparece.style.display = "inline"
+    }
+    else{
+        input_aparece.style.display = "none"
+    }
+}
+
 
 function checar_add_alunos(){
     let cgm = document.getElementById('aluno_cgm').value
@@ -35,6 +65,7 @@ function checar_add_alunos(){
     let email_aluno = document.getElementById("email_aluno_add").value;
     let serie = document.getElementById("series").value;
     let sala = document.getElementById("salas").value;
+    
     let serie_sala = serie + " " + sala;
 
     fetch("banco_de_dados.php",{
