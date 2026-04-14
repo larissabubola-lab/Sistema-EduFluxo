@@ -1,0 +1,8 @@
+#fluxos_saida{
+    border:solid;
+    display: inline-block;
+}
+
+label{
+    display:block
+}

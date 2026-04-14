@@ -1,0 +1,83 @@
+label{
+    display: block;
+}
+
+#ocorrencias{
+    /* display: none; */
+    border:solid;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+#label_bom{
+    position:relative;
+    display:inline;
+    margin-left:20px;
+    
+    
+}
+#label_bom input{
+    position:absolute;
+    opacity:0;
+    cursor:pointer;
+    
+}
+#label_ruim{
+    position:relative;
+    isplay:inline-block;
+     margin-left:20px;
+}
+#label_ruim input{
+    position:absolute;
+    opacity:0;
+    cursor:pointer;
+}
+#sorriso{
+    display:inline-block;
+    cursor:pointer;
+}
+#triste{
+    display:inline-block;
+    cursor:pointer;
+}
+
+#label_bom input:hover{
+    transform:scale(1.5);
+}
+
+#sorriso:hover{
+    transform:scale(1.5);
+}
+
+#label_ruim input:hover{
+    transform:scale(1.5);
+}
+
+#triste:hover{
+    transform:scale(1.5);
+}
+#label_bom:has(#sorriso:hover){
+    margin-left:25px;
+}
+
+#label_ruim:has(#triste:hover){
+    margin-left:25px;
+}
+
+#sorriso:active{
+    transform:scale(1);
+    
+}
+
+#triste:active{
+    transform:scale(1);
+    
+}
+
+#label_bom input:checked ~ #sorriso{
+    filter:brightness(1.5);
+}
+
+#label_ruim input:checked ~ #triste{
+    filter:brightness(1.5);
+}

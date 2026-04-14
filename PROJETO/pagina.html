@@ -2,12 +2,49 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
-        <title>Sistema EduFlux</title>
-        <link href="resultado.css" rel="stylesheet">
+        <title>Sistema EduFluxo</title>
+        <link href="pagina.css" rel="stylesheet">
     </head>
 
     <body>
-        <div id="ocorrencias">
+        <!-- <h1>OconteuSdo vai ficar aqui</h1> -->
+        <div id="barra_tarefas"><button onclick="mostrar_barra_lateral()">☰</button></div>
+
+        <aside id="barra_lateral" style="display: none;">
+            <div id="menu">
+                <h2>Menu:</h2>
+                <button id="fechar_menu" onclick="mostrar_barra_lateral()">X</button>
+            </div>
+            <div id="opcoes">
+                <div class="opcoes" id="dashboard" onclick="abrir_dashboard()">Dashboard</div>
+                <div class="opcoes" id="ocorrencias" onclick="abrir_ocorrencias()">Ocorrências</div>
+                <div class="opcoes" id="portaria" onclick="abrir_portaria()">Portaria</div>
+                <div class="opcoes" id="cadastros" onclick="abrir_cadastros()">Cadastros</div>
+                <div class="opcoes" id="como_usar" onclick="abrir_ajuda()">Como usar</div>
+                <div class="opcoes" id="configuracoes" onclick="abrir_configuracoes()">Configurações</div>
+            </div>
+            <div id="voltar">▶ Voltar para tela inicial</div>
+            <button id="muda_tema" onclick="mudar_tema()">Tema escuro 🌙</button>
+        </aside>
+
+        <main id="pagina_principal">
+            <h1>Bem-vindo ao Sistema EduFluxo!</h1>
+            <p>Aqui vai aparecer um conteudo de inicio</p>
+        </main>
+
+        <iframe id="iframes" src=""></iframe>
+
+        <div id="ajuda" class="outros" style="display:none">
+            <h1>Como usar o sistema EduFluxo</h1>
+        </div>
+
+        <div id="configuracoes_pagina" class="outros" style="display:none">
+            <h1>Configurações do sistema EduFluxo</h1>
+        </div>
+        <!-- <iframe id="pagina_portaria" src="portaria.html"></iframe> -->
+        <!-- <iframe id="pagina_cadastros" src="lista_pessoas.html"></iframe>  -->
+
+        <!-- <div id="ocorrencias">
             <label for="cgm">CGM:</label>
             <input type="number" name="cgm" id="cgm_ocorrencias" placeholder="adcione o cgm do aluno" disabled>
             <label for="nome_ocorrencia">Nome do aluno</label>
@@ -25,9 +62,9 @@
             <label for="motivo">Motivo:</label>
             <textarea name="motivo" id="motivo_ocorrencia" placeholder="escreva o motivo da ocorrencia"></textarea>
             <button onclick="checar_ocorrencias()">Confirma</button>
-        </div>
+        </div> -->
 
-        <div id="fluxos_saida">
+        <!-- <div id="fluxos_saida">
             <label for="cgm">CGM:</label>
             <input type="number" name="cgm" id="cgm_fluxos" placeholder="escreva o cgm do aluno" disabled>
             <label for="nome_">Nome do aluno:</label>
@@ -41,9 +78,9 @@
                 <option value="saiu mais cedo" name="opcoes">O aluno vai saiu mais cedo</option>
             </select>
             <button onclick="checar_fluxos()">Confirma</button>
-        </div>
+        </div> -->
 
-        <div id="add_alunos">
+        <!-- <div id="add_alunos">
             <label for="cgm">CGM:</label>
             <input type="number" name="cgm" id="aluno_cgm" placeholder="escreva o cgm do aluno">
             <label for="nome">Nome:</label>
@@ -73,7 +110,7 @@
                 <option value="E">E</option>
                 <option value="TDS">TDS</option>
                 <option value="MKT">MKT</option>
-                <option value="outro">outro</option> <!--!DEPOIS VOU ADCIONAR UM INPUT CASO CLIQUE EM OUTRO-->     
+                <option value="outro">outro</option>    
             </select>
             <input type="text" id="sala_outro" placeholder="escreva a sala do aluno" style="display: none;">
 
@@ -97,7 +134,7 @@
                 <option value="0">Admin</option>
             </select>
             <button onclick="checar_add_usuarios()">Confirma</button>
-        </div>
+        </div> -->
 
         <script src="pagina.js"></script>
     </body>

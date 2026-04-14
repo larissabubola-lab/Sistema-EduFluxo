@@ -1,180 +1,90 @@
 let parametro = new URLSearchParams(window.location.search);
 
-const ocorrencia = document.getElementById("ocorrencias");
-const fluxos = document.getElementById("fluxos_saida");
-const adcionar_alunos = document.getElementById("add_alunos");
-const adcionar_usuarios = document.getElementById("add_usuarios");
+const mostra_dashboard = document.getElementById("dashboard");
+const mostra_ocorrencias = document.getElementById("ocorrencias");
+const mostra_portaria = document.getElementById("portaria");
+const mostra_cadastros = document.getElementById("cadastros");
 
-let permissoes = parseInt(parametro.get("permissao"));
 
-switch(permissoes){
+let barra = document.getElementById("barra_lateral");
+
+let clicou = false;
+
+function mostrar_barra_lateral(){
+    clicou = !clicou;
+    if(clicou){
+        barra.style.display = "flex";
+    }   
+    else{
+        barra.style.display = "none";
+    }
+}
+
+let permissao = parametro.get("permissao");
+permissao = parseInt(permissao);
+
+switch(permissao){
     case 0:
-        ocorrencia.style.display = "block";
-        fluxos.style.display = "block";
-        adcionar_alunos.style.display = "block";
-        adcionar_usuarios.style.display = "block";
+        mostra_dashboard.style.display = "inline-block";
+        mostra_ocorrencias.style.display = "inline-block";
+        mostra_portaria.style.display = "inline.block";
+        mostra_cadastros.style.display = "inline-block";
         break;
     case 1:
-        ocorrencia.style.display = "none";
-        fluxos.style.display = "block";
-        adcionar_alunos.style.display = "none";
-        adcionar_usuarios.style.display = "none";
-        break;
+        mostra_dashboard.style.display = "none";
+        mostra_ocorrencias.style.display = "none";
+        mostra_portaria.style.display = "inline-block";
+        mostra_cadastros.style.display = "none"
     default:
-        ocorrencia.style.display = "block";
-        fluxos.style.display = "none";
-        adcionar_alunos.style.display = "none";
-        adcionar_usuarios.style.display = "none";
-        break;
-};
-
-let outros_serie = document.getElementById("series")
-let input_serie_outro = document.getElementById("outra_serie")
-
-outros_serie.addEventListener("change", mostra_input_serie)
-
-function mostra_input_serie(){
-    if(outros_serie.value === "outro_serie"){
-        input_serie_outro.style.display = "inline"
-    }
-    else{
-        input_serie_outro.style.display = "none"
-    }
+        mostra_dashboard.style.display = "none";
+        mostra_ocorrencias.style.display = "inline-block";
+        mostra_portaria.style.display = "none";
+        mostra_cadastros.style.display = "none"
 }
 
+const iframe = document.getElementById("iframes");
+const paginaprincipal = document.getElementById("pagina_principal");
+const pagina_ajuda = document.getElementById("ajuda");
+const pagina_configuracoes = document.getElementById("configuracoes_pagina");
 
-let outros = document.getElementById("salas")
-let input_aparece = document.getElementById("sala_outro")
-
-outros.addEventListener("change", mostra_input)
-
-function mostra_input(){
-    outros_valor = outros.value
-    if(outros_valor === "outro"){
-        input_aparece.style.display = "inline"
-    }
-    else{
-        input_aparece.style.display = "none"
-    }
+function abrir_dashboard(){
+    iframe.src = "dashboard.html";
+    pagina_ajuda.style.display = "none";
+    pagina_configuracoes.style.display = "none";
+    paginaprincipal.style.display = "none";
 }
 
+function abrir_ocorrencias(){
+    iframe.src = "ocorrencias.html";
+    paginaprincipal.style.display = "none";
+    pagina_ajuda.style.display = "none";
+    pagina_configuracoes.style.display = "none";
+}  
 
-function checar_add_alunos(){
-
-    let cgm = document.getElementById('aluno_cgm').value;
-    let nome_aluno = document.getElementById("aluno_add_nome").value;
-    let email_aluno = document.getElementById("email_aluno_add").value;
-    let serie = document.getElementById("series").value;
-    let sala = document.getElementById("salas").value;
-
-    let input_serie = document.getElementById("outra_serie");
-    let input_sala = document.getElementById("sala_outro");
-    if(input_serie.style.display == "inline"){
-        serie = input_serie.value;
-    }
-    if(input_sala.style.display == "inline"){
-        sala = input_sala.value;
-        sala = sala.toUpperCase();
-    }
-    
-    let serie_sala = serie + " " + sala;
-
-    if (!cgm || !nome_aluno || !email_aluno || !serie || !sala ) {
-        alert("Preencha todos os campos!");
-        return;
-    }
-
-      
-
-    fetch("banco_de_dados.php",{
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body:JSON.stringify({
-            para: "alunos",
-            cgm: cgm,
-            nome: nome_aluno,
-            email: email_aluno,
-            serie: serie_sala 
-        })
-    })
-
-    document.getElementById('aluno_cgm').value = "";
-    document.getElementById("aluno_add_nome").value = "";
-    document.getElementById("email_aluno_add").value = "";
-    document.getElementById("series").value = "";
-    document.getElementById("salas").value = "";
-    input_serie.style.display = "none";
-    input_sala.style.display = "none";
-
-    alert("Aluno adicionado com sucesso!");
-    
+function abrir_portaria(){
+    iframe.src = "portaria.html";
+    paginaprincipal.style.display = "none";
+    pagina_ajuda.style.display = "none";
+    pagina_configuracoes.style.display = "none";
 }
 
-function checar_add_usuarios(){
-    let cpf = document.getElementById('cpf_usuario').value
-    let nome_usuario = document.getElementById("nome_usuario").value;
-    let email_usuario = document.getElementById("email_usuario").value;
-    let senha_usuario = document.getElementById("senha_usuario").value;
-    let permissao_usuario = document.getElementById("permissoes").value;
-    permissao_usuario = parseInt(permissao_usuario);
-
-    fetch("banco_de_dados.php",{
-        method:"POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body:JSON.stringify({
-            para:"usuarios",
-            cpf:cpf,
-            nome:nome_usuario,
-            email:email_usuario,
-            senha:senha_usuario,
-            permissao: permissao_usuario
-        })
-    })  
+function abrir_cadastros(){
+    iframe.src = "lista_pessoas.html";
+    pagina_ajuda.style.display = "none";
+    paginaprincipal.style.display = "none";
+    pagina_configuracoes.style.display = "none";
 }
 
-const pagina_ocorrencias = document.getElementById("ocorrencias")
-const input_ocorrencias = document.getElementById("nome_aluno_ocorrencias");
-const resultados = document.getElementById("resultado")
-
-input_ocorrencias.addEventListener("input", mostrar_resultados)
-input_ocorrencias.addEventListener("click", mostrar_resultados)
-
-function mostrar_resultados(){ 
-    fetch("buscar_alunos.php?busca=" + input_ocorrencias.value)
-        .then(resultado => resultado.text())
-        .then(data=>{
-            resultados.innerHTML = data;
-        })
+function abrir_ajuda(){
+    iframe.src = "";
+    paginaprincipal.style.display = "none";
+    pagina_ajuda.style.display = "block";
+    pagina_configuracoes.style.display = "none";
 }
 
-pagina_ocorrencias.addEventListener("mouseleave", limpar_resultados)
-
-function limpar_resultados(){
-    resultados.innerHTML = "";
+function abrir_configuracoes(){
+    iframe.src = "";
+    paginaprincipal.style.display = "none";
+    pagina_configuracoes.style.display = "block";
+    pagina_ajuda.style.display = "none";
 }
-
-const pagina_fluxos = document.getElementById("fluxos_saida")
-const input_fluxos = document.getElementById("nome_aluno_fluxo");
-const resultados_fluxos = document.getElementById("resultado_fluxos")
-
-input_fluxos.addEventListener("input", mostrar_resultados_fluxos)
-input_fluxos.addEventListener("click", mostrar_resultados_fluxos)
-
-function mostrar_resultados_fluxos(){
-    fetch("buscar_alunos.php?busca=" + input_fluxos.value)
-        .then(resultado=>resultado.text())
-        .then(data=>{
-            resultados_fluxos.innerHTML = data
-        })
-}
-
-pagina_fluxos.addEventListener("mouseleave", limpar_resultados_fluxos)
-
-function limpar_resultados_fluxos(){
-    resultados_fluxos.innerHTML = ""
-}
-

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Fluxos</title>
+        <link href="portaria.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="fluxos_saida">
+            <label for="cgm">CGM:</label>
+            <div id="div_cgm" name="cgm">
+                <i class="bi bi-person-vcard"></i>
+                <input type="number" id="cgm_fluxos" placeholder="escreva o cgm do aluno" disabled>
+            </div>
+            <label for="nome_">Nome do aluno:</label>
+            <div name="nome">
+                <i class="bi bi-person"></i>
+                <input type="text" id="nome_aluno_fluxo" placeholder="escreva o nome do aluno">
+            </div>
+            <div id="resultado_fluxos"></div>
+            <label for="serie">Serie:</label>
+            <div name="serie">
+                <i class="bi bi-backpack"></i>
+                <input type="text" id="serie_aluno_fluxo" placeholder="escreva a serie do aluno" disabled></div>
+            <label for="motivo">Motivo:</label>
+            <select name="motivo" id="motivo_fluxo">
+                <option value="atrasado" name="opcoes">O aluno chegou atrasado</option >
+                <option value="saiu mais cedo" name="opcoes">O aluno vai saiu mais cedo</option>
+            </select>
+            <button onclick="checar_fluxos()">Confirma</button>
+        </div>
+
+        <script src="portaria.js"></script>
+    </body>    
+</html>

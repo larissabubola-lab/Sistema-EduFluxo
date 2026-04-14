@@ -23,6 +23,6 @@
             break;
         default:
             http_response_code(400);
-            exit("Dados inválidos");
+            die("Dados inválidos");
     }
 ?>

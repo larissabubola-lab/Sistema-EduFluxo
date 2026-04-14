@@ -1,0 +1,13 @@
+label{
+    display:block;
+
+}
+
+.add{
+    display:inline-block;
+    border:solid;
+}
+
+button{
+    cursor:pointer;
+}
