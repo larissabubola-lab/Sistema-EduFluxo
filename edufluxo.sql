@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13/04/2026 às 16:53
+-- Tempo de geração: 16/04/2026 às 01:17
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -40,13 +40,14 @@ CREATE TABLE `alunos` (
 
 INSERT INTO `alunos` (`cgm`, `nome`, `gmail`, `sala`) VALUES
 (67866, 'helen', 'helen@gmail.com', '3° A'),
-(74574, 'Matheus', 'matheuspalma0309@gmail.com', '8° C'),
-(8457547, 'samuel', 'samuel.chagas@gmail.com', '1°C'),
-(47554257, 'Guilherme', 'Guilherme.felix@gamial.com', '3°A'),
-(54956723, 'Larissa', 'larissa.bubola@escola.pr.gov.br', '6° A'),
-(57895630, 'adriano', 'adriano@gmail.com', '3° A'),
+(74574, 'marcos', 'matheuspalma0309@gmail.com', '8° C'),
+(8457547, 'aluno teste', 'aaa@gmail.com', 'aa b'),
+(45648759, 'novo aluno', 'pedro.lopes@escola.pr.gov.br', '7° C'),
+(47554257, 'teste', 'teste@gamial.com', 'outro sala'),
+(54956723, 'elisa', 'larissa.bubola@escola.pr.gov.br', '6° A'),
+(57895630, 'adrianp', 'adriano@gmail.com', '3° outra'),
 (74642472, 'helena', 'helena@escola.pr.gov.br', '2° D'),
-(2147483647, 'teresa', 'teresa.dias@escola.pr.gov.br', '6° C');
+(2147483647, 'teresa', 'larissa.bubola@escola.pr.gov.br', '6° C');
 
 -- --------------------------------------------------------
 
@@ -57,9 +58,7 @@ INSERT INTO `alunos` (`cgm`, `nome`, `gmail`, `sala`) VALUES
 CREATE TABLE `fluxo_saidas` (
   `id` int(11) NOT NULL,
   `cgm` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `atrasos` int(11) DEFAULT NULL,
-  `motivos` varchar(100) NOT NULL
+  `nome` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -74,6 +73,7 @@ CREATE TABLE `ocorrencias` (
   `nome` varchar(100) NOT NULL,
   `serie` varchar(50) NOT NULL,
   `professor` varchar(100) NOT NULL,
+  `tipo` enum('positiva','negativa','','') NOT NULL,
   `motivo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -143,6 +143,22 @@ ALTER TABLE `fluxo_saidas`
 --
 ALTER TABLE `ocorrencias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas `fluxo_saidas`
+--
+ALTER TABLE `fluxo_saidas`
+  ADD CONSTRAINT `cgm_pl` FOREIGN KEY (`cgm`) REFERENCES `alunos` (`cgm`);
+
+--
+-- Restrições para tabelas `ocorrencias`
+--
+ALTER TABLE `ocorrencias`
+  ADD CONSTRAINT `cgm_fk` FOREIGN KEY (`cgm`) REFERENCES `alunos` (`cgm`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
