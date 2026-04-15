@@ -35,11 +35,16 @@ switch(permissao){
         mostra_ocorrencias.style.display = "none";
         mostra_portaria.style.display = "inline-block";
         mostra_cadastros.style.display = "none"
-    default:
+        break;
+    case 2:
         mostra_dashboard.style.display = "none";
         mostra_ocorrencias.style.display = "inline-block";
         mostra_portaria.style.display = "none";
-        mostra_cadastros.style.display = "none"
+        mostra_cadastros.style.display = "none";
+        break;
+    default:
+        alert("houve um problema!");
+        break;
 }
 
 const iframe = document.getElementById("iframes");
