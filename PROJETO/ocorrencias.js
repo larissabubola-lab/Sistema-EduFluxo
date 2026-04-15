@@ -18,3 +18,11 @@ pagina_ocorrencias.addEventListener("mouseleave", limpar_resultados)
 function limpar_resultados(){
     resultados.innerHTML = "";
 }
+
+const cgm_aluno = document.getElementById("cgm_ocorrencias");
+const nome_aluno = document.getElementById("nome_aluno_ocorrencias");
+const serie = document.getElementById("serie_aluno")
+
+function criar_ocorrencia(){
+
+}

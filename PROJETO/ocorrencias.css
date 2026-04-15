@@ -81,3 +81,13 @@ label{
 #label_ruim input:checked ~ #triste{
     filter:brightness(1.5);
 }
+
+#input_de_nome{
+    position:relative;
+}
+
+#input_de_nome #resultado{
+    position:absolute;
+    top:10px;
+    left:0;
+}

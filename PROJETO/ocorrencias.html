@@ -15,15 +15,15 @@
                 <input type="number"  id="cgm_ocorrencias" placeholder="adcione o cgm do aluno" disabled>
             </div>
             <label for="nome_ocorrencia">Nome do aluno</label>
-            <div name="nome">
+            <div name="nome" id="input_de_nome">
                 <i class="bi bi-person"></i>
-                <input type="text" name="nome" id="nome_aluno_ocorrencias" placeholder="adcione o nome do aluno" required>
+                <input type="text" name="nome" id="nome_aluno_ocorrencias" placeholder="adcione o nome do aluno">
+                <div id="resultado"></div>
             </div>
-            <div id="resultado"></div>
             <label for="serie">Serie:</label>
             <div name="serie">
                 <i class="bi bi-backpack"></i>
-                <input type="text" placeholder="serie do aluno" disabled>
+                <input type="text" placeholder="serie do aluno" id="serie_aluno" disabled>
             </div>
             <label for="bom_ou_ruim">Tipo de ocorrencia:</label>
             <div class="bom_ou_ruim" >
@@ -40,7 +40,7 @@
             </div>
             <label for="motivo">Motivo:</label>
             <textarea name="motivo" id="motivo_ocorrencia" placeholder="escreva o motivo da ocorrencia"></textarea>
-            <button onclick="checar_ocorrencias()">Confirma</button>
+            <button onclick="criar_ocorrencia()">Confirma</button>
         </div>
 
         <script src="ocorrencias.js"></script>
