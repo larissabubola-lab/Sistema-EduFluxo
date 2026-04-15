@@ -6,17 +6,25 @@ input_ocorrencias.addEventListener("input", mostrar_resultados)
 input_ocorrencias.addEventListener("click", mostrar_resultados)
 
 function mostrar_resultados(){ 
+    if (!resultados) {
+        return;
+    }
+    resultados.style.display = "block";
+
     fetch("buscar_alunos.php?busca=" + input_ocorrencias.value)
         .then(resultado => resultado.text())
         .then(data=>{
             resultados.innerHTML = data;
+            let elementos = resultados.querySelectorAll(".nome_resultados")
+            elementos.forEach(classe=>{
+                classe.dataset.nome = classe.textContent.trim();
+                classe.addEventListener("click", ()=>{
+                    alert("ola " + classe.dataset.nome + "!");
+                    input_ocorrencias.value = classe.dataset.nome;
+                    resultados.style.display = "none";
+                })
+            })
         })
-}
-
-pagina_ocorrencias.addEventListener("mouseleave", limpar_resultados)
-
-function limpar_resultados(){
-    resultados.innerHTML = "";
 }
 
 

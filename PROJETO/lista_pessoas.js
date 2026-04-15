@@ -46,6 +46,11 @@ function checar_add_alunos(){
         sala = input_sala.value;
         sala = sala.toUpperCase();
     }
+
+    nome_aluno = nome_aluno.trim();
+    email_aluno = email_aluno.trim();
+    serie = serie.trim();
+    sala = sala.trim();
     
     let serie_sala = serie + " " + sala;
 
@@ -89,6 +94,11 @@ function checar_add_usuarios(){
     let senha_usuario = document.getElementById("senha_usuario").value;
     let permissao_usuario = document.getElementById("permissoes").value;
     permissao_usuario = parseInt(permissao_usuario);
+
+    cpf = cpf.trim();
+    nome_usuario = nome_usuario.trim();
+    email_usuario = email_usuario.trim();
+    senha_usuario = senha_usuario.trim();
 
     if(!cpf || !nome_usuario || !email_usuario || !senha_usuario || permissao_usuario === ""|| !permissao_usuario) {
         alert("Preencha todos os campos!");
