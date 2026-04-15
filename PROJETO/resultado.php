@@ -1,6 +1,8 @@
 <?php
     include("conexao.php");
 
+    session_start();
+
     $conexao = new mysqli("localhost", "root", "", "edufluxo");
 
     if ($conexao->connect_error) {
@@ -20,21 +22,28 @@
     if($resultado->num_rows > 0){
         $usuarios = $resultado->fetch_assoc();
 
+        $_SESSION["nome"] = $usuarios["nome"];
         $permissao = (int) $usuarios["permissao"];
-        switch ($permissao){
-            case 0:
-                header("Location: pagina.html?permissao=$permissao");
-                break;
-            case 1:
-                header("Location: pagina.html?permissao=$permissao");
-                break;
-            default:
-                header("Location: pagina.html?permissao=$permissao");
-                break;
-        }
-        die();
+        $_SESSION["permissao"] = $permissao;
 
-        
+        header("Location: pagina.php");
+
+        // switch ($permissao){
+        //     case 0:
+        //         header("Location: pagina.html?nome=$nome_usuario&permissao=$permissao");
+        //         break;
+        //     case 1:
+        //         header("Location: pagina.html?nome=$nome_usuario&permissao=$permissao");
+        //         break;
+        //     case 2:
+        //         header("Location: pagina.html?nome=$nome_usuario&permissao=$permissao");
+        //         break;
+        //     default:
+        //         http_response_code(400);
+        //         die("dados invalidos");
+                
+        // }
+        die();
     }
 
     else{

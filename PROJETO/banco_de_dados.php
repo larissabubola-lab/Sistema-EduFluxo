@@ -21,6 +21,8 @@
             $conexao->query("INSERT INTO usuarios VALUES ('{$data["cpf"]}', '{$data["nome"]}', '{$data["email"]}', '{$data["senha"]}', '{$data["permissao"]}')");
             // echo "funcionou";
             break;
+        case "ocorrencias":
+            $conexao->query("INSERT INTO ocorrencias (cgm, nome, serie, professor, tipo, motivo");
         default:
             http_response_code(400);
             die("Dados inválidos");
