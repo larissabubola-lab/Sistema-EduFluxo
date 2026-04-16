@@ -53,7 +53,8 @@
         <script>
 
         let permissao = "<?php echo $permissao; ?>";
-        let nome_usuario = "<?php echo $nome; ?>";
+        var nome_usuario = "<?php echo $nome; ?>";
+        localStorage.setItem("nome_usuario", nome_usuario);
         alert("oi " + nome_usuario);
 
         const mostra_dashboard = document.getElementById("dashboard");
@@ -102,5 +103,6 @@
         }
         </script>
         <script src="pagina.js"></script>
+        <!-- <script src="ocorrencias.js"></script> -->
     </body>
 </html>

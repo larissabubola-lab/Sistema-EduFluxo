@@ -14,30 +14,45 @@
                 <i class="bi bi-person-vcard"></i>
                 <input type="number"  id="cgm_ocorrencias" placeholder="adcione o cgm do aluno" disabled>
             </div>
+
             <label for="nome_ocorrencia">Nome do aluno</label>
             <div name="nome" id="input_de_nome">
                 <i class="bi bi-person"></i>
                 <input type="text" name="nome" id="nome_aluno_ocorrencias" placeholder="adcione o nome do aluno">
                 <div id="resultado" style="display: none;"></div>
             </div>
+
+            <!-- <label for="email">Email:</label>
+            <div name="email">
+                <i class="bi bi-envelope"></i>
+                <input type="email" placeholder="email do aluno" id="email_aluno" disabled>
+            </div> -->
+
             <label for="serie">Serie:</label>
             <div name="serie">
                 <i class="bi bi-backpack"></i>
                 <input type="text" placeholder="serie do aluno" id="serie_aluno" disabled>
             </div>
+
+            <label for="usuario">Usuario:</label>
+            <div name="usuario">
+                <i class="bi bi-person"></i>
+                <input type="text" placeholder="usuario" id="usuario_ocorrencia" disabled>
+            </div>
+
             <label for="bom_ou_ruim">Tipo de ocorrencia:</label>
-            <div class="bom_ou_ruim" >
-                
+            <div id="bom_ou_ruim">
                 <label for="bom" id="label_bom" style="display: inline;">
-                    <input type="radio" id="bom" name="bom_ruim" value="bom">
+                    <input type="radio" id="bom" name="bom_ruim" value="positiva" class="radios">
                     <div id="sorriso">😄</div>
                 </label>
                 
                 <label for="ruim" id="label_ruim" style="display: inline;">
-                    <input type="radio" id="ruim" name="bom_ruim" value="ruim">
+                    <input type="radio" id="ruim" name="bom_ruim" value="negativa" class="radios">
                     <div id="triste">😞</div>
                 </label>
             </div>
+
             <label for="motivo">Motivo:</label>
             <textarea name="motivo" id="motivo_ocorrencia" placeholder="escreva o motivo da ocorrencia"></textarea>
             <button onclick="criar_ocorrencia()">Confirma</button>

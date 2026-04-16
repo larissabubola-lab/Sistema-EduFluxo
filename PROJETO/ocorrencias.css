@@ -24,7 +24,7 @@ label{
 }
 #label_ruim{
     position:relative;
-    isplay:inline-block;
+    display:inline-block;
      margin-left:20px;
 }
 #label_ruim input{

@@ -15,14 +15,19 @@
     switch($data["para"]){
         case "alunos":
             $conexao->query("INSERT INTO alunos VALUES ('{$data["cgm"]}', '{$data["nome"]}', '{$data["email"]}', '{$data["serie"]}')");
-            // echo "funcionou";
             break;
         case "usuarios":
             $conexao->query("INSERT INTO usuarios VALUES ('{$data["cpf"]}', '{$data["nome"]}', '{$data["email"]}', '{$data["senha"]}', '{$data["permissao"]}')");
             // echo "funcionou";
             break;
+        case "buscar_alunos":
+            $resultado = $conexao->query("SELECT * FROM alunos WHERE nome = '{$data["nome"]}'");
+            $linha = $resultado->fetch_assoc();
+            echo json_encode($linha);
+            break;
         case "ocorrencias":
-            $conexao->query("INSERT INTO ocorrencias (cgm, nome, serie, professor, tipo, motivo");
+            $conexao->query("INSERT INTO ocorrencias (cgm, nome, serie, relator, tipo, motivo) VALUES ('{$data["cgm"]}', '{$data["nome"]}', '{$data["serie"]}', '{$data["professor"]}', '{$data["tipo"]}', '{$data["motivo"]}')");
+            break;
         default:
             http_response_code(400);
             die("Dados inválidos");
