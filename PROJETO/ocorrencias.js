@@ -47,7 +47,7 @@ function mostrar_resultados(){
         })
 }
 
-resultados.addEventListener("mouseleave", limpar_resultados)
+document.getElementById("input_de_nome").addEventListener("mouseleave", limpar_resultados)
 
 function limpar_resultados(){
     resultados.style.display = "none";

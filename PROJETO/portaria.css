@@ -6,3 +6,18 @@
 label{
     display:block
 }
+
+#input_de_nome{
+    position:relative;
+}
+
+#input_de_nome #resultado_fluxos{
+    position:absolute;
+    width:200px;
+    top:30px;
+    left:10px;
+    border:solid;
+    background-color: white;
+    color:black;
+    z-index:50;
+}

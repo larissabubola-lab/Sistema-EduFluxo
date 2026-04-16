@@ -8,7 +8,7 @@
     if (isset($_GET["busca"])) {
         $busca = "%" . $_GET["busca"] . "%";
 
-        $nome_conexao = $conexao->prepare("SELECT nome FROM alunos WHERE nome LIKE ? LIMIT 10");
+        $nome_conexao = $conexao->prepare("SELECT nome FROM alunos WHERE nome LIKE ? LIMIT 5");
         $nome_conexao->bind_param("s", $busca);
 
         $nome_conexao->execute();

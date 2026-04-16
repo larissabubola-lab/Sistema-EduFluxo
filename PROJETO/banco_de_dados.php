@@ -28,6 +28,9 @@
         case "ocorrencias":
             $conexao->query("INSERT INTO ocorrencias (cgm, nome, serie, relator, tipo, motivo) VALUES ('{$data["cgm"]}', '{$data["nome"]}', '{$data["serie"]}', '{$data["professor"]}', '{$data["tipo"]}', '{$data["motivo"]}')");
             break;
+        case "portaria":
+            $conexao->query("INSERT INTO fluxo_saidas (cgm, nome, serie, usuario, motivo) VALUES ('{$data["cgm"]}', '{$data["nome"]}', '{$data["serie"]}', '{$data["usuario"]}', '{$data["motivo"]}')");
+            break; 
         default:
             http_response_code(400);
             die("Dados inválidos");
