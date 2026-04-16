@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/04/2026 às 01:17
+-- Tempo de geração: 16/04/2026 às 22:50
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `alunos` (
   `cgm` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL,
-  `gmail` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `sala` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -38,15 +38,13 @@ CREATE TABLE `alunos` (
 -- Despejando dados para a tabela `alunos`
 --
 
-INSERT INTO `alunos` (`cgm`, `nome`, `gmail`, `sala`) VALUES
+INSERT INTO `alunos` (`cgm`, `nome`, `email`, `sala`) VALUES
 (67866, 'helen', 'helen@gmail.com', '3° A'),
 (74574, 'marcos', 'matheuspalma0309@gmail.com', '8° C'),
-(8457547, 'aluno teste', 'aaa@gmail.com', 'aa b'),
-(45648759, 'novo aluno', 'pedro.lopes@escola.pr.gov.br', '7° C'),
 (47554257, 'teste', 'teste@gamial.com', 'outro sala'),
 (54956723, 'elisa', 'larissa.bubola@escola.pr.gov.br', '6° A'),
-(57895630, 'adrianp', 'adriano@gmail.com', '3° outra'),
 (74642472, 'helena', 'helena@escola.pr.gov.br', '2° D'),
+(784789545, 'banco ta funcionando', 'banco@gamil.com', '7° A'),
 (2147483647, 'teresa', 'larissa.bubola@escola.pr.gov.br', '6° C');
 
 -- --------------------------------------------------------
@@ -58,8 +56,20 @@ INSERT INTO `alunos` (`cgm`, `nome`, `gmail`, `sala`) VALUES
 CREATE TABLE `fluxo_saidas` (
   `id` int(11) NOT NULL,
   `cgm` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL
+  `nome` varchar(100) NOT NULL,
+  `serie` varchar(50) NOT NULL,
+  `usuario` varchar(100) NOT NULL,
+  `motivo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `fluxo_saidas`
+--
+
+INSERT INTO `fluxo_saidas` (`id`, `cgm`, `nome`, `serie`, `usuario`, `motivo`) VALUES
+(1, 74574, 'marcos', '8° C', 'Larissa', 'teste'),
+(2, 74574, 'marcos', '8° C', 'Larissa', 'O aluno chegou atrasado'),
+(3, 67866, 'helen', '3° A', 'Larissa', 'teste 2');
 
 -- --------------------------------------------------------
 
@@ -72,10 +82,17 @@ CREATE TABLE `ocorrencias` (
   `cgm` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `serie` varchar(50) NOT NULL,
-  `professor` varchar(100) NOT NULL,
+  `relator` varchar(100) NOT NULL,
   `tipo` enum('positiva','negativa','','') NOT NULL,
   `motivo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `ocorrencias`
+--
+
+INSERT INTO `ocorrencias` (`id`, `cgm`, `nome`, `serie`, `relator`, `tipo`, `motivo`) VALUES
+(1, 54956723, 'elisa', '6° A', 'Larissa', 'negativa', 'lorem ipsum');
 
 -- --------------------------------------------------------
 
@@ -136,29 +153,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `fluxo_saidas`
 --
 ALTER TABLE `fluxo_saidas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `ocorrencias`
 --
 ALTER TABLE `ocorrencias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Restrições para tabelas despejadas
---
-
---
--- Restrições para tabelas `fluxo_saidas`
---
-ALTER TABLE `fluxo_saidas`
-  ADD CONSTRAINT `cgm_pl` FOREIGN KEY (`cgm`) REFERENCES `alunos` (`cgm`);
-
---
--- Restrições para tabelas `ocorrencias`
---
-ALTER TABLE `ocorrencias`
-  ADD CONSTRAINT `cgm_fk` FOREIGN KEY (`cgm`) REFERENCES `alunos` (`cgm`);
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
