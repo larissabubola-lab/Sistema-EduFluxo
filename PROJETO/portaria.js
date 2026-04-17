@@ -27,7 +27,7 @@ function mostrar_resultados_fluxos(){
                             "Content-Type": "application/json"
                         },
                         body:JSON.stringify({
-                            para:"buscar_alunos",
+                            para:"buscar_aluno_por_nome",
                             nome:classe.dataset.nome
                         })
                     })
@@ -62,7 +62,8 @@ function mostra_input(){
     const motivo_outro = document.getElementById("motivo_outro");
     if(motivos.value === "outro"){
         motivo_outro.style.display = "block";
-    } else {
+    } 
+    else {
         motivo_outro.style.display = "none";
     }
 }

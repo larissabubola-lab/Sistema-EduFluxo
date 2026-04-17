@@ -1,3 +1,22 @@
+let alunos = document.getElementById("lugar_alunos");
+let usuarios = document.getElementById("lugar_usuarios");
+
+//! PARA OS ALUNOS
+fetch("banco_de_dados.php",{
+    method: "POST",
+    headers:{
+        "Content-Type": "application/json"
+    },
+    body:JSON.stringify({
+        para: "buscar_alunos"
+    })
+})
+.then(resposta=>resposta.text())
+.then(dados=>{
+    alunos.innerHTML = dados;
+})
+
+
 let outros_serie = document.getElementById("series")
 let input_serie_outro = document.getElementById("outra_serie")
 
@@ -58,8 +77,6 @@ function checar_add_alunos(){
         alert("Preencha todos os campos!");
         return;
     }
-
-      
 
     fetch("banco_de_dados.php",{
         method: "POST",

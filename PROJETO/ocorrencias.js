@@ -27,7 +27,7 @@ function mostrar_resultados(){
                             "Content-Type": "application/json"
                         },
                         body:JSON.stringify({
-                            para:"buscar_alunos",
+                            para:"buscar_aluno_por_nome",
                             nome:classe.dataset.nome
                         })
                     })

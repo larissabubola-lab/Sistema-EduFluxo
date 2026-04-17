@@ -20,7 +20,7 @@
             $conexao->query("INSERT INTO usuarios VALUES ('{$data["cpf"]}', '{$data["nome"]}', '{$data["email"]}', '{$data["senha"]}', '{$data["permissao"]}')");
             // echo "funcionou";
             break;
-        case "buscar_alunos":
+        case "buscar_aluno_por_nome":
             $resultado = $conexao->query("SELECT * FROM alunos WHERE nome = '{$data["nome"]}'");
             $linha = $resultado->fetch_assoc();
             echo json_encode($linha);
@@ -31,6 +31,18 @@
         case "portaria":
             $conexao->query("INSERT INTO fluxo_saidas (cgm, nome, serie, usuario, motivo) VALUES ('{$data["cgm"]}', '{$data["nome"]}', '{$data["serie"]}', '{$data["usuario"]}', '{$data["motivo"]}')");
             break; 
+        case "buscar_alunos":
+            $informacoes = $conexao->query("SELECT * FROM alunos");
+            while($linha = $informacoes->fetch_assoc()){
+                echo "<div class='mostra_alunos'>";
+                echo "<div class='cgms'>" . htmlspecialchars($linha["cgm"]) . "</div><br>";
+                echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div><br>";
+                echo "<div class='emails'>" . htmlspecialchars($linha["email"]) . "</div><br>";
+                echo "<div class='series'>" . htmlspecialchars($linha["sala"]) . "</div>";
+                echo "</div>";
+            }
+           
+            break;
         default:
             http_response_code(400);
             die("Dados inválidos");
