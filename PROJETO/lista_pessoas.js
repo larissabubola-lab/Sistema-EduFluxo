@@ -1,5 +1,4 @@
-let alunos = document.getElementById("lugar_alunos");
-let usuarios = document.getElementById("lugar_usuarios");
+const alunos = document.getElementById("lugar_alunos");
 
 //! PARA OS ALUNOS
 fetch("banco_de_dados.php",{
@@ -13,37 +12,78 @@ fetch("banco_de_dados.php",{
 })
 .then(resposta=>resposta.text())
 .then(dados=>{
+    if(!dados){
+        return;
+    }
     alunos.innerHTML = dados;
 })
 
+const usuarios = document.getElementById("lugar_usuarios");
 
-let outros_serie = document.getElementById("series")
-let input_serie_outro = document.getElementById("outra_serie")
+//!PARA USUARIOS
 
-outros_serie.addEventListener("change", mostra_input_serie)
+fetch("banco_de_dados.php",{
+    method: "POST",
+    headers:{
+        "Content-Type": "application/json"
+    },
+    body:JSON.stringify({
+        para:"buscar_usuarios"
+    })
+})
+.then(resposta=>resposta.text())
+.then(dados=>{
+    if(!dados){
+        return;
+    }
+    usuarios.innerHTML = dados;
+    let permissoes_usuarios = document.querySelectorAll(".permissoes");
+    permissoes_usuarios.forEach(permissoes=>{
+        switch(permissoes.textContent){
+            case "0":
+                permissoes.textContent = "Admin";
+                break;
+            case "1":
+                permissoes.textContent = "Portaria";
+                break;
+            case "2":
+                permissoes.textContent = "Professor";
+                break;
+            default:
+                permissoes.textContent = "Erro";
+                break;
+        }
+    })
+})
+
+
+let outros_serie = document.getElementById("series");
+let input_serie_outro = document.getElementById("outra_serie");
+
+outros_serie.addEventListener("change", mostra_input_serie);
 
 function mostra_input_serie(){
     if(outros_serie.value === "outro_serie"){
-        input_serie_outro.style.display = "inline"
+        input_serie_outro.style.display = "inline";
     }
     else{
-        input_serie_outro.style.display = "none"
+        input_serie_outro.style.display = "none";
     }
 }
 
 
-let outros = document.getElementById("salas")
-let input_aparece = document.getElementById("sala_outro")
+let outros = document.getElementById("salas");
+let input_aparece = document.getElementById("sala_outro");
 
-outros.addEventListener("change", mostra_input)
+outros.addEventListener("change", mostra_input);
 
 function mostra_input(){
     outros_valor = outros.value
     if(outros_valor === "outro"){
-        input_aparece.style.display = "inline"
+        input_aparece.style.display = "inline";
     }
     else{
-        input_aparece.style.display = "none"
+        input_aparece.style.display = "none";
     }
 }
 

@@ -12,7 +12,7 @@ button{
     cursor:pointer;
 }
 
-#lugar_alunos{
+#lugar_alunos, #lugar_usuarios{
     display:grid;
     width: 100%;
     height: fit-content;
@@ -20,7 +20,7 @@ button{
     gap: 15px 0px;
 }
 
-.mostra_alunos{
+.mostra_alunos, .mostra_usuarios{
     display:inline-block;
     width:250px;
     height:fit-content;

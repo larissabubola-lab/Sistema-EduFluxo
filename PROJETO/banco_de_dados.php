@@ -43,6 +43,18 @@
             }
            
             break;
+        case "buscar_usuarios":
+            $informacoes = $conexao->query("SELECT * FROM usuarios");
+            while($linha = $informacoes->fetch_assoc()){
+                echo "<div class='mostra_usuarios'>";
+                echo "<div class='cpfs'>" . htmlspecialchars($linha["cpf"]) . "</div><br>";
+                echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div><br>";
+                echo "<div class='emails'>" . htmlspecialchars($linha["email"]) . "</div><br>";
+                echo "<div class='permissoes'>" . htmlspecialchars($linha["permissao"]) . "</div>";
+                echo "</div>";
+            }
+            break;
+
         default:
             http_response_code(400);
             die("Dados inválidos");
