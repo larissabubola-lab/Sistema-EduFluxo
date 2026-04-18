@@ -32,7 +32,8 @@
             $conexao->query("INSERT INTO fluxo_saidas (cgm, nome, serie, usuario, motivo) VALUES ('{$data["cgm"]}', '{$data["nome"]}', '{$data["serie"]}', '{$data["usuario"]}', '{$data["motivo"]}')");
             break; 
         case "buscar_alunos":
-            $informacoes = $conexao->query("SELECT * FROM alunos");
+            $informacoes = $conexao->query("SELECT * FROM alunos ORDER BY nome ASC");
+            // echo "<button id='botao_add_alunos' onclick='mostra_add_alunos()'>Adicionar Alunos</button>";
             while($linha = $informacoes->fetch_assoc()){
                 echo "<div class='mostra_alunos'>";
                 echo "<div class='cgms'>" . htmlspecialchars($linha["cgm"]) . "</div><br>";
@@ -41,10 +42,10 @@
                 echo "<div class='series'>" . htmlspecialchars($linha["sala"]) . "</div>";
                 echo "</div>";
             }
-           
             break;
         case "buscar_usuarios":
-            $informacoes = $conexao->query("SELECT * FROM usuarios");
+            $informacoes = $conexao->query("SELECT * FROM usuarios ORDER BY nome ASC");
+            // echo "<button id='botao_add_usuarios' onclick='mostra_add_usuarios()'>Adcionar Usuarios</button>";
             while($linha = $informacoes->fetch_assoc()){
                 echo "<div class='mostra_usuarios'>";
                 echo "<div class='cpfs'>" . htmlspecialchars($linha["cpf"]) . "</div><br>";

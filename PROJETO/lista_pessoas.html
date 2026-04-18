@@ -6,17 +6,30 @@
         <link href="lista_pessoas.css" rel="stylesheet">
     </head>
     <body>
-        <h1>Aqui vai ter a opcao de ver os alunos e usuarios.</h1>
+        <!-- <h1>Aqui vai ter a opcao de ver os alunos e usuarios.</h1> -->
+        <div id="botoes">
+            <button id="mostra_os_alunos" onclick="mostra_alunos()">Mostrar alunos</button>
+            <button id="mostra_os_usuarios" onclick="mostra_usuarios()">Mostrar usuarios</button>
+        </div>
+
+        <div id="area_pesquisa">
+            <input type="text" id="pesquisa" placeholder="Digite o nome do aluno ou usuario">
+            <button id="botao_pesquisa" onclick="pesquisar()">Pesquisar</button>
+        </div>
+
+        
 
         <div id="lugar_alunos">
+            <button id='botao_add_alunos' onclick='mostra_add_alunos()'>Adicionar Alunos</button>
+        </div>
+
+        <div id="lugar_usuarios" style="display: none;">
+            <button id='botao_add_usuarios' onclick='mostra_add_usuarios()'>Adcionar Usuarios</button>
+            <!-- <div id="botao_add_usuarios" onclick="mostra_add_usuarios()">Adcionar Usuarios</div> -->
 
         </div>
 
-        <div id="lugar_usuarios">
-
-        </div>
-
-        <div id="add_alunos" class="add">
+        <div id="add_alunos" class="add" style="display: none;">
             <label for="cgm">CGM:</label>
             <input type="number" name="cgm" id="aluno_cgm" placeholder="escreva o cgm do aluno">
             <label for="nome">Nome:</label>
@@ -54,7 +67,7 @@
         </div>
 
 
-        <div id="add_usuarios" class="add">
+        <div id="add_usuarios" class="add" style="display:none;">
             <label for="cpf">CPF:</label>
             <input type="text" name="cpf" id="cpf_usuario" placeholder="escreva o cpf">
             <label for="nome">Nome:</label>
@@ -72,6 +85,8 @@
             </select>
             <button onclick="checar_add_usuarios()">Confirma</button>
         </div> 
+
+
         <script src="lista_pessoas.js"></script>
     </body>
 </html>

@@ -1,60 +1,128 @@
+const botao_1 = document.getElementById("botao_add_alunos")
+const botao_2 = document.getElementById("botao_add_usuarios")
+
+function mostra_add_alunos(){
+    document.getElementById("add_alunos").style.display = "block";
+    document.getElementById("add_usuarios").style.display = "none";
+    botao_1.disabled = true;
+    botao_2.disabled = false;
+    mostra_todos_alunos();
+}
+
+function mostra_add_usuarios(){
+    document.getElementById("add_alunos").style.display = "none";
+    document.getElementById("add_usuarios").style.display = "block";
+    botao_1.disabled = false;
+    botao_2.disabled = true;
+    mostra_todos_usuarios();
+}
+
+
 const alunos = document.getElementById("lugar_alunos");
 
 //! PARA OS ALUNOS
-fetch("banco_de_dados.php",{
-    method: "POST",
-    headers:{
-        "Content-Type": "application/json"
-    },
-    body:JSON.stringify({
-        para: "buscar_alunos"
-    })
-})
-.then(resposta=>resposta.text())
-.then(dados=>{
-    if(!dados){
-        return;
+function mostra_todos_alunos(){
+    if(!alunos.querySelector(".mostra_alunos")){
     }
-    alunos.innerHTML = dados;
-})
+    else{
+        let apaga_itens = alunos.querySelectorAll(".mostra_alunos");
+        apaga_itens.forEach(apaga=>{
+            apaga.remove();
+        })
+    }
+    
+    
+    fetch("banco_de_dados.php",{
+        method: "POST",
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+            para: "buscar_alunos"
+        })
+    })
+    .then(resposta=>resposta.text())
+    .then(dados=>{
+        if(!dados){
+            return;
+        }
+        alunos.innerHTML += dados;
+    })
+}
+
+mostra_todos_alunos()
+
+
 
 const usuarios = document.getElementById("lugar_usuarios");
 
 //!PARA USUARIOS
 
-fetch("banco_de_dados.php",{
-    method: "POST",
-    headers:{
-        "Content-Type": "application/json"
-    },
-    body:JSON.stringify({
-        para:"buscar_usuarios"
-    })
-})
-.then(resposta=>resposta.text())
-.then(dados=>{
-    if(!dados){
-        return;
+function mostra_todos_usuarios(){
+    if(!usuarios.querySelector(".mostra_usuarios")){
     }
-    usuarios.innerHTML = dados;
-    let permissoes_usuarios = document.querySelectorAll(".permissoes");
-    permissoes_usuarios.forEach(permissoes=>{
-        switch(permissoes.textContent){
-            case "0":
-                permissoes.textContent = "Admin";
-                break;
-            case "1":
-                permissoes.textContent = "Portaria";
-                break;
-            case "2":
-                permissoes.textContent = "Professor";
-                break;
-            default:
-                permissoes.textContent = "Erro";
-                break;
-        }
+    else{
+        let apaga_itens = usuarios.querySelectorAll(".mostra_usuarios");
+        apaga_itens.forEach(apaga=>{
+            apaga.remove();
+        })
+    }
+
+    fetch("banco_de_dados.php",{
+        method: "POST",
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+            para:"buscar_usuarios"
+        })
     })
-})
+    .then(resposta=>resposta.text())
+    .then(dados=>{
+        if(!dados){
+            return;
+        }
+        usuarios.innerHTML += dados;
+        let permissoes_usuarios = document.querySelectorAll(".permissoes");
+        permissoes_usuarios.forEach(permissoes=>{
+            switch(permissoes.textContent){
+                case "0":
+                    permissoes.textContent = "Admin";
+                    break;
+                case "1":
+                    permissoes.textContent = "Portaria";
+                    break;
+                case "2":
+                    permissoes.textContent = "Professor";
+                    break;
+                default:
+                    permissoes.textContent = "Erro";
+                    break;
+            }
+        })
+    })
+}
+
+mostra_todos_usuarios();
+
+
+
+const botao_alunos = document.getElementById("mostra_os_alunos");
+const botao_usuarios = document.getElementById("mostra_os_usuarios");
+
+function mostra_alunos(){
+    alunos.style.display = "grid";
+    usuarios.style.display = "none";
+    botao_alunos.disabled = true;
+    botao_usuarios.disabled = false;
+}
+
+function mostra_usuarios(){
+    alunos.style.display = "none";
+    usuarios.style.display = "grid";
+    botao_alunos.disabled = false;
+    botao_usuarios.disabled = true;
+}
 
 
 let outros_serie = document.getElementById("series");
@@ -140,7 +208,11 @@ function checar_add_alunos(){
     input_serie.style.display = "none";
     input_sala.style.display = "none";
 
+    document.getElementById("add_alunos").style.display = "none";
+
     alert("Aluno adicionado com sucesso!");
+
+    mostra_todos_alunos();
     
 }
 
@@ -182,8 +254,11 @@ function checar_add_usuarios(){
     document.getElementById("email_usuario").value = "";
     document.getElementById("senha_usuario").value = "";
     document.getElementById("permissoes").value = "";
+    document.getElementById("add_usuarios").style.display = "none";
     
     alert("Usuário adicionado com sucesso!");
+
+    mostra_todos_usuarios();
 }
 
 
