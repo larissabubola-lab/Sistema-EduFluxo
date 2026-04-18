@@ -1,3 +1,8 @@
+const mostra_ocorrencias = document.getElementById("ocorrencias");
+
+function mostrar_formulario(){
+    mostra_ocorrencias.style.display = "block";
+}
 
 
 const lugar_das_ocorrencias = document.getElementById("lugar_ocorrencias");
@@ -151,6 +156,7 @@ function criar_ocorrencia(){
     document.getElementById("cgm_ocorrencias").disabled = true;
     document.getElementById("serie_aluno").disabled = true;
     document.getElementById("usuario_ocorrencia").disabled = true;
+    mostra_ocorrencias.style.display = "none";
 
     alert("Ocorrência criada com sucesso!");
 
