@@ -22,16 +22,11 @@ const alunos = document.getElementById("lugar_alunos");
 
 //! PARA OS ALUNOS
 function mostra_todos_alunos(){
-    if(!alunos.querySelector(".mostra_alunos")){
-    }
-    else{
-        let apaga_itens = alunos.querySelectorAll(".mostra_alunos");
-        apaga_itens.forEach(apaga=>{
-            apaga.remove();
-        })
-    }
-    
-    
+    let apaga_itens = alunos.querySelectorAll(".mostra_alunos");
+    apaga_itens.forEach(apaga=>{
+        apaga.remove();
+    })
+  
     fetch("banco_de_dados.php",{
         method: "POST",
         headers:{
@@ -59,14 +54,11 @@ const usuarios = document.getElementById("lugar_usuarios");
 //!PARA USUARIOS
 
 function mostra_todos_usuarios(){
-    if(!usuarios.querySelector(".mostra_usuarios")){
-    }
-    else{
-        let apaga_itens = usuarios.querySelectorAll(".mostra_usuarios");
-        apaga_itens.forEach(apaga=>{
-            apaga.remove();
-        })
-    }
+    let apaga_itens = usuarios.querySelectorAll(".mostra_usuarios");
+    apaga_itens.forEach(apaga=>{
+        apaga.remove();
+    })
+    
 
     fetch("banco_de_dados.php",{
         method: "POST",

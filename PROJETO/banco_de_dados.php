@@ -16,21 +16,26 @@
         case "alunos":
             $conexao->query("INSERT INTO alunos VALUES ('{$data["cgm"]}', '{$data["nome"]}', '{$data["email"]}', '{$data["serie"]}')");
             break;
+
         case "usuarios":
             $conexao->query("INSERT INTO usuarios VALUES ('{$data["cpf"]}', '{$data["nome"]}', '{$data["email"]}', '{$data["senha"]}', '{$data["permissao"]}')");
             // echo "funcionou";
             break;
+
         case "buscar_aluno_por_nome":
             $resultado = $conexao->query("SELECT * FROM alunos WHERE nome = '{$data["nome"]}'");
             $linha = $resultado->fetch_assoc();
             echo json_encode($linha);
             break;
+
         case "ocorrencias":
-            $conexao->query("INSERT INTO ocorrencias (cgm, nome, serie, relator, tipo, motivo) VALUES ('{$data["cgm"]}', '{$data["nome"]}', '{$data["serie"]}', '{$data["professor"]}', '{$data["tipo"]}', '{$data["motivo"]}')");
+            $conexao->query("INSERT INTO ocorrencias (cgm, nome, serie, relator, data, tipo, motivo) VALUES ('{$data["cgm"]}', '{$data["nome"]}', '{$data["serie"]}', '{$data["professor"]}', '{$data["data"]}', '{$data["tipo"]}', '{$data["motivo"]}')");
             break;
+
         case "portaria":
             $conexao->query("INSERT INTO fluxo_saidas (cgm, nome, serie, usuario, motivo) VALUES ('{$data["cgm"]}', '{$data["nome"]}', '{$data["serie"]}', '{$data["usuario"]}', '{$data["motivo"]}')");
             break; 
+
         case "buscar_alunos":
             $informacoes = $conexao->query("SELECT * FROM alunos ORDER BY nome ASC");
             // echo "<button id='botao_add_alunos' onclick='mostra_add_alunos()'>Adicionar Alunos</button>";
@@ -43,6 +48,7 @@
                 echo "</div>";
             }
             break;
+
         case "buscar_usuarios":
             $informacoes = $conexao->query("SELECT * FROM usuarios ORDER BY nome ASC");
             // echo "<button id='botao_add_usuarios' onclick='mostra_add_usuarios()'>Adcionar Usuarios</button>";
@@ -56,6 +62,20 @@
             }
             break;
 
+        case "buscar_ocorrencias":
+            $informacoes = $conexao->query("SELECT * FROM ocorrencias ORDER BY id ASC");
+            while($linha = $informacoes->fetch_assoc()){
+                echo "<div class='mostra_ocorrencias'>";
+                echo "<div class='cgms'> " . htmlspecialchars($linha["cgm"]) . "</div>";
+                echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div>";
+                echo "<div class= 'series'>" . htmlspecialchars($linha["serie"]) . "</div>";
+                echo "<div class= 'relatores'>" . htmlspecialchars($linha["relator"]) . "</div>";
+                echo "<div class= 'datas'>" . htmlspecialchars($linha["data"]) . "</div>";
+                echo "<div class='tipos'>" . htmlspecialchars($linha["tipo"]) . "</div>";
+                echo "<div class= 'motivos'>" . htmlspecialchars($linha["motivo"]) . "</div>";
+                echo "</div>";
+            }
+            break;
         default:
             http_response_code(400);
             die("Dados inválidos");

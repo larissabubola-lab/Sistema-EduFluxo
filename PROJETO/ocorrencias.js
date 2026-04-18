@@ -1,9 +1,37 @@
-const pagina_ocorrencias = document.getElementById("ocorrencias")
-const input_ocorrencias = document.getElementById("nome_aluno_ocorrencias");
-const resultados = document.getElementById("resultado")
 
-input_ocorrencias.addEventListener("input", mostrar_resultados)
-input_ocorrencias.addEventListener("click", mostrar_resultados)
+
+const lugar_das_ocorrencias = document.getElementById("lugar_ocorrencias");
+
+function mostra_todas_ocorrencias(){
+    let tudo = lugar_das_ocorrencias.querySelectorAll(".mostra_ocorrencias")
+    tudo.forEach(todos=>{
+        todos.remove()
+    })
+    
+    fetch("banco_de_dados.php",{
+        method:"POST",
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+            para:"buscar_ocorrencias"
+        })
+    })
+    .then(resposta=>resposta.text())
+    .then(dados=>{
+        lugar_das_ocorrencias.innerHTML += dados;
+    })
+}
+
+mostra_todas_ocorrencias();
+
+
+const pagina_ocorrencias = document.getElementById("ocorrencias");
+const input_ocorrencias = document.getElementById("nome_aluno_ocorrencias");
+const resultados = document.getElementById("resultado");
+
+input_ocorrencias.addEventListener("input", mostrar_resultados);
+input_ocorrencias.addEventListener("click", mostrar_resultados);
 
 function mostrar_resultados(){ 
     if (!resultados) {
@@ -47,7 +75,7 @@ function mostrar_resultados(){
         })
 }
 
-document.getElementById("input_de_nome").addEventListener("mouseleave", limpar_resultados)
+resultados.addEventListener("mouseleave", limpar_resultados);
 
 function limpar_resultados(){
     resultados.style.display = "none";
@@ -55,15 +83,35 @@ function limpar_resultados(){
 
 
 function criar_ocorrencia(){
+    
+    
+    function dia_bonitinho(){
+        let data = new Date();
+        let ano = data.getFullYear();
+        let mes = data.getMonth() + 1;
+        let dia = data.getDay();
+        ano = ano.toString();
+        mes = mes.toString();
+        dia = dia.toString();
+
+        if(mes.length <2){
+            mes = "0" + mes;
+        }
+
+        if(dia.length<2){
+            dia = "0" + dia;
+        }
+        return dia + "/" + mes + "/" + ano;
+    }
+    
+
     let cgm_aluno = document.getElementById("cgm_ocorrencias").value;
     let nome_aluno = document.getElementById("nome_aluno_ocorrencias").value;
     let serie = document.getElementById("serie_aluno").value;
-    // let tipo_ocorrencia = document.getElementById("bom_ou_ruim").value;
     let tipo_ocorrencia = document.querySelector('input[name="bom_ruim"]:checked');
     tipo_ocorrencia = tipo_ocorrencia? tipo_ocorrencia.value: null;
     let motivo = document.getElementById("motivo_ocorrencia").value;
     let usuario = document.getElementById("usuario_ocorrencia").value;
-    // let nome = localStorage.getItem("nome_usuario");
 
     if(!cgm_aluno || !nome_aluno || !serie || !tipo_ocorrencia || !motivo){
         alert("Preencha todos os campos para criar uma ocorrência.")
@@ -81,6 +129,7 @@ function criar_ocorrencia(){
             nome: nome_aluno,
             serie:serie,
             professor: usuario,
+            data: dia_bonitinho(),
             tipo: tipo_ocorrencia,
             motivo: motivo
         })
@@ -104,4 +153,6 @@ function criar_ocorrencia(){
     document.getElementById("usuario_ocorrencia").disabled = true;
 
     alert("Ocorrência criada com sucesso!");
+
+    mostra_todas_ocorrencias();
 }
