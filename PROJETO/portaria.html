@@ -6,7 +6,13 @@
         <link href="portaria.css" rel="stylesheet">
     </head>
     <body>
-        <div id="fluxos_saida">
+
+        <div id="lugar_portaria">
+            <button id="adcionar_fluxos" onclick="mostrar_criar_portaria()">Adcionar um novo fluxo</button>
+
+        </div>
+
+        <div id="fluxos_saida" style="display:none;">
             <label for="cgm">CGM:</label>
             <div id="div_cgm" name="cgm">
                 <i class="bi bi-person-vcard"></i>
@@ -40,6 +46,7 @@
             </select>
             <input type="text" id="motivo_outro" placeholder="escreva o motivo" style="display: none;">
             <button onclick="criar_fluxos()">Confirma</button>
+            <button onclick="cancelar_fluxos()">Cancelar</button>
         </div>
 
         <script src="portaria.js"></script>

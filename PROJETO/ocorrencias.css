@@ -8,6 +8,10 @@ label{
     border-radius: 15px;
     display: inline-block;
     position:fixed;
+    top:0;
+    left:30%;
+    background:white;
+    padding:10px;
 }
 
 #label_bom{

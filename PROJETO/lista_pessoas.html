@@ -25,7 +25,7 @@
 
         <div id="lugar_usuarios" style="display: none;">
             <button id='botao_add_usuarios' onclick='mostra_add_usuarios()'>Adcionar Usuarios</button>
-            <!-- <div id="botao_add_usuarios" onclick="mostra_add_usuarios()">Adcionar Usuarios</div> -->
+            
 
         </div>
 
@@ -64,6 +64,7 @@
             <input type="text" id="sala_outro" placeholder="escreva a sala do aluno" style="display: none;">
 
             <button onclick="checar_add_alunos()">Confirma</button>
+            <button onclick="cancelar()">Cancelar</button>
         </div>
 
 
@@ -84,6 +85,7 @@
                 <option value="0">Admin</option>
             </select>
             <button onclick="checar_add_usuarios()">Confirma</button>
+            <button onclick="cancelar_usuarios()">Cancelar</button>
         </div> 
 
 

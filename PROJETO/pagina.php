@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Sistema EduFluxo</title>
         <link href="pagina.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     </head>
 
     <body>
@@ -12,6 +13,22 @@
 
             $nome = $_SESSION["nome"];
             $permissao = $_SESSION["permissao"];
+
+            switch($permissao){
+                case 0:
+                    $permissao_mostra = "Administrador";
+                    break;
+                case 1:
+                    $permissao_mostra = "Portaria";
+                    break;
+                case 2:
+                    $permissao_mostra = "Professor";
+                    break;
+                default:
+                    echo "houve um erro";
+                    // $permissao_mostra = "Usuá";
+                    break;
+            }
         ?>
         <!-- <h1>OconteuSdo vai ficar aqui</h1> -->
         <div id="barra_tarefas"><button onclick="mostrar_barra_lateral()">☰</button></div>
@@ -31,6 +48,15 @@
             </div>
             <div id="voltar">▶ Voltar para tela inicial</div>
             <button id="muda_tema" onclick="mudar_tema()">Tema escuro 🌙</button>
+            <div id="usuario">
+                <i class="bi bi-person-circle"></i>
+                <div id="perfil">
+                    <div id="nome_usuario"><?php echo htmlspecialchars($nome); ?></div>
+                    <div id="permissao_usuario"><?php echo htmlspecialchars($permissao_mostra); ?></div>
+                </div>
+                
+                <i class="bi bi-box-arrow-right"></i>
+            </div>
         </aside>
 
         <main id="pagina_principal">

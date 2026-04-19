@@ -122,6 +122,29 @@ body{
     margin-top:10px;
 }
 
+#usuario{
+    color:white;
+    width:100%;
+    height:fit-content;
+    border:none;
+    border-top:solid white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+#perfil{
+    display:flex;
+    width:fit-content;
+    height:fit-content;
+    flex-direction:column;
+    /* align-items:flex-end; */
+}
+
+i{
+    color:white;
+}
+
 iframe{
     border:none;
     margin-top:120px;
@@ -134,3 +157,4 @@ iframe{
     margin-left:250px;
     margin-top:120px;
 }
+

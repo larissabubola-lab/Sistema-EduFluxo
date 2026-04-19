@@ -33,7 +33,7 @@
             break;
 
         case "portaria":
-            $conexao->query("INSERT INTO fluxo_saidas (cgm, nome, serie, usuario, motivo) VALUES ('{$data["cgm"]}', '{$data["nome"]}', '{$data["serie"]}', '{$data["usuario"]}', '{$data["motivo"]}')");
+            $conexao->query("INSERT INTO fluxo_saidas (cgm, nome, serie, usuario, data, motivo) VALUES ('{$data["cgm"]}', '{$data["nome"]}', '{$data["serie"]}', '{$data["usuario"]}','{$data["data"]}', '{$data["motivo"]}')");
             break; 
 
         case "buscar_alunos":
@@ -72,6 +72,20 @@
                 echo "<div class= 'relatores'>" . htmlspecialchars($linha["relator"]) . "</div>";
                 echo "<div class= 'datas'>" . htmlspecialchars($linha["data"]) . "</div>";
                 echo "<div class='tipos'>" . htmlspecialchars($linha["tipo"]) . "</div>";
+                echo "<div class= 'motivos'>" . htmlspecialchars($linha["motivo"]) . "</div>";
+                echo "</div>";
+            }
+            break;
+        
+        case "buscar_portaria":
+            $informacoes = $conexao->query("SELECT * FROM fluxo_saidas ORDER BY id ASC");
+            while($linha = $informacoes->fetch_assoc()){
+                echo "<div class='mostra_portaria'>";
+                echo "<div class='cgms'> " . htmlspecialchars($linha["cgm"]) . "</div>";
+                echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div>";
+                echo "<div class= 'series'>" . htmlspecialchars($linha["serie"]) . "</div>";
+                echo "<div class= 'usuarios'>" . htmlspecialchars($linha["usuario"]) . "</div>";
+                echo "<div class= 'datas'>" . htmlspecialchars($linha["data"]) . "</div>";
                 echo "<div class= 'motivos'>" . htmlspecialchars($linha["motivo"]) . "</div>";
                 echo "</div>";
             }

@@ -4,6 +4,9 @@ function mostrar_formulario(){
     mostra_ocorrencias.style.display = "block";
 }
 
+function cancelar_ocorrencia(){
+    mostra_ocorrencias.style.display = "none";
+}
 
 const lugar_das_ocorrencias = document.getElementById("lugar_ocorrencias");
 
@@ -94,7 +97,8 @@ function criar_ocorrencia(){
         let data = new Date();
         let ano = data.getFullYear();
         let mes = data.getMonth() + 1;
-        let dia = data.getDay();
+        let dia = data.getDate();
+
         ano = ano.toString();
         mes = mes.toString();
         dia = dia.toString();

@@ -109,11 +109,19 @@ function mostra_alunos(){
     botao_usuarios.disabled = false;
 }
 
+function cancelar(){
+    document.getElementById("add_alunos").style.display = "none";
+}
+
 function mostra_usuarios(){
     alunos.style.display = "none";
     usuarios.style.display = "grid";
     botao_alunos.disabled = false;
     botao_usuarios.disabled = true;
+}
+
+function cancelar_usuarios(){
+    document.getElementById("add_usuarios").style.display = "none";
 }
 
 

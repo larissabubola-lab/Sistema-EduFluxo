@@ -1,6 +1,10 @@
 #fluxos_saida{
     border:solid;
-    display: inline-block;
+    /* display: inline-block; */
+    position:fixed;
+    top:0;
+    left:40%;
+    background: white;
 }
 
 label{
@@ -20,4 +24,31 @@ label{
     background-color: white;
     color:black;
     z-index:50;
+}
+
+#lugar_portaria{
+    display:grid;
+    width:100%;
+    height:fit-content;
+    grid-template-columns: auto auto auto;
+    gap:20px;
+    
+}
+
+#adcionar_fluxos{
+    width:fit-content;
+    display:inline-block;
+}
+
+.mostra_portaria{
+    border:solid;
+    display:flex;
+    flex-direction:column;
+    width:fit-content;
+    height:fit-content;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    border-radius:20px;
+    
 }
