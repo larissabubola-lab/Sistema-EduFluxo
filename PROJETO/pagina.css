@@ -3,6 +3,16 @@
     src: url(assets/Sekuya-Regular.ttf);
 }
 
+@font-face {
+    font-family: bigshot;
+    src: url(assets/BigshotOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: bigshoulder;
+    src: url(assets/BigShoulders_36pt-Regular.ttf);
+}
+
 body{
     background-color:#f5f5f5;
     background-color:#E6ECF5;
@@ -159,7 +169,7 @@ body{
     color:white;
     font-size:20px;
     cursor:pointer;
-    margin-top:10px;
+    /* margin-top:80px; */
     transition:transform 100ms ease;
 }
 
@@ -213,6 +223,11 @@ i{
 }
 .bi-box-arrow-right{
     cursor:pointer;
+    transition:transform 200ms ease;
+}
+
+.bi-box-arrow-right:hover{
+    transform:scale(1.1);
 }
 
 iframe{
@@ -228,3 +243,24 @@ iframe{
     margin-top:120px;
 }
 
+#pagina_principal{
+    margin-top:120px;
+    /* display:flex; */
+    /* flex-direction:column; */
+    width:100%;
+    height:fit-content;
+    text-align:center;
+}
+
+#pagina_principal h1{
+    font-size:80px;
+    background:linear-gradient(to bottom, grey, black);
+    /* -webkit-text-stroke:0.01px black; */
+    /* text-shadow:-20px -20px 15px grey; */
+    font-family:bigshoulder;
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+    
+    
+}

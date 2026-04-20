@@ -53,7 +53,7 @@
                 <div class="opcoes" id="como_usar" onclick="abrir_ajuda()" title="Como usar">Como usar</div>
                 <div class="opcoes" id="configuracoes" onclick="abrir_configuracoes()" title="Abrir configurações">Configurações</div>
             </div>
-            <div id="voltar" title="Voltar para tela inicial">▶ Voltar para tela inicial</div>
+            <div id="voltar" title="Voltar para tela inicial" onclick="abrir_pagina_principal()">▶ Voltar para tela inicial</div>
             <button id="muda_tema" onclick="mudar_tema()">Tema escuro 🌙</button>
             <div id="usuario">
                 <i class="bi bi-person-circle"></i>

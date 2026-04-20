@@ -57,18 +57,28 @@
         <meta charset="UTF-8">
         <title>Dashboard</title>
         <link href="dashboard.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     </head>
 
     <body>
         <main id="dashboard">
             <div id="numero_alunos" class="espacos">
-                <span >Total de alunos:</span>
-                <span><?php echo htmlspecialchars($alunos) ?></span>
+                <div id="alunos" class="a">
+                    <i class="bi bi-highlighter"></i>
+                    <span class="totais">Total de alunos:</span>
+                    <span><?php echo htmlspecialchars($alunos) ?></span>
+                </div>
+                <button class="botoes">Mostrar mais ▼</button>
             </div>
 
             <div id="numero_usuarios" class="espacos">
-                <span>Total de usuarios:</span>
-                <span><?php echo htmlspecialchars($usuarios) ?></span><br>
+                
+                <div id="usuarios" class="a">
+                    <i class="bi bi-person-square"></i>
+                    <span class="totais">Total de usuarios:</span>
+                    <span><?php echo htmlspecialchars($usuarios) ?></span>
+                </div>
+                <button class="botoes">Mostrar mais ▼</button>
 
                 <!-- <span>Admins:</span>
                 <span><?php echo htmlspecialchars($admins) ?></span><br>

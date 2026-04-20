@@ -58,3 +58,12 @@ function abrir_configuracoes(){
     barra.style.display = "none";
     clicou = false;
 }
+
+function abrir_pagina_principal(){
+    iframe.src = "";
+    paginaprincipal.style.display = "block";
+    pagina_ajuda.style.display = "none";
+    pagina_configuracoes.style.display = "none";
+    barra.style.display = "none";
+    clicou = false;
+}

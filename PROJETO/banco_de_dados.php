@@ -69,10 +69,10 @@
 
                 echo "<div class='cgms'> " . htmlspecialchars($linha["cgm"]) . "</div>";
 
-                echo "div class='auxiliar'>";
-                echo "";
+                // echo "div class='auxiliar'>";
+                // echo "";
                 echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div>";
-                echo "</div>";
+                // echo "</div>";
 
                 echo "<div class= 'series'>" . htmlspecialchars($linha["serie"]) . "</div>";
                 echo "<div class= 'relatores'>" . htmlspecialchars($linha["relator"]) . "</div>";
