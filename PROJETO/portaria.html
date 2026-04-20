@@ -7,8 +7,18 @@
     </head>
     <body>
 
+        <div id="buscar">
+            <input type="text" placeholder="Buscar registro">
+            <select>
+                <option value="">Todos os registros</option>
+                <option value="entrada">Atrasos</option>
+                <option value="saida">Saiu mais cedo</option>
+                <option value="outros">Outros</option>
+            </select>
+        </div>
+
         <div id="lugar_portaria">
-            <button id="adcionar_fluxos" onclick="mostrar_criar_portaria()">Adcionar um novo fluxo</button>
+            <button id="adcionar_fluxos" onclick="mostrar_criar_portaria()" title="Adicionar um novo registro">Adcionar um novo fluxo</button>
 
         </div>
 

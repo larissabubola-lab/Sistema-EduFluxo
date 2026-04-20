@@ -3,11 +3,15 @@ const paginaprincipal = document.getElementById("pagina_principal");
 const pagina_ajuda = document.getElementById("ajuda");
 const pagina_configuracoes = document.getElementById("configuracoes_pagina");
 
+// const barra = document.getElementById("barra_lateral");
+
 function abrir_dashboard(){
     iframe.src = "dashboard.php";
     pagina_ajuda.style.display = "none";
     pagina_configuracoes.style.display = "none";
     paginaprincipal.style.display = "none";
+    barra.style.display = "none";
+    clicou = false;
 }
 
 function abrir_ocorrencias(){
@@ -15,6 +19,8 @@ function abrir_ocorrencias(){
     paginaprincipal.style.display = "none";
     pagina_ajuda.style.display = "none";
     pagina_configuracoes.style.display = "none";
+    barra.style.display = "none";
+    clicou = false;
 }  
 
 function abrir_portaria(){
@@ -22,6 +28,8 @@ function abrir_portaria(){
     paginaprincipal.style.display = "none";
     pagina_ajuda.style.display = "none";
     pagina_configuracoes.style.display = "none";
+    barra.style.display = "none";
+    clicou = false;
 }
 
 function abrir_cadastros(){
@@ -29,6 +37,8 @@ function abrir_cadastros(){
     pagina_ajuda.style.display = "none";
     paginaprincipal.style.display = "none";
     pagina_configuracoes.style.display = "none";
+    barra.style.display = "none";
+    clicou = false;
 }
 
 function abrir_ajuda(){
@@ -36,6 +46,8 @@ function abrir_ajuda(){
     paginaprincipal.style.display = "none";
     pagina_ajuda.style.display = "block";
     pagina_configuracoes.style.display = "none";
+    barra.style.display = "none";
+    clicou = false;
 }
 
 function abrir_configuracoes(){
@@ -43,4 +55,6 @@ function abrir_configuracoes(){
     paginaprincipal.style.display = "none";
     pagina_configuracoes.style.display = "block";
     pagina_ajuda.style.display = "none";
+    barra.style.display = "none";
+    clicou = false;
 }

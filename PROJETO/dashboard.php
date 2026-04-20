@@ -60,7 +60,6 @@
     </head>
 
     <body>
-        <h1>O dashboard vai aparecer aqui</h1>
         <main id="dashboard">
             <div id="numero_alunos" class="espacos">
                 <span >Total de alunos:</span>
@@ -71,17 +70,17 @@
                 <span>Total de usuarios:</span>
                 <span><?php echo htmlspecialchars($usuarios) ?></span><br>
 
-                <span>Admins:</span>
+                <!-- <span>Admins:</span>
                 <span><?php echo htmlspecialchars($admins) ?></span><br>
 
                 <span>Porteiros:</span>
                 <span><?php echo htmlspecialchars($porteiros) ?></span><br>
 
                 <span>Professores:</span>
-                <span><?php echo htmlspecialchars($professores) ?></span>
+                <span><?php echo htmlspecialchars($professores) ?></span> -->
             </div>
             
-            <div class="espacos" id="numero_de_ocorrencias"> 
+            <!-- <div class="espacos" id="numero_de_ocorrencias"> 
                 <span id="numero_ocorrencias">Total de ocorrencias:</span>
                 <span><?php echo htmlspecialchars($ocorrencias) ?></span><br>
 
@@ -90,9 +89,9 @@
 
                 <span>Ocorrencias ruins:</span>
                 <span><?php echo htmlspecialchars($ocorrencias_ruins) ?></span>
-            </div>
+            </div> -->
 
-            <div id="numero_de_portaria" class="espacos">
+            <!-- <div id="numero_de_portaria" class="espacos">
                 <span id="numero_portaria">Total de fluxos:</span>
                 <span> <?php echo htmlspecialchars($fluxos) ?></span><br>
 
@@ -106,6 +105,31 @@
                 <span><?php echo htmlspecialchars($outro) ?></span>
 
             </div>
+
+            <div class="espacos">
+                <span>Salas com mais ocorrencias</span>
+                <span>Manhã:</span>
+                <span>Tarde:</span>
+
+                <span>Salas com mais ocorrencias positivas:</span>
+                <span>Manhã:</span>
+                <span>Tarde:</span>
+
+                <span>Salas com mais ocorrencias negativas:</span>
+                <span>Manhã:</span><br>
+                <span>Tarde:</span>
+            </div>
+
+            <div class="espacos">
+                <span>Salas com mais atrasos:</span>
+                <span>Manhã:</span>
+                <span>Tarde:</span>
+
+            </div> -->
+            
+
+
+
         </main>
 
     </body>

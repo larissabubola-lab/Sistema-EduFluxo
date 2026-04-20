@@ -66,8 +66,14 @@
             $informacoes = $conexao->query("SELECT * FROM ocorrencias ORDER BY id ASC");
             while($linha = $informacoes->fetch_assoc()){
                 echo "<div class='mostra_ocorrencias'>";
+
                 echo "<div class='cgms'> " . htmlspecialchars($linha["cgm"]) . "</div>";
+
+                echo "div class='auxiliar'>";
+                echo "";
                 echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div>";
+                echo "</div>";
+
                 echo "<div class= 'series'>" . htmlspecialchars($linha["serie"]) . "</div>";
                 echo "<div class= 'relatores'>" . htmlspecialchars($linha["relator"]) . "</div>";
                 echo "<div class= 'datas'>" . htmlspecialchars($linha["data"]) . "</div>";

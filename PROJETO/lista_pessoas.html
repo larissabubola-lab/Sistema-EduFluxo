@@ -8,23 +8,42 @@
     <body>
         <!-- <h1>Aqui vai ter a opcao de ver os alunos e usuarios.</h1> -->
         <div id="botoes">
-            <button id="mostra_os_alunos" onclick="mostra_alunos()">Mostrar alunos</button>
+            <button id="mostra_os_alunos" onclick="mostra_alunos()" title="Mostrar alunos">Mostrar alunos</button>
             <button id="mostra_os_usuarios" onclick="mostra_usuarios()">Mostrar usuarios</button>
         </div>
 
-        <div id="area_pesquisa">
-            <input type="text" id="pesquisa" placeholder="Digite o nome do aluno ou usuario">
-            <button id="botao_pesquisa" onclick="pesquisar()">Pesquisar</button>
+        <div id="bsucar_alunos">
+            <input type="text" id="pesquisa" placeholder="Digite o nome do aluno">
+            <select>
+                <option value="">Todos os alunos</option>
+                <option value="6°">6°</option>
+                <option value="7°">7°</option>
+                <option value="8°">8°</option>
+                <option value="9°">9°</option>
+                <option value="1°">1°</option>
+                <option value="2°">2°</option>
+                <option value="3°">3°</option>
+            </select>
         </div>
 
         
 
         <div id="lugar_alunos">
-            <button id='botao_add_alunos' onclick='mostra_add_alunos()'>Adicionar Alunos</button>
+            <button id='botao_add_alunos' onclick='mostra_add_alunos()' title="Adicionar um novo aluno">Adicionar Alunos</button>
+        </div>
+
+        <div id="buscar_usuaris">
+            <input type="text" id="pesquisa_usuario" placeholder="Digite o nome do usuario">
+            <select>
+                <option value="">Todos os usuarios</option>
+                <option value="admin">Admin</option>
+                <option value="portaria">Portaria</option>
+                <option value="professor">Professor</option>
+            </select>
         </div>
 
         <div id="lugar_usuarios" style="display: none;">
-            <button id='botao_add_usuarios' onclick='mostra_add_usuarios()'>Adcionar Usuarios</button>
+            <button id='botao_add_usuarios' onclick='mostra_add_usuarios()' title="Adicionar um novo usuario">Adcionar Usuarios</button>
             
 
         </div>

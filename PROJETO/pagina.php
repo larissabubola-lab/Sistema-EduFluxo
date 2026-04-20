@@ -12,6 +12,9 @@
             session_start();
 
             $nome = $_SESSION["nome"];
+            $primeiro_nome = (string)$nome;
+            $primeiro_nome = str_contains($primeiro_nome, " ")? explode(" ", $primeiro_nome)[0]: $primeiro_nome;
+
             $permissao = $_SESSION["permissao"];
 
             switch($permissao){
@@ -30,8 +33,12 @@
                     break;
             }
         ?>
-        <!-- <h1>OconteuSdo vai ficar aqui</h1> -->
-        <div id="barra_tarefas"><button onclick="mostrar_barra_lateral()">☰</button></div>
+
+        <div id="barra_tarefas">
+            <button id="hamburguer" onclick="mostrar_barra_lateral()" title="Abrir barra lateral">☰</button>
+            <!-- <i class="" -->
+            <h1 id="h1">Sistema EduFluxo</h1>
+        </div>
 
         <aside id="barra_lateral" style="display: none;">
             <div id="menu">
@@ -39,23 +46,23 @@
                 <button id="fechar_menu" onclick="mostrar_barra_lateral()">X</button>
             </div>
             <div id="opcoes">
-                <div class="opcoes" id="dashboard" onclick="abrir_dashboard()">Dashboard</div>
-                <div class="opcoes" id="ocorrencias" onclick="abrir_ocorrencias()">Ocorrências</div>
-                <div class="opcoes" id="portaria" onclick="abrir_portaria()">Portaria</div>
-                <div class="opcoes" id="cadastros" onclick="abrir_cadastros()">Cadastros</div>
-                <div class="opcoes" id="como_usar" onclick="abrir_ajuda()">Como usar</div>
-                <div class="opcoes" id="configuracoes" onclick="abrir_configuracoes()">Configurações</div>
+                <div class="opcoes" id="dashboard" onclick="abrir_dashboard()" title="Abrir dashboard">Dashboard</div>
+                <div class="opcoes" id="ocorrencias" onclick="abrir_ocorrencias()" title="Abrir ocorrências">Ocorrências</div>
+                <div class="opcoes" id="portaria" onclick="abrir_portaria()" title="Abrir portaria">Portaria</div>
+                <div class="opcoes" id="cadastros" onclick="abrir_cadastros()" title="Abrir cadastros">Cadastros</div>
+                <div class="opcoes" id="como_usar" onclick="abrir_ajuda()" title="Como usar">Como usar</div>
+                <div class="opcoes" id="configuracoes" onclick="abrir_configuracoes()" title="Abrir configurações">Configurações</div>
             </div>
-            <div id="voltar">▶ Voltar para tela inicial</div>
+            <div id="voltar" title="Voltar para tela inicial">▶ Voltar para tela inicial</div>
             <button id="muda_tema" onclick="mudar_tema()">Tema escuro 🌙</button>
             <div id="usuario">
                 <i class="bi bi-person-circle"></i>
                 <div id="perfil">
-                    <div id="nome_usuario"><?php echo htmlspecialchars($nome); ?></div>
+                    <div id="nome_usuario"><?php echo htmlspecialchars($primeiro_nome); ?></div>
                     <div id="permissao_usuario"><?php echo htmlspecialchars($permissao_mostra); ?></div>
                 </div>
                 
-                <i class="bi bi-box-arrow-right"></i>
+                <i class="bi bi-box-arrow-right" title="Sair"></i>
             </div>
         </aside>
 
@@ -81,7 +88,7 @@
         let permissao = "<?php echo $permissao; ?>";
         var nome_usuario = "<?php echo $nome; ?>";
         localStorage.setItem("nome_usuario", nome_usuario);
-        alert("oi " + nome_usuario);
+        // alert("oi " + nome_usuario);
 
         const mostra_dashboard = document.getElementById("dashboard");
         const mostra_ocorrencias = document.getElementById("ocorrencias");

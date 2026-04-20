@@ -1,7 +1,14 @@
+@font-face {
+    font-family: sekuya;
+    src: url(assets/Sekuya-Regular.ttf);
+}
+
 body{
     background-color:#f5f5f5;
     background-color:#E6ECF5;
     min-height: 100vh;
+    width:100%;
+    margin:0 auto;
 }
 
 #barra_tarefas{
@@ -10,13 +17,52 @@ body{
     position: fixed;
     width: 100vw;
     height: 80px;
+    flex-direction:row;
     align-items:center;
+    /* justify-content:space-evenly; */
     background-color: black;
     padding: 10px;
     z-index: 10;
     top: 0;
     left: 0;
     box-shadow: 0px 10px 10px grey;
+    
+}
+
+#hamburguer{
+    font-size:25px;
+    background:transparent;
+    color:white;
+    width:fit-content;
+    height:fit-content;
+    border:2px solid white;
+    border-radius:5px;
+    padding-bottom:3px;
+    margin-left:50px;
+    cursor:pointer;
+    transition: transform 200ms ease;
+    /* font-family:sekuya; */
+    /* text-shadow:8px 8px 15px white; */
+
+    /* box-shadow:5px 5px 15px white; */
+}
+
+#hamburguer:hover{
+    transform:scale(1.1);
+}
+
+#h1{
+    color:white;
+    margin-left:50px;
+    font-size:40px;
+    /* font-family:monospace */
+    font-family: sekuya;
+    text-shadow:5px 5px 20px white;
+    text-shadow:10px 10px 10px grey;
+    /* -webkit-text-stroke:1px white; */
+    /* text-decoration:underline dotted; */
+    /* font-style:italic; */
+    cursor:default;
 }
 
 #barra_lateral{
@@ -49,13 +95,16 @@ body{
     /* background: grey; */
     border-radius:10px;
     
+    
 }
 
 #menu h2{
-    font-size:40px;
+    font-size:30px;
     /* color: #2d429b; */
     color:white;
-    text-shadow:5px 5px 5px white
+    cursor:default;
+    font-family:sekuya;
+    text-shadow:2px 2px 20px white
     /* text-shadow:5px 5px 5px #0A174E;  */
 }
 
@@ -64,12 +113,14 @@ body{
     color:white;
     border:none;
     background:none;
-    text-shadow:5px 5px 5px white;
+    /* text-shadow:5px 5px 5px white; */
     font-size:25px;
     /* text-shadow:5px 5px 5px grey;  */
     /* font-family:monospace; */
     margin-left:55px;
     cursor:pointer;
+    font-family:sekuya;
+    text-shadow:2px 2px 5px white;
     transition:transform 100ms ease;
     
 }
@@ -130,6 +181,8 @@ body{
     border-top:solid white;
     display:flex;
     align-items:center;
+    padding-top:10px;
+    /* padding-top:5px; */
     justify-content:space-between;
 }
 
@@ -138,17 +191,34 @@ body{
     width:fit-content;
     height:fit-content;
     flex-direction:column;
+    align-items:center;
+    gap:2px;
+    /* justify-content:center; */
+    
     /* align-items:flex-end; */
+}
+#nome_usuario{
+    font-weight:bold;
+    font-size:20px;
+    cursor:default;
+}
+#permissao_usuario{
+    font-style:italic;
+    cursor:default;
 }
 
 i{
     color:white;
+    font-size:40px;
+}
+.bi-box-arrow-right{
+    cursor:pointer;
 }
 
 iframe{
     border:none;
-    margin-top:120px;
-    width:100vw;
+    margin-top:140px;
+    width:100%;
     height:100vh;
     /* margin-left:250px; */
 }
