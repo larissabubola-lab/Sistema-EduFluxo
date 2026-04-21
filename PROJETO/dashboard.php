@@ -68,7 +68,19 @@
                     <span class="totais">Total de alunos:</span>
                     <span><?php echo htmlspecialchars($alunos) ?></span>
                 </div>
-                <button class="botoes">Mostrar mais ▼</button>
+                <button class="botoes" id="botao_series" onclick="mostra_as_series()">Mostrar mais ▼</button>
+                    
+                <div class="mostrar_mais" id="mostrar_series" style="display: none;">
+                    <div>Ensino fundamental:200</div>
+                    <div>6° ano:100</div>
+                    <div>7° ano:50</div>
+                    <div>8° ano:30</div>
+                    <div>9° ano:20</div>
+                    <div>Ensino médio:100</div>
+                    <div>1° ano:50</div>
+                    <div>2° ano:30</div>
+                    <div>3° ano:20</div>
+                </div>
             </div>
 
             <div id="numero_usuarios" class="espacos">
@@ -141,6 +153,8 @@
 
 
         </main>
+
+        <script src="dashboard.js"></script>
 
     </body>
 </html>
