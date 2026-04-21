@@ -90,45 +90,56 @@
                     <span class="totais">Total de usuarios:</span>
                     <span><?php echo htmlspecialchars($usuarios) ?></span>
                 </div>
-                <button class="botoes">Mostrar mais ▼</button>
+                <button class="botoes" id="botao_permissoes" onclick="mostra_as_permissoes()">Mostrar mais ▼</button>
 
-                <!-- <span>Admins:</span>
-                <span><?php echo htmlspecialchars($admins) ?></span><br>
+                <div class="mostrar_mais" id="mostrar_permissoes" style="display: none;">
+                    <div>Admins: <?php echo htmlspecialchars($admins) ?></div>
 
-                <span>Porteiros:</span>
-                <span><?php echo htmlspecialchars($porteiros) ?></span><br>
+                    <div>Portaria: <?php echo htmlspecialchars($porteiros) ?></div>
 
-                <span>Professores:</span>
-                <span><?php echo htmlspecialchars($professores) ?></span> -->
+                    <div>Professores: <?php echo htmlspecialchars($professores) ?></div>
+                </div>
+
             </div>
             
-            <!-- <div class="espacos" id="numero_de_ocorrencias"> 
-                <span id="numero_ocorrencias">Total de ocorrencias:</span>
-                <span><?php echo htmlspecialchars($ocorrencias) ?></span><br>
+            <div class="espacos" id="numero_de_ocorrencias"> 
+                <div id="ocorrencias" class="a">
+                    <i class="bi bi-person-gear"></i>
+                    <span class="totais" id="numero_ocorrencias">Total de ocorrencias:</span>
+                    <span><?php echo htmlspecialchars($ocorrencias) ?></span>
+                </div>
 
-                <span>Ocorrencias boas:</span>
-                <span><?php echo htmlspecialchars($ocorrencias_boas) ?></span><br>
+                <button class="botoes" id="botao_ocorrencias" onclick="mostrar_ocorrencias()">Mostrar mais ▼</button>
 
-                <span>Ocorrencias ruins:</span>
-                <span><?php echo htmlspecialchars($ocorrencias_ruins) ?></span>
-            </div> -->
+                <div class="mostrar_mais" id="mostrar_ocorrencias" style="display: none;">
+                    <div>Ocorrencias boas: <?php echo htmlspecialchars($ocorrencias_boas) ?></div>
 
-            <!-- <div id="numero_de_portaria" class="espacos">
-                <span id="numero_portaria">Total de fluxos:</span>
-                <span> <?php echo htmlspecialchars($fluxos) ?></span><br>
+                    <div>Ocorrencias ruins: <?php echo htmlspecialchars($ocorrencias_ruins) ?></div>
+                   
+                </div>
+            </div>
 
-                <span>Atrasos:</span>
-                <span><?php echo htmlspecialchars($atrasos) ?></span><br>
+            <div id="numero_de_portaria" class="espacos">
+                <div id="portaria" class="a">
+                    <i class="bi bi-door-open"></i>
+                    <span id="numero_portaria">Total de fluxos:</span>
+                    <span> <?php echo htmlspecialchars($fluxos) ?></span>
+                </div>
 
-                <span>Saiu mais cedo:</span>
-                <span><?php echo htmlspecialchars($saiu_mais_cedo) ?></span><br>
+                <button class="botoes" id="botao_fluxos" onclick="mostrar_fluxos()">Mostrar mais ▼</button>
 
-                <span>Outros:</span>
-                <span><?php echo htmlspecialchars($outro) ?></span>
+                <div class="mostrar_mais" id="mostrar_fluxos" style="display: none;">
+                    <div>Atrasos: <?php echo htmlspecialchars($atrasos) ?></div>
+             
+                    <div>Saiu mais cedo: <?php echo htmlspecialchars($saiu_mais_cedo) ?></div>
+             
+                    <div>Outros: <?php echo htmlspecialchars($outro) ?></div>
+            
+                </div>
 
             </div>
 
-            <div class="espacos">
+            <!-- <div class="espacos">
                 <span>Salas com mais ocorrencias</span>
                 <span>Manhã:</span>
                 <span>Tarde:</span>
