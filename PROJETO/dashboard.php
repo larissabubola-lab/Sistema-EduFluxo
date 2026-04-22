@@ -25,7 +25,7 @@
 
 
 
-    $usuarios = $conexao->query("SELECT aluno FROM usuarios");
+    $usuarios = $conexao->query("SELECT * FROM usuarios");
     $usuarios = $usuarios->fetch_all();
     $usuarios = count($usuarios);
 
