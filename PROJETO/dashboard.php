@@ -5,7 +5,27 @@
     $alunos = $alunos->fetch_all();
     $alunos = count($alunos);
 
-    $usuarios = $conexao->query("SELECT * FROM usuarios");
+    //!buscar a quantidade de alunos no fundamental:
+
+    $ensino_fundamental = $conexao->query("SELECT sala FROM alunos");
+    $ensino_fundamental = $ensino_fundamental->fetch_all();
+
+    $data = json_decode(file_get_contents("php://input"), true);
+    
+    // if (!is_array($data) || !isset($data["para"])) {  //! caso for null
+    //     http_response_code(400);
+    //     exit("Dados inválidos");
+    // }
+
+    switch($data["para"]){
+        case "ensino_fundamental":
+            echo json_encode($ensino_fundamental);
+    }
+
+
+
+
+    $usuarios = $conexao->query("SELECT aluno FROM usuarios");
     $usuarios = $usuarios->fetch_all();
     $usuarios = count($usuarios);
 
@@ -71,7 +91,7 @@
                 <button class="botoes" id="botao_series" onclick="mostra_as_series()">Mostrar mais ▼</button>
                     
                 <div class="mostrar_mais" id="mostrar_series" style="display: none;">
-                    <div>Ensino fundamental:200</div>
+                    <div id="fundamental">Ensino fundamental:</div>
                     <div>6° ano:100</div>
                     <div>7° ano:50</div>
                     <div>8° ano:30</div>
