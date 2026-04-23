@@ -149,8 +149,8 @@
             <div id="numero_alunos" class="espacos">
                 <div id="alunos" class="a">
                     <i class="bi bi-highlighter"></i>
-                    <span class="totais">Total de alunos:</span>
-                    <span><?php echo htmlspecialchars($alunos) ?></span>
+                    <span class="totais">Total de alunos:&nbsp;<?php echo htmlspecialchars($alunos) ?></span>
+                    <!-- <span></span> -->
                 </div>
                 <button class="botoes" id="botao_series" onclick="mostra_as_series()">Mostrar mais ▼</button>
                     
@@ -172,8 +172,8 @@
                 
                 <div id="usuarios" class="a">
                     <i class="bi bi-person-square"></i>
-                    <span class="totais">Total de usuarios:</span>
-                    <span><?php echo htmlspecialchars($usuarios) ?></span>
+                    <div class="totais">Total de usuarios:&nbsp;<?php echo htmlspecialchars($usuarios) ?></div>
+                    <!-- <span></span> -->
                 </div>
                 <button class="botoes" id="botao_permissoes" onclick="mostra_as_permissoes()">Mostrar mais ▼</button>
 
@@ -190,8 +190,8 @@
             <div class="espacos" id="numero_de_ocorrencias"> 
                 <div id="ocorrencias" class="a">
                     <i class="bi bi-person-gear"></i>
-                    <span class="totais" id="numero_ocorrencias">Total de ocorrencias:</span>
-                    <span><?php echo htmlspecialchars($ocorrencias) ?></span>
+                    <div class="totais" id="numero_ocorrencias">Total de ocorrencias:&nbsp;<?php echo htmlspecialchars($ocorrencias) ?></div>
+                    <!-- <span></span> -->
                 </div>
 
                 <button class="botoes" id="botao_ocorrencias" onclick="mostrar_ocorrencias()">Mostrar mais ▼</button>
@@ -207,8 +207,8 @@
             <div id="numero_de_portaria" class="espacos">
                 <div id="portaria" class="a">
                     <i class="bi bi-door-open"></i>
-                    <span id="numero_portaria">Total de fluxos:</span>
-                    <span> <?php echo htmlspecialchars($fluxos) ?></span><br>
+                    <div id="numero_portaria">Total de fluxos:&nbsp; <?php echo htmlspecialchars($fluxos) ?></div>
+                    <!-- <span></span><br> -->
                 </div>
 
                 <button class="botoes" id="botao_fluxos" onclick="mostrar_fluxos()">Mostrar mais ▼</button>
@@ -221,33 +221,42 @@
                     <div>Outros: <?php echo htmlspecialchars($outro) ?></div>
             
                 </div>
-
             </div>
 
-            <!-- <div class="espacos">
-                <span>Salas com mais ocorrencias</span>
-                <span>Manhã:</span>
-                <span>Tarde:</span>
+            <div id="ocorrencias_salas" class="espacos">
+                <div class="a" id="ocorrencias_em_salas">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <div id="numero_ocorrencias_salas">Salas com mais ocorrencias:</div>
+                </div>
+                <div id="manha_tarde">
+                    <div><i class="bi bi-brightness-alt-high"></i>&nbsp;Manhã:</div>
+                    <div><i class="bi bi-brightness-high"></i>&nbsp;Tarde:</div>
+                </div>
 
-                <span>Salas com mais ocorrencias positivas:</span>
-                <span>Manhã:</span>
-                <span>Tarde:</span>
+                <button class="botoes" id="botao_ocorrencias_salas" onclick="mostra_mais_salas()">Mostrar mais ▼</button>
 
-                <span>Salas com mais ocorrencias negativas:</span>
-                <span>Manhã:</span><br>
-                <span>Tarde:</span>
+                <div class="mostrar_mais" id="mostrar_ocorrencias_salas" style="display: none;">
+                    <div>Salas com mais ocorrencias positivas:</div>
+                    <div>Manhã:</div>
+                    <div>Tarde:</div>
+                    <div>Salas com mais ocorrencias negativas:</div>
+                    <div>Manhã:</div>
+                    <div>Tarde:</div>
+                </div>
             </div>
 
-            <div class="espacos">
-                <span>Salas com mais atrasos:</span>
-                <span>Manhã:</span>
-                <span>Tarde:</span>
+            <div id="portaria_salas" class="espacos">
+                <div class="a" id="portaria_em_salas">
+                    <i class="bi bi-person-walking"></i>
+                    <div>Salas com mais atrasos:<div>
+                </div>
+                <div>
+                    <div>Manhã:</div>
+                    <div>Tarde:</div>
+                </div>
 
-            </div> -->
+            </div>
             
-
-
-
         </main>
 
         <script src="dashboard.js"></script>
