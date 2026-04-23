@@ -5,7 +5,7 @@
     $alunos = $alunos->fetch_all();
     $alunos = count($alunos);
 
-    //!buscar a quantidade de alunos no fundamental:
+    //!buscar a quantidade de alunos no fundamental e no médio:
 
     $query = $conexao->query("SELECT sala FROM alunos");
 
