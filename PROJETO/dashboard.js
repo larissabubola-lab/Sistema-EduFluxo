@@ -62,24 +62,25 @@ function mostrar_fluxos(){
     }
 }
 
-fetch("dashboad.php",{
-    method: "POST",
-    headers:{
-        "Content-Type": "application/json"
-    },
-    body:JSON.stringify({
-        para:"ensino_fundamental"
-    })
-})
-.then(resposta=>resposta.json())
-.then(dados=>{
+// fetch("dashboad.php",{
+//     method: "POST",
+//     headers:{
+//         "Content-Type": "application/json"
+//     },
+//     body:JSON.stringify({
+//         para:"ensino_fundamental"
+//     })
+// })
+// .then(resposta=>resposta.json())
+// .then(dados=>{
 
-    const mostra_fundamental = document.getElementById("fundamental");
+//     const mostra_fundamental = document.getElementById("fundamental");
 
-    let array = ["6", "7", "8", "9"]
-    let valores_encontrados = dados.filter(item => array.includes(item));
-    let quantidade = valores_encontrados.length;
+//     let array = ["6", "7", "8", "9"]
+//     let valores_encontrados = dados.filter(item => array.includes(String(item)));
 
-    mostra_fundamental.innerHTML = "Ensino fundamental: " + quantidade;
+//     let quantidade = valores_encontrados.length;
+
+//     mostra_fundamental.innerHTML = "Ensino fundamental: " + quantidade;
    
-})
+// })

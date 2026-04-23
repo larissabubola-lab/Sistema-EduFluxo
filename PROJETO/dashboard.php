@@ -7,24 +7,23 @@
 
     //!buscar a quantidade de alunos no fundamental:
 
-    $ensino_fundamental = $conexao->query("SELECT sala FROM alunos");
-    $ensino_fundamental = $ensino_fundamental->fetch_all();
+    $query_fundamental = $conexao->query("SELECT sala FROM alunos");
+    $ensino_fundamental = [];
+    $total_fundamental = 0;
 
-    $data = json_decode(file_get_contents("php://input"), true);
-    
-    // if (!is_array($data) || !isset($data["para"])) {  //! caso for null
-    //     http_response_code(400);
-    //     exit("Dados inválidos");
-    // }
-
-    switch($data["para"]){
-        case "ensino_fundamental":
-            echo json_encode($ensino_fundamental);
+    while($linha = $query_fundamental->fetch_assoc()){
+        $sala = $linha["sala"];
+        
+        if(str_contains($sala, "6")|| str_contains($sala, "7")|| str_contains($sala, "8")|| str_contains($sala, "9")){
+            $total_fundamental++;
+        }
+        
     }
 
+    $ensino_fundamental = "Ensino fundamental: " .  $total_fundamental;
 
 
-
+    
     $usuarios = $conexao->query("SELECT * FROM usuarios");
     $usuarios = $usuarios->fetch_all();
     $usuarios = count($usuarios);
@@ -91,15 +90,15 @@
                 <button class="botoes" id="botao_series" onclick="mostra_as_series()">Mostrar mais ▼</button>
                     
                 <div class="mostrar_mais" id="mostrar_series" style="display: none;">
-                    <div id="fundamental">Ensino fundamental:</div>
-                    <div>6° ano:100</div>
-                    <div>7° ano:50</div>
-                    <div>8° ano:30</div>
-                    <div>9° ano:20</div>
-                    <div>Ensino médio:100</div>
-                    <div>1° ano:50</div>
-                    <div>2° ano:30</div>
-                    <div>3° ano:20</div>
+                    <div id="fundamental"><?php echo htmlspecialchars($ensino_fundamental) ?></div>
+                    <div>6° ano:</div>
+                    <div>7° ano:</div>
+                    <div>8° ano:</div>
+                    <div>9° ano:</div>
+                    <div>Ensino médio:</div>
+                    <div>1° ano:</div>
+                    <div>2° ano:</div>
+                    <div>3° ano:</div>
                 </div>
             </div>
 
@@ -143,7 +142,7 @@
                 <div id="portaria" class="a">
                     <i class="bi bi-door-open"></i>
                     <span id="numero_portaria">Total de fluxos:</span>
-                    <span> <?php echo htmlspecialchars($fluxos) ?></span>
+                    <span> <?php echo htmlspecialchars($fluxos) ?></span><br>
                 </div>
 
                 <button class="botoes" id="botao_fluxos" onclick="mostrar_fluxos()">Mostrar mais ▼</button>
