@@ -10,9 +10,11 @@
     $query = $conexao->query("SELECT sala FROM alunos");
 
     $total_fundamental = 0;
-
+    
     $total_medio = 0;
 
+    $total_outro = 0;
+    
     while($linha = $query->fetch_assoc()){
         $sala = $linha["sala"];
         
@@ -22,12 +24,69 @@
         else if(str_contains($sala, "1")|| str_contains($sala, "2")|| str_contains($sala, "3")){
             $total_medio++;
         }
+        else{
+            $total_outro++;
+        }
         
     }
+
 
     $ensino_fundamental = "Ensino fundamental: " .  $total_fundamental;
 
     $ensino_medio = "Ensino médio: " . $total_medio;
+
+    $total_6 = 0;
+    $total_7 = 0;
+    $total_8 = 0;
+    $total_9 = 0;
+
+    $total_1 = 0;
+    $total_2 = 0;
+    $total_3 = 0;
+
+    $outro_total = 0;
+
+    $query_salas = $conexao->query("SELECT sala FROM alunos");
+
+    while($linha = $query_salas->fetch_assoc()){
+        $salas = $linha["sala"];
+        if(str_contains($salas, "6")){
+            $total_6++;
+        }
+        else if(str_contains($salas, "7")){
+            $total_7++;
+        }
+        else if(str_contains($salas, "8" )){
+            $total_8++;          
+        }
+        else if(str_contains($salas, "9")){
+            $total_9++;
+        }
+        else if(str_contains($salas, "1")){
+            $total_1++;
+        } 
+        else if(str_contains($salas, "2")){
+            $total_2++;
+        }
+        else if(str_contains($salas, "3")){
+            $total_3++;
+        }
+        else{
+            $outro_total++;
+        }
+
+    }
+
+    $sexto_ano = "6° ano: " .  $total_6;
+    $setimo_ano = "7° ano: " . $total_7;
+    $oitavo_ano = "8° ano: " . $total_8;
+    $nono_ano = "9° ano: " . $total_9;
+
+    $primeiro_medio = "1° ano:" . $total_1;
+    $segundo_medio = "2° ano:" . $total_2;
+    $terceirao = "3° ano:" . $total_3;
+
+    $outros = "Outro: " . $outro_total;
 
     
     $usuarios = $conexao->query("SELECT * FROM usuarios");
@@ -97,14 +156,15 @@
                     
                 <div class="mostrar_mais" id="mostrar_series" style="display: none;">
                     <div id="fundamental"><?php echo htmlspecialchars($ensino_fundamental) ?></div>
-                    <div>6° ano:</div>
-                    <div>7° ano:</div>
-                    <div>8° ano:</div>
-                    <div>9° ano:</div>
+                    <div><?php echo htmlspecialchars($sexto_ano) ?></div>
+                    <div><?php echo htmlspecialchars($setimo_ano)?></div>
+                    <div><?php echo htmlspecialchars($oitavo_ano)?></div>
+                    <div><?php echo htmlspecialchars($nono_ano)?></div>
                     <div><?php echo $ensino_medio ?></div>
-                    <div>1° ano:</div>
-                    <div>2° ano:</div>
-                    <div>3° ano:</div>
+                    <div><?php echo htmlspecialchars($primeiro_medio)?></div>
+                    <div><?php echo htmlspecialchars($segundo_medio)?></div>
+                    <div><?php echo htmlspecialchars($terceirao)?></div><br>
+                    <div><?php echo htmlspecialchars($outros)?></div>
                 </div>
             </div>
 
