@@ -68,17 +68,13 @@
                 echo "<div class='mostra_ocorrencias'>";
 
                 echo "<div class='cgms'> " . htmlspecialchars($linha["cgm"]) . "</div>";
+                echo "<div class='nomes'> <span>Nome: </span>" . htmlspecialchars($linha["nome"]) . "</div>";
+                echo "<div class= 'series'> <span>Série: </span>" . htmlspecialchars($linha["serie"]) . "</div>";
+                echo "<div class= 'relatores'> <span>Usuário: </span>" . htmlspecialchars($linha["relator"]) . "</div>";
+                echo "<div class= 'datas'><span>Data: </span>" . htmlspecialchars($linha["data"]) . "</div>";
+                echo "<div class='tipos'><span>Tipo de ocorrência: " . htmlspecialchars($linha["tipo"]) . "</div>";
+                echo "<div class= 'motivos'> <span> Motivo: " . htmlspecialchars($linha["motivo"]) . "</div>";
 
-                // echo "div class='auxiliar'>";
-                // echo "";
-                echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div>";
-                // echo "</div>";
-
-                echo "<div class= 'series'>" . htmlspecialchars($linha["serie"]) . "</div>";
-                echo "<div class= 'relatores'>" . htmlspecialchars($linha["relator"]) . "</div>";
-                echo "<div class= 'datas'>" . htmlspecialchars($linha["data"]) . "</div>";
-                echo "<div class='tipos'>" . htmlspecialchars($linha["tipo"]) . "</div>";
-                echo "<div class= 'motivos'>" . htmlspecialchars($linha["motivo"]) . "</div>";
                 echo "</div>";
             }
             break;

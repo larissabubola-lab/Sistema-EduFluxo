@@ -34,13 +34,7 @@
     padding:40px;
     border-radius:20px;
 }
-#numero_alunos{
-    color:red;
-}
 
-#numero_usuarios{
-    color:blue;
-}
 
 .botoes{
     font-size:25px;
@@ -50,13 +44,38 @@
     margin-top:10px;
 }
 
+#numero_alunos{
+    color:red;
+}
+
+
 #numero_alunos button{
     color:red;
     
 }
 
+#numero_usuarios{
+    color:blue;
+}
+
 #numero_usuarios button{
     color:blue;
+}
+
+#numero_de_ocorrencias{
+    color:purple;
+}
+
+#numero_de_ocorrencias button{
+    color:purple;
+}
+
+#numero_de_portaria{
+    color:green;
+}
+
+#numero_de_portaria button{
+    color:green;
 }
 
 .a{

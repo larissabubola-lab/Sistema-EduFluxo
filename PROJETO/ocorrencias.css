@@ -113,18 +113,33 @@ label{
 }
 
 #adcionar_ocorrencias{
-    width:fit-content;
+    width:400px;
     display:inline-block;
+    border:dashed;
+    background:transparent;
+    border-radius:20px;
+    cursor:pointer;
+    transition:transform 200ms ease;
+}
+
+#adcionar_ocorrencias:hover{
+    transform:scale(1.02);
 }
 
 .mostra_ocorrencias{
     border:solid;
-    display:inline-block;
+    display:grid;
     width:350px;
     height:150px;
+    flex-direction:column;
+    justify-content:center;
     padding:20px;
-    border-radius:20px;
-    
+    border-radius:20px; 
+    transition:transform 200ms ease;
+    cursor:pointer;
+}
+.mostra_ocorrencias:hover{
+    transform:scale(1.02) ;
 }
 .cgms{
     display:none
