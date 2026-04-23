@@ -7,21 +7,27 @@
 
     //!buscar a quantidade de alunos no fundamental:
 
-    $query_fundamental = $conexao->query("SELECT sala FROM alunos");
-    $ensino_fundamental = [];
+    $query = $conexao->query("SELECT sala FROM alunos");
+
     $total_fundamental = 0;
 
-    while($linha = $query_fundamental->fetch_assoc()){
+    $total_medio = 0;
+
+    while($linha = $query->fetch_assoc()){
         $sala = $linha["sala"];
         
         if(str_contains($sala, "6")|| str_contains($sala, "7")|| str_contains($sala, "8")|| str_contains($sala, "9")){
             $total_fundamental++;
+        }
+        else if(str_contains($sala, "1")|| str_contains($sala, "2")|| str_contains($sala, "3")){
+            $total_medio++;
         }
         
     }
 
     $ensino_fundamental = "Ensino fundamental: " .  $total_fundamental;
 
+    $ensino_medio = "Ensino médio: " . $total_medio;
 
     
     $usuarios = $conexao->query("SELECT * FROM usuarios");
@@ -95,7 +101,7 @@
                     <div>7° ano:</div>
                     <div>8° ano:</div>
                     <div>9° ano:</div>
-                    <div>Ensino médio:</div>
+                    <div><?php echo $ensino_medio ?></div>
                     <div>1° ano:</div>
                     <div>2° ano:</div>
                     <div>3° ano:</div>
