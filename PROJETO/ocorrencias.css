@@ -167,7 +167,7 @@ label{
 }
 
 .parte_cima:first-child{
-    font-size:25px;
+    font-size:23px;
 }
 
 .parte_cima :nth-child(2){
@@ -229,7 +229,7 @@ label{
 .auxiliar{
     display:flex;
     flex-direction:column;
-    width:fit-content;
+    width:150px;
     height:fit-content;
     justify-content:center;
     gap:20px;
@@ -252,20 +252,6 @@ label{
     color:#000000;
     margin-top:5px;
 }
-
-/* .tipos{
-    display:none;
-    border:2px solid;
-    width:fit-content;
-    border-radius:30px;
-    padding:5px;
-    border-color:green;
-    color:lightgreen;
-    color:white;
-    margin-top:10px;
-    background:green;
-    
-} */
 
 .auxiliar_motivo{
     display:flex;
@@ -320,6 +306,7 @@ label{
     border:none;
     cursor:pointer;
     /* color:green; */
+    font-size:15px;
     
 }
 

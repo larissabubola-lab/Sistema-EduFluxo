@@ -103,8 +103,8 @@
                         echo "</div>";
 
                         echo "<div class='botoes'>";
-                            echo "<button class='editar'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
-                            echo "<button class='apagar'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
+                            echo "<button class='editar' title='Editar ocorrencia'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
+                            echo "<button class='apagar' title='Apagar ocorrencia'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
                         echo "</div>";
 
                     echo "</div>";
@@ -147,8 +147,8 @@
                         echo "</div>";
 
                         echo "<div class='botoes'>";
-                            echo "<button class='editar'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
-                            echo "<button class='apagar'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
+                            echo "<button class='editar' title='Editar ocorrencia'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
+                            echo "<button class='apagar' title='Apagar ocorrencia'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
                         echo "</div>";
 
                     echo "</div>";
