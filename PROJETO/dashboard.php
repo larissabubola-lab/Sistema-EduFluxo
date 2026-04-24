@@ -1,6 +1,8 @@
 <?php
     $conexao = new mysqli("localhost", "root", "", "edufluxo");
 
+     //!BUSCA A QUANTIDADE TOTAL DE ALUNOS CADASTRADOS NO BANCO
+
     $alunos = $conexao->query("SELECT * FROM alunos");
     $alunos = $alunos->fetch_all();
     $alunos = count($alunos);
@@ -30,10 +32,11 @@
         
     }
 
-
     $ensino_fundamental = "Ensino fundamental: " .  $total_fundamental;
 
     $ensino_medio = "Ensino médio: " . $total_medio;
+
+    //!VERIFICA A QUANTIDADE DE ALUNOS CADA SERIE:
 
     $total_6 = 0;
     $total_7 = 0;
@@ -88,10 +91,13 @@
 
     $outros = "Outro: " . $outro_total;
 
-    
+    //! VERIFICA A QUANTIDADE TOTAL DE USUARIOS:
+  
     $usuarios = $conexao->query("SELECT * FROM usuarios");
     $usuarios = $usuarios->fetch_all();
     $usuarios = count($usuarios);
+
+    //!QUANTIDADE DE ADMINS, PROFESSORES E PORTARIA:
 
     $admins = $conexao->query("SELECT * FROM usuarios WHERE permissao = 0");
     $admins = $admins->fetch_all();
@@ -105,9 +111,13 @@
     $professores = $professores->fetch_all();
     $professores = count($professores);
 
+    //!QUANTIDADE TOTAL DE OCORRENCIAS:
+
     $ocorrencias = $conexao->query("SELECT * FROM ocorrencias");
     $ocorrencias = $ocorrencias->fetch_all();
     $ocorrencias = count($ocorrencias);
+
+    //!QUANTIDADE DE OCORRENCIAS BOAS E NEGATIVAS:
 
     $ocorrencias_boas = $conexao->query("SELECT * FROM ocorrencias WHERE tipo = 'positiva'");
     $ocorrencias_boas = $ocorrencias_boas->fetch_all();
@@ -117,17 +127,69 @@
     $ocorrencias_ruins = $ocorrencias_ruins->fetch_all();
     $ocorrencias_ruins = count($ocorrencias_ruins);
 
+    //!TURMAS COM MAIS OCORRENCIAS:
+
+    // $total_ocorrencias_6 = {"6°": ""};
+    // $total_ocorrencias_7 = 0;
+    // $total_ocorrencias_8 = 0;
+    // $total_ocorrencias_9 = 0;
+
+    // $total_ocorrencias_1 = 0;
+    // $total_ocorrencias_2 = 0;
+    // $total_ocorrencias_3 = 0;
+
+    // $total_ocorrencias_outro = 0;
+
+    // $query_ocorrencias = $conexao->query("SELECT * FROM ocorrencias");
+
+    // while($linha = $query_ocorrencias->fetch_assoc()){
+    //     $salas_ocorrencia = $linha["serie"];
+    //     if(str_contains($salas_ocorrencia, "6")){
+    //         $total_ocorrencias_6++;
+    //     }
+    //     else if(str_contains($salas_ocorrencia, "7")){
+    //         $total_ocorrencias_7++;
+    //     }
+    //     else if(str_contains($salas_ocorrencia, "8")){
+    //         $total_ocorrencias_8++;
+    //     }
+    //     else if(str_contains($salas_ocorrencia, "9")){
+    //         $total_ocorrencias_9++;
+    //     }
+    //     else if(str_contains($salas_ocorrencia, "1")){
+    //         $total_ocorrencias_1++;
+    //     }
+    //     else if(str_contains($salas_ocorrencia, "2")){
+    //         $total_ocorrencias_2++;
+    //     }
+    //     else if(str_contains($salas_ocorrencia, "3")){
+    //         $total_ocorrencias_3++;
+    //     }
+    //     else{
+    //         $total_ocorrencias_outro++;
+    //     }
+    // }
+
+
+    //!QUANTIDADE DOS FLUXOS:
+
     $fluxos = $conexao->query("SELECT * FROM fluxo_saidas");
     $fluxos = $fluxos->fetch_all();
     $fluxos = count($fluxos);
+
+    //!QUANTIDADE TOTAL DE ATRASOS:
 
     $atrasos = $conexao->query("SELECT * FROM fluxo_saidas WHERE motivo = 'O aluno chegou atrasado'");
     $atrasos = $atrasos->fetch_all();
     $atrasos = count($atrasos);
 
+    //!QUANTIDADE TOTAL DE ALUNOS QUE SAIRAM MAIS CEDO:
+
     $saiu_mais_cedo = $conexao->query("SELECT * FROM fluxo_saidas WHERE motivo = 'O aluno saiu mais cedo'");
     $saiu_mais_cedo = $saiu_mais_cedo->fetch_all();
     $saiu_mais_cedo = count($saiu_mais_cedo);
+
+    //!QUANTIDADE TOTAL DE OUTROS MOTIVOS DA PORTARIA:
 
     $outro = $conexao->query("SELECT * FROM fluxo_saidas WHERE motivo != 'O aluno chegou atrasado' && 'O aluno saiu mais cedo'");
     $outro = $outro->fetch_all();

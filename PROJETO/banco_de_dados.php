@@ -65,17 +65,94 @@
         case "buscar_ocorrencias":
             $informacoes = $conexao->query("SELECT * FROM ocorrencias ORDER BY id ASC");
             while($linha = $informacoes->fetch_assoc()){
-                echo "<div class='mostra_ocorrencias'>";
+                if($linha["tipo"] === "positiva"){
+                    echo "<div class='mostra_ocorrencias bom'>";
 
-                echo "<div class='cgms'> " . htmlspecialchars($linha["cgm"]) . "</div>";
-                echo "<div class='nomes'> <span>Nome: </span>" . htmlspecialchars($linha["nome"]) . "</div>";
-                echo "<div class= 'series'> <span>Série: </span>" . htmlspecialchars($linha["serie"]) . "</div>";
-                echo "<div class= 'relatores'> <span>Usuário: </span>" . htmlspecialchars($linha["relator"]) . "</div>";
-                echo "<div class= 'datas'><span>Data: </span>" . htmlspecialchars($linha["data"]) . "</div>";
-                echo "<div class='tipos'><span>Tipo de ocorrência: " . htmlspecialchars($linha["tipo"]) . "</div>";
-                echo "<div class= 'motivos'> <span> Motivo: " . htmlspecialchars($linha["motivo"]) . "</div>";
+                        echo "<div class='parte_cima'>";        
+                            echo "<div>😊</div>";
 
-                echo "</div>";
+                            echo "<div class='nome_cgm'>";
+                                echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
+                                echo "<div>" . htmlspecialchars($linha["cgm"]) . "</div>";
+                            echo "</div>";
+
+                            echo "<div class='datas data_bom'>" . htmlspecialchars($linha["data"]) . "</div>";
+                        echo "</div>";
+
+                        echo "<div class='informaçao'>";
+                            echo "<div class='auxiliar'>";
+                                echo "<div class='series'>";
+                                    echo "<div><i class='bi bi-backpack2'></i>&nbsp;Série:</div>";
+                                    echo "<div>" . htmlspecialchars($linha["serie"]) . "</div>";
+                                echo "</div>";
+
+                                echo "<div class='relatores'>";
+                                    echo "<div><i class='bi bi-person'></i>&nbsp;Relator:</div>";
+                                    echo "<div>" . htmlspecialchars($linha["relator"]) . "</div>";
+                                echo "</div>";
+
+                            echo "</div>";
+
+                            echo "<div class='auxiliar_motivo'>";
+                                echo "<div class='motivos motivo_bom'>";
+                                    echo "<div class='titulo_motivo'>Motivo:</div>";
+                                    echo "<div class='detalhes'>" . htmlspecialchars($linha["motivo"]) . "</div>";
+                                echo "</div>";
+                            echo "</div>";
+
+                        echo "</div>";
+
+                        echo "<div class='botoes'>";
+                            echo "<button class='editar'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
+                            echo "<button class='apagar'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
+                        echo "</div>";
+
+                    echo "</div>";
+                }
+                else{
+                    echo "<div class='mostra_ocorrencias ruim'>";
+
+                        echo "<div class='parte_cima'>";        
+                            echo "<div>🙁</div>";
+
+                            echo "<div class='nome_cgm'>";
+                                echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
+                                echo "<div>" . htmlspecialchars($linha["cgm"]) . "</div>";
+                            echo "</div>";
+
+                            echo "<div class='datas data_ruim'>" . htmlspecialchars($linha["data"]) . "</div>";
+                        echo "</div>";
+
+                        echo "<div class='informaçao'>";
+                            echo "<div class='auxiliar'>";
+                                echo "<div class='series'>";
+                                    echo "<div><i class='bi bi-backpack2'></i>&nbsp;Série:</div>";
+                                    echo "<div>" . htmlspecialchars($linha["serie"]) . "</div>";
+                                echo "</div>";
+
+                                echo "<div class='relatores'>";
+                                    echo "<div><i class='bi bi-person'></i>&nbsp;Relator:</div>";
+                                    echo "<div>" . htmlspecialchars($linha["relator"]) . "</div>";
+                                echo "</div>";
+
+                            echo "</div>";
+
+                            echo "<div class='auxiliar_motivo'>";
+                                echo "<div class='motivos motivo_ruim'>";
+                                    echo "<div class='titulo_motivo'>Motivo:</div>";
+                                    echo "<div class='detalhes'>" . htmlspecialchars($linha["motivo"]) . "</div>";
+                                echo "</div>";
+                            echo "</div>";
+
+                        echo "</div>";
+
+                        echo "<div class='botoes'>";
+                            echo "<button class='editar'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
+                            echo "<button class='apagar'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
+                        echo "</div>";
+
+                    echo "</div>";
+                }
             }
             break;
         
