@@ -76,8 +76,32 @@
 
         case "buscar_usuarios":
             $informacoes = $conexao->query("SELECT * FROM usuarios ORDER BY nome ASC");
-            // echo "<button id='botao_add_usuarios' onclick='mostra_add_usuarios()'>Adcionar Usuarios</button>";
             while($linha = $informacoes->fetch_assoc()){
+                echo "<div class='mostra_usuarios'>";
+                    echo "<div class='foto'><i class='bi bi-person-square'></i></div>";
+                    echo "<div class='informacoes'>";
+                        echo "<div class='cpfs'>";
+                            echo "<div>Cpf:</div>";
+                            echo "<div>" . htmlspecialchars($linha["cpf"]) . "</div>";
+                        echo "</div>";
+                        echo "<div class='nomes'>";
+                            echo "<div>Nome:</div>";
+                            echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
+                        echo "</div>";
+                        echo "<div class='emails'>";
+                            echo "<div>Email:</div>";
+                            echo "<div>" . htmlspecialchars($linha["email"]) . "</div>";
+                        echo "</div>";
+                        echo "<div class='permissao_usuario'>";
+                            echo "<div>Permissão:</div>";
+                            echo "<div class='permissoes'>" . htmlspecialchars($linha["permissao"]) . "</div>";
+                        echo "</div>";
+                        echo "<div class='botoes'>";
+                            echo "<button class='editar botao' title='Editar cadastro'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
+                            echo "<button class='apagar botao' title='Apagar cadastro'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
+                        echo "</div>";
+                    echo "</div>";
+                echo '</div>';
                 
                 // echo "<div class='mostra_usuarios'>";
                 // echo "<div class='cpfs'>" . htmlspecialchars($linha["cpf"]) . "</div><br>";

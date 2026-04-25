@@ -74,7 +74,7 @@ button{
     transform:scale(1.1);
 }
 
-.mostra_alunos{
+.mostra_alunos, .mostra_usuarios{
     border-left:5px solid;
     padding:10px;
     border-radius:20px;
@@ -130,6 +130,21 @@ button{
     font-size:15px;
 }
 
+.cpfs :first-child{
+    text-decoration:underline;
+    font-weight:bold;
+    font-size:17px;
+}
+
+.cpfs :nth-child(2){
+    font-style:italic;
+    margin-top:5px;
+    color:#525151;
+    font-size:15px;
+}
+
+
+
 .nomes :first-child{
     text-decoration:underline;
     font-weight:bold;
@@ -162,6 +177,19 @@ button{
 }
 
 .emails :nth-child(2){
+    font-style:italic;
+    margin-top:5px;
+    color:#525151;
+     font-size:15px;
+}
+
+.permissao_usuario :first-child{
+    text-decoration:underline;
+    font-weight:bold;
+    font-size:17px;
+}
+
+.permissao_usuario :nth-child(2){
     font-style:italic;
     margin-top:5px;
     color:#525151;
