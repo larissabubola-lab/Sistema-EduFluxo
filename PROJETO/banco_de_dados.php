@@ -73,7 +73,7 @@
 
                             echo "<div class='nome_cgm'>";
                                 echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
-                                echo "<div>" . htmlspecialchars($linha["cgm"]) . "</div>";
+                                echo "<div>Cgm:&nbsp;" . htmlspecialchars($linha["cgm"]) . "</div>";
                             echo "</div>";
 
                             echo "<div class='datas data_bom'>" . htmlspecialchars($linha["data"]) . "</div>";
@@ -117,7 +117,7 @@
 
                             echo "<div class='nome_cgm'>";
                                 echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
-                                echo "<div>" . htmlspecialchars($linha["cgm"]) . "</div>";
+                                echo "<div>Cgm:&nbsp;" . htmlspecialchars($linha["cgm"]) . "</div>";
                             echo "</div>";
 
                             echo "<div class='datas data_ruim'>" . htmlspecialchars($linha["data"]) . "</div>";
@@ -160,13 +160,41 @@
             $informacoes = $conexao->query("SELECT * FROM fluxo_saidas ORDER BY id ASC");
             while($linha = $informacoes->fetch_assoc()){
                 echo "<div class='mostra_portaria'>";
-                echo "<div class='cgms'> " . htmlspecialchars($linha["cgm"]) . "</div>";
-                echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div>";
-                echo "<div class= 'series'>" . htmlspecialchars($linha["serie"]) . "</div>";
-                echo "<div class= 'usuarios'>" . htmlspecialchars($linha["usuario"]) . "</div>";
-                echo "<div class= 'datas'>" . htmlspecialchars($linha["data"]) . "</div>";
-                echo "<div class= 'motivos'>" . htmlspecialchars($linha["motivo"]) . "</div>";
+                    echo "<div class='parte_cima'>";
+                        echo "<i class='bi bi-person-circle'></i>";
+                        echo "<div class='nome_cgm'>";
+                            echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
+                            echo "<div>" . htmlspecialchars($linha["cgm"]) . "</div>";
+                        echo "</div>";
+                        echo "<div class='datas'>" . htmlspecialchars($linha["data"]) . "</div>";
+                    echo "</div>";
+                    echo "<div class='informacoes'>";
+                        echo "<div class='auxiliar'>";
+                            echo "<div class='series'>";
+                                echo  "<div>Série:</div>";
+                                echo "<div>" . htmlspecialchars($linha["serie"]) . "</div>";
+                            echo "</div>";
+                            echo "<div class='relatores'>";
+                                echo "<div>Relator:</div>";
+                                echo "<div>" . htmlspecialchars($linha["usuario"]) . "</div>";
+                            echo "</div>";
+                        echo "</div>";
+                        echo "<div class='motivo_auxiliar'>";
+                            echo "<div class='motivos'>";
+                                echo "<div>Motivo:</div>";
+                                echo "<div>" . htmlspecialchars($linha["motivo"]);
+                            echo "</div>";
+                        echo "</div>";
+                    echo "</div>";
                 echo "</div>";
+                // echo "<div class='mostra_portaria'>";
+                // echo "<div class='cgms'> " . htmlspecialchars($linha["cgm"]) . "</div>";
+                // echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div>";
+                // echo "<div class= 'series'>" . htmlspecialchars($linha["serie"]) . "</div>";
+                // echo "<div class= 'usuarios'>" . htmlspecialchars($linha["usuario"]) . "</div>";
+                // echo "<div class= 'datas'>" . htmlspecialchars($linha["data"]) . "</div>";
+                // echo "<div class= 'motivos'>" . htmlspecialchars($linha["motivo"]) . "</div>";
+                // echo "</div>";
             }
             break;
         default:
