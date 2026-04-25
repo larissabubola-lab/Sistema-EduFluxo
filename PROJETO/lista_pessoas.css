@@ -110,10 +110,24 @@ button{
     width:100%;
     justify-content:flex-start;
     /* padding:20px; */
-    gap:10px;
+    gap:5px;
     border-left:dashed;
     padding-left:20px;
     
+}
+
+
+.cgms :first-child{
+    text-decoration:underline;
+    font-weight:bold;
+    font-size:17px;
+}
+
+.cgms :nth-child(2){
+    font-style:italic;
+    margin-top:5px;
+    color:#525151;
+    font-size:15px;
 }
 
 .nomes :first-child{
@@ -128,26 +142,26 @@ button{
     color:#525151;
     font-size:15px;
 }
-.serie :first-child{
+.series :first-child{
     text-decoration:underline;
     font-weight:bold;
     font-size:17px;
 }
 
-.serie :nth-child(2){
+.series :nth-child(2){
     font-style:italic;
     margin-top:5px;
     color:#525151;
      font-size:15px;
 }
 
-.email :first-child{
+.emails :first-child{
     text-decoration:underline;
     font-weight:bold;
     font-size:17px;
 }
 
-.email :nth-child(2){
+.emails :nth-child(2){
     font-style:italic;
     margin-top:5px;
     color:#525151;

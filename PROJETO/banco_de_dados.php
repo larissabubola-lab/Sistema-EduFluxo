@@ -43,6 +43,10 @@
                 echo "<div class='mostra_alunos'>";
                     echo "<div class='foto'><i class='bi bi-person-square'></i></div>";
                     echo "<div class='informacoes'>";
+                        echo "<div class='cgms'>";
+                            echo "<div>Cgm:</div>";
+                            echo "<div>" . htmlspecialchars($linha["cgm"]) . "</div>";
+                        echo "</div>";
                         echo "<div class='nomes'>";
                             echo "<div>Nome:</div>";
                             echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
@@ -74,12 +78,13 @@
             $informacoes = $conexao->query("SELECT * FROM usuarios ORDER BY nome ASC");
             // echo "<button id='botao_add_usuarios' onclick='mostra_add_usuarios()'>Adcionar Usuarios</button>";
             while($linha = $informacoes->fetch_assoc()){
-                echo "<div class='mostra_usuarios'>";
-                echo "<div class='cpfs'>" . htmlspecialchars($linha["cpf"]) . "</div><br>";
-                echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div><br>";
-                echo "<div class='emails'>" . htmlspecialchars($linha["email"]) . "</div><br>";
-                echo "<div class='permissoes'>" . htmlspecialchars($linha["permissao"]) . "</div>";
-                echo "</div>";
+                
+                // echo "<div class='mostra_usuarios'>";
+                // echo "<div class='cpfs'>" . htmlspecialchars($linha["cpf"]) . "</div><br>";
+                // echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div><br>";
+                // echo "<div class='emails'>" . htmlspecialchars($linha["email"]) . "</div><br>";
+                // echo "<div class='permissoes'>" . htmlspecialchars($linha["permissao"]) . "</div>";
+                // echo "</div>";
             }
             break;
 
