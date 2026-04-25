@@ -8,23 +8,23 @@
     </head>
     <body>
 
-        <div id="buscar">
-            <div id="input_busca">
-                <i class="bi bi-search"></i>
-                <input type="text" placeholder="Buscar registro">
+        <main id="pagina_portaria">
+            <div id="buscar">
+                <div id="input_busca">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Buscar registro">
+                </div>
+                <select>
+                    <option value="">Todos os registros</option>
+                    <option value="entrada">Atrasos</option>
+                    <option value="saida">Saiu mais cedo</option>
+                    <option value="outros">Outros</option>
+                </select>
             </div>
-            <select>
-                <option value="">Todos os registros</option>
-                <option value="entrada">Atrasos</option>
-                <option value="saida">Saiu mais cedo</option>
-                <option value="outros">Outros</option>
-            </select>
-        </div>
-
-        <div id="lugar_portaria">
-            <button id="adcionar_fluxos" onclick="mostrar_criar_portaria()" title="Adicionar um novo registro">Adcionar um novo fluxo</button>
-
-        </div>
+            <div id="lugar_portaria">
+                <button id="adcionar_fluxos" onclick="mostrar_criar_portaria()" title="Adicionar um novo registro">Adcionar um novo fluxo</button>
+            </div>
+        </main>
 
         <div id="fluxos_saida" style="display:none;">
             <label for="cgm">CGM:</label>

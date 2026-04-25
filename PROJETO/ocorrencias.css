@@ -1,3 +1,7 @@
+#pagina_ocorrencias{
+    margin-top:150px;
+}
+
 label{
     display: block;
 }
@@ -383,3 +387,4 @@ select{
     margin-left:50px;
     
 }
+

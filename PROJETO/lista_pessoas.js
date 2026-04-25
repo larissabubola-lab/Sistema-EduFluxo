@@ -102,11 +102,17 @@ mostra_todos_usuarios();
 const botao_alunos = document.getElementById("mostra_os_alunos");
 const botao_usuarios = document.getElementById("mostra_os_usuarios");
 
+const busca_alunos= document.getElementById("buscar_alunos");
+const busca_usuarios = document.getElementById("buscar_usuarios");
+
 function mostra_alunos(){
     alunos.style.display = "grid";
     usuarios.style.display = "none";
     botao_alunos.disabled = true;
     botao_usuarios.disabled = false;
+    busca_alunos.style.display = "flex";
+    busca_usuarios.style.display = "none";
+
 }
 
 function cancelar(){
@@ -118,6 +124,8 @@ function mostra_usuarios(){
     usuarios.style.display = "grid";
     botao_alunos.disabled = false;
     botao_usuarios.disabled = true;
+    busca_alunos.style.display = "none";
+    busca_usuarios.style.display = "flex";
 }
 
 function cancelar_usuarios(){

@@ -8,22 +8,23 @@
     </head>
 
     <body>
-        <div id="buscar">
-            <div id="input_buscar">
-                <i class="bi bi-search"></i>
-                <input type="text" placeholder="Buscar ocorrencias">
+        <main id="pagina_ocorrencias">
+            <div id="buscar">
+                <div id="input_buscar">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Buscar ocorrencias">
+                </div>
+                <select>
+                    <option value=""><i class="bi bi-funnel"></i> Filtro</option>
+                    <option value="todos"><i class="bi bi-asterisk"></i> Todas</option>
+                    <option value="positiva"><i class="bi bi-hand-thumbs-up"></i> Positivas</option>
+                    <option value="negativa"><i class="bi bi-hand-thumbs-down"></i> Negativas</option>
+                </select>
             </div>
-            <select>
-                <option value=""><i class="bi bi-funnel"></i> Filtro</option>
-                <option value="todos"><i class="bi bi-asterisk"></i> Todas</option>
-                <option value="positiva"><i class="bi bi-hand-thumbs-up"></i> Positivas</option>
-                <option value="negativa"><i class="bi bi-hand-thumbs-down"></i> Negativas</option>
-            </select>
-
-        </div>
-        <div id="lugar_ocorrencias">
-            <button id="adcionar_ocorrencias" onclick="mostrar_formulario()" title="Adicionar uma nova ocorrencia">Adcionar ocorrencia</button>
-        </div>
+            <div id="lugar_ocorrencias">
+                <button id="adcionar_ocorrencias" onclick="mostrar_formulario()" title="Adicionar uma nova ocorrencia">Adcionar ocorrencia</button>
+            </div>
+        </main>
 
 
         <div id="ocorrencias" style="display: none;">

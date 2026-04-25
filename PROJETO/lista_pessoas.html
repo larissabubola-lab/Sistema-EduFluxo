@@ -4,49 +4,49 @@
         <meta charset="UTF-8">
         <title>Sistema EduFluxo</title>
         <link href="lista_pessoas.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     </head>
     <body>
         <!-- <h1>Aqui vai ter a opcao de ver os alunos e usuarios.</h1> -->
-        <div id="botoes">
-            <button id="mostra_os_alunos" onclick="mostra_alunos()" title="Mostrar alunos">Mostrar alunos</button>
-            <button id="mostra_os_usuarios" onclick="mostra_usuarios()">Mostrar usuarios</button>
-        </div>
-
-        <div id="bsucar_alunos">
-            <input type="text" id="pesquisa" placeholder="Digite o nome do aluno">
-            <select>
-                <option value="">Todos os alunos</option>
-                <option value="6°">6°</option>
-                <option value="7°">7°</option>
-                <option value="8°">8°</option>
-                <option value="9°">9°</option>
-                <option value="1°">1°</option>
-                <option value="2°">2°</option>
-                <option value="3°">3°</option>
-            </select>
-        </div>
-
-        
-
-        <div id="lugar_alunos">
-            <button id='botao_add_alunos' onclick='mostra_add_alunos()' title="Adicionar um novo aluno">Adicionar Alunos</button>
-        </div>
-
-        <div id="buscar_usuaris">
-            <input type="text" id="pesquisa_usuario" placeholder="Digite o nome do usuario">
-            <select>
-                <option value="">Todos os usuarios</option>
-                <option value="admin">Admin</option>
-                <option value="portaria">Portaria</option>
-                <option value="professor">Professor</option>
-            </select>
-        </div>
-
-        <div id="lugar_usuarios" style="display: none;">
-            <button id='botao_add_usuarios' onclick='mostra_add_usuarios()' title="Adicionar um novo usuario">Adcionar Usuarios</button>
+        <main id="pagina_lista">
+            <div id="botoes">
+                <button id="mostra_os_alunos" onclick="mostra_alunos()" title="Mostrar alunos">Mostrar alunos</button>
+                <button id="mostra_os_usuarios" onclick="mostra_usuarios()">Mostrar usuarios</button>
+            </div>
+            <div id="buscar_alunos">
+                <div id="input_alunos">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="pesquisa" placeholder="Digite o nome do aluno">
+                </div>
+                <select>
+                    <option value="">Todos os alunos</option>
+                    <option value="6°">6°</option>
+                    <option value="7°">7°</option>
+                    <option value="8°">8°</option>
+                    <option value="9°">9°</option>
+                    <option value="1°">1°</option>
+                    <option value="2°">2°</option>
+                    <option value="3°">3°</option>
+                </select>
+            </div>
             
-
-        </div>
+            <div id="lugar_alunos">
+                <button id='botao_add_alunos' onclick='mostra_add_alunos()' title="Adicionar um novo aluno">Adicionar Alunos</button>
+            </div>
+            <div id="buscar_usuarios" style="display: none;">
+                <input type="text" id="pesquisa_usuario" placeholder="Digite o nome do usuario">
+                <select>
+                    <option value="">Todos os usuarios</option>
+                    <option value="admin">Admin</option>
+                    <option value="portaria">Portaria</option>
+                    <option value="professor">Professor</option>
+                </select>
+            </div>
+            <div id="lugar_usuarios" style="display: none;">
+                <button id='botao_add_usuarios' onclick='mostra_add_usuarios()' title="Adicionar um novo usuario">Adcionar Usuarios</button>
+            
+            </div>
+        </main>
 
         <div id="add_alunos" class="add" style="display: none;">
             <label for="cgm">CGM:</label>

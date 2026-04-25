@@ -41,11 +41,32 @@
             // echo "<button id='botao_add_alunos' onclick='mostra_add_alunos()'>Adicionar Alunos</button>";
             while($linha = $informacoes->fetch_assoc()){
                 echo "<div class='mostra_alunos'>";
-                echo "<div class='cgms'>" . htmlspecialchars($linha["cgm"]) . "</div><br>";
-                echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div><br>";
-                echo "<div class='emails'>" . htmlspecialchars($linha["email"]) . "</div><br>";
-                echo "<div class='series'>" . htmlspecialchars($linha["sala"]) . "</div>";
-                echo "</div>";
+                    echo "<div class='foto'><i class='bi bi-person-square'></i></div>";
+                    echo "<div class='informacoes'>";
+                        echo "<div class='nomes'>";
+                            echo "<div>Nome:</div>";
+                            echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
+                        echo "</div>";
+                        echo "<div class='series'>";
+                            echo "<div>Série:</div>";
+                            echo "<div>" . htmlspecialchars($linha["sala"]) . "</div>";
+                        echo "</div>";
+                        echo "<div class='emails'>";
+                            echo "<div>Email:</div>";
+                            echo "<div>" . htmlspecialchars($linha["email"]) . "</div>";
+                        echo "</div>";
+                        echo "<div class='botoes'>";
+                            echo "<button class='editar botao' title='Editar cadastro'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
+                            echo "<button class='apagar botao' title='Apagar cadastro'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
+                        echo "</div>";
+                    echo "</div>";
+                echo '</div>';
+                // echo "<div class='mostra_alunos'>";
+                // echo "<div class='cgms'>" . htmlspecialchars($linha["cgm"]) . "</div><br>";
+                // echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div><br>";
+                // echo "<div class='emails'>" . htmlspecialchars($linha["email"]) . "</div><br>";
+                // echo "<div class='series'>" . htmlspecialchars($linha["sala"]) . "</div>";
+                // echo "</div>";
             }
             break;
 
@@ -164,7 +185,7 @@
                         echo "<i class='bi bi-person-circle'></i>";
                         echo "<div class='nome_cgm'>";
                             echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
-                            echo "<div>" . htmlspecialchars($linha["cgm"]) . "</div>";
+                            echo "<div>Cgm:&nbsp;" . htmlspecialchars($linha["cgm"]) . "</div>";
                         echo "</div>";
                         echo "<div class='datas'>" . htmlspecialchars($linha["data"]) . "</div>";
                     echo "</div>";
@@ -182,19 +203,11 @@
                         echo "<div class='motivo_auxiliar'>";
                             echo "<div class='motivos'>";
                                 echo "<div>Motivo:</div>";
-                                echo "<div>" . htmlspecialchars($linha["motivo"]);
+                                echo "<div>" . htmlspecialchars($linha["motivo"]). "</div>";
                             echo "</div>";
                         echo "</div>";
                     echo "</div>";
                 echo "</div>";
-                // echo "<div class='mostra_portaria'>";
-                // echo "<div class='cgms'> " . htmlspecialchars($linha["cgm"]) . "</div>";
-                // echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div>";
-                // echo "<div class= 'series'>" . htmlspecialchars($linha["serie"]) . "</div>";
-                // echo "<div class= 'usuarios'>" . htmlspecialchars($linha["usuario"]) . "</div>";
-                // echo "<div class= 'datas'>" . htmlspecialchars($linha["data"]) . "</div>";
-                // echo "<div class= 'motivos'>" . htmlspecialchars($linha["motivo"]) . "</div>";
-                // echo "</div>";
             }
             break;
         default:
