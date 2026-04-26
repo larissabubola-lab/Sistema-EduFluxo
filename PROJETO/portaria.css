@@ -155,9 +155,7 @@ input:disabled{
     border-radius:10px;
     padding:3px;
     color:white;
-    /* border-color:black; */
     box-shadow: 1px 1px 3px white inset, 5px 5px 8px grey;
-    /* box-shadow:5px 5px 10px white; */
     transition:transform 200ms ease;
 }
 .botao:hover{

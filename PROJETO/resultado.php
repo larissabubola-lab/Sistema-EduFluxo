@@ -27,22 +27,6 @@
         $_SESSION["permissao"] = $permissao;
 
         header("Location: pagina.php");
-
-        // switch ($permissao){
-        //     case 0:
-        //         header("Location: pagina.html?nome=$nome_usuario&permissao=$permissao");
-        //         break;
-        //     case 1:
-        //         header("Location: pagina.html?nome=$nome_usuario&permissao=$permissao");
-        //         break;
-        //     case 2:
-        //         header("Location: pagina.html?nome=$nome_usuario&permissao=$permissao");
-        //         break;
-        //     default:
-        //         http_response_code(400);
-        //         die("dados invalidos");
-                
-        // }
         die();
     }
 
