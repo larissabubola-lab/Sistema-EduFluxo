@@ -1,18 +1,167 @@
+@font-face {
+    font-family: bigshot;
+    src: url(assets/BigshotOne-Regular.ttf);
+}
+
 #pagina_portaria{
     margin-top:150px;
 }
 
 #fluxos_saida{
-    border:solid;
+     border:outset;
+    border-radius: 15px;
     /* display: inline-block; */
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    width:900px;
     position:fixed;
-    top:0;
-    left:40%;
-    background: white;
+    top:120px;
+    left:15%;
+    background:white;
+    padding:15px;
+    gap:20px 0px;
+    padding-top:30px;
+    padding-bottom:30px;
+    color:white;
+    border-color:black;
+    /* box-shadow: 5px 5px 15px grey, 10px 10px 20px grey, inset -5px 5px 10px white; */
+    box-shadow: 5px 5px 15px grey, 10px 10px 20px black, inset 5px 5px 10px white;
+    background:black;
 }
 
 label{
-    display:block
+    display:block;
+    text-align:center;
+    text-decoration:underline;
+    font-style:italic;
+    font-size:25px;
+    color:white;
+    font-family:bigshot;
+    text-shadow:5px 5px 5px white;
+}
+
+.inputs{
+     display:flex;
+    flex-direction:row;
+    width:100%;
+    height:fit-content;
+    justify-content:center;
+    align-items:center;
+    margin-top:10px;
+    font-size:18px;
+}
+
+.a{
+    margin-top:15px;
+    width:fit-content;
+    height:fit-content;
+    border:solid;
+    border-radius:15px;
+    display:inline-block;
+    padding:5px;
+    background:white;
+    border-color:white;
+    box-shadow: 5px 5px 5px grey inset, inset -3px -3px 5px grey;
+    /* box-shadow:inset -5px -5px 10px grey; */
+    
+}
+
+.a i{
+    margin-left:5px;
+    font-size:18px;
+    color:grey;
+}
+
+.a input{
+    background:transparent;
+    border:none;
+    border-radius:18px;
+    font-size:18px;
+    
+}
+
+.a:has(input:disabled){
+    background:#c3c3c3;
+    cursor:not-allowed;
+    border:solid;
+    box-shadow: 5px 5px 5px #525050 inset, inset -3px -3px 5px #525050;
+    /* box-shadow:-5px -5px 10px grey inset; */
+}
+
+input:disabled{
+   /* background:#c3c3c3; */
+    cursor:not-allowed;
+}
+
+#div_motivo{
+    grid-column:span 2;  
+}
+
+#input_motivo{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    height:fit-content;
+    justify-content:center;
+    align-items:center;
+    margin-top:25px;
+    gap:30px;
+}
+
+#motivo_fluxo{
+    width:25%;
+    height:50px;
+    font-size:18px;
+    border:1px solid;
+    border:outset;
+    box-shadow:inset 5px 5px 5px grey, 5px 5px 10px white;
+    
+    
+}
+
+#motivo_outro{
+    /* margin-left:20px; */
+    font-size:20px;
+    width:350px;
+    height:60px;
+    margin-right:270px;
+    text-align:center;
+    border-radius:15px;
+    /* border:1px solid; */
+    border:solid white;
+    padding-top:10px;
+    box-shadow: 10px 10px 5px grey inset, inset -6px -6px 5px grey;
+    /* box-shadow:inset -5px -5px 10px grey; */
+    
+}
+
+#botoes{
+    grid-column:span 2;
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    height:fit-content;
+    justify-content:space-evenly;
+    margin-top:20px;
+}
+
+.botao{
+     display:flex;
+    cursor:pointer;
+    font-size:18px;
+    background:transparent;
+    /* border:none; */
+    border:2px solid;
+    border-radius:10px;
+    padding:3px;
+    color:white;
+    /* border-color:black; */
+    box-shadow: 1px 1px 3px white inset, 5px 5px 8px grey;
+    /* box-shadow:5px 5px 10px white; */
+    transition:transform 200ms ease;
+}
+.botao:hover{
+    transform:scale(1.1);
 }
 
 #input_de_nome{
@@ -21,13 +170,50 @@ label{
 
 #input_de_nome #resultado_fluxos{
     position:absolute;
-    width:200px;
-    top:30px;
-    left:10px;
-    border:solid;
+    width:300px;
+    /* width:40px; */
+    top:60px;
+    left:70px;
+    border:outset;
+    box-shadow:-5px -5px 10px grey inset;
     background-color: white;
     color:black;
     z-index:50;
+    font-size:18px;
+    text-align:center;
+    border-radius:20px;
+    border-top:none;
+    cursor:pointer;
+    overflow:auto;
+    padding:10px;
+    /* overflow-x:hidden; */
+    
+}
+
+#resultado_fluxos::-webkit-scrollbar{
+    /* heigth:5px; */
+    /* width:5px; */
+    height:10px;
+    /* width:fit-content; */
+}
+ #resultado_fluxos::-webkit-scrollbar-thumb{
+    background:black;
+    border-radius:45px;
+}
+
+ #resultado_fluxos::-webkit-scrollbar-track{
+    background:grey;
+    border-radius:45px;
+}
+
+#resultado_fluxos :first-child{
+    margin-top:10px;
+}
+.nome_resultados{
+    transition:transform 200ms ease;
+}
+.nome_resultados:hover{
+    transform:scale(1.05);
 }
 
 #lugar_portaria{

@@ -27,40 +27,65 @@
         </main>
 
         <div id="fluxos_saida" style="display:none;">
-            <label for="cgm">CGM:</label>
-            <div id="div_cgm" name="cgm">
-                <i class="bi bi-person-vcard"></i>
-                <input type="number" id="cgm_fluxos" placeholder="escreva o cgm do aluno" disabled>
+            <div id="div_cgm">
+                <label for="cgm">CGM:</label>
+                <div id="input_cgm" name="cgm" class="inputs">
+                    <div class="a">
+                        <i class="bi bi-person-vcard"></i>
+                        <input type="number" id="cgm_fluxos" placeholder="escreva o cgm do aluno" autocomplete="off" disabled>
+                    </div>
+                </div>
             </div>
-            <label for="nome_">Nome do aluno:</label>
-            <div name="nome" id="input_de_nome">
-                <i class="bi bi-person"></i>
-                <input type="text" id="nome_aluno_fluxo" placeholder="escreva o nome do aluno">
-                <div id="resultado_fluxos" style="display: none;"></div>
+
+            <div id="div_nome">
+                <label for="nome_">Nome do aluno:</label>
+                <div name="nome" id="input_de_nome" class="inputs">
+                    <div class="a">
+                        <i class="bi bi-pencil"></i>
+                        <input type="text" id="nome_aluno_fluxo" placeholder="escreva o nome do aluno" autocomplete="off">
+                        <div id="resultado_fluxos" style="display: none;"></div>
+                    </div>
+                </div>
             </div>
             
-            <label for="serie">Serie:</label>
-            <div name="serie">
-                <i class="bi bi-backpack"></i>
-                <input type="text" id="serie_aluno_fluxo" placeholder="escreva a serie do aluno" disabled>
+            <div id="div_serie">
+                <label for="serie">Serie:</label>
+                <div name="serie" id="input_serie" class="inputs">
+                    <div class="a">
+                        <i class="bi bi-backpack"></i>
+                        <input type="text" id="serie_aluno_fluxo" placeholder="escreva a serie do aluno" autocomplete="off" disabled>
+                    </div>
+                </div>
             </div>
 
-            <label for="usuario">Usuário:</label>
-            <div name="usuario">
-                <!-- <i class=""></i> -->
-                <input type="text" id="usuario_fluxos" placeholder="quem fez essa documentação">
+            <div id="div_usuario">
+                <label for="usuario">Usuário:</label>
+                <div name="usuario" id="input_usuario" class="inputs">
+                    <div class="a">
+                        <i class="bi bi-person"></i>
+                        <input type="text" id="usuario_fluxos" placeholder="quem fez essa documentação" autocomplete="off" disabled>
+                    </div>
+                </div>
             </div>
 
-            <label for="motivo">Motivo:</label>
-            <select name="motivo" id="motivo_fluxo">
-                <option value = "">Selecione o motivo</option>
-                <option value="O aluno chegou atrasado" name="opcoes">O aluno chegou atrasado</option >
-                <option value="O aluno saiu mais cedo" name="opcoes">O aluno saiu mais cedo</option>
-                <option value="outro" name="opcoes">Outro</option>
-            </select>
-            <input type="text" id="motivo_outro" placeholder="escreva o motivo" style="display: none;">
-            <button onclick="criar_fluxos()">Confirma</button>
-            <button onclick="cancelar_fluxos()">Cancelar</button>
+            <div id="div_motivo">
+                <label for="motivo">Motivo:</label>
+                <div id="input_motivo">
+                    <select name="motivo" id="motivo_fluxo">
+                        <option value = "">Selecione o motivo</option>
+                        <option value="O aluno chegou atrasado" name="opcoes">O aluno chegou atrasado</option >
+                        <option value="O aluno saiu mais cedo" name="opcoes">O aluno saiu mais cedo</option>
+                        <option value="outro" name="opcoes">Outro</option>
+                    </select>
+                    <textarea id="motivo_outro" placeholder="Escreva o motivo" style="display: none;" autocomplete="off"></textarea>
+                </div>
+            </div>
+
+            <div id="botoes">
+                <button onclick="criar_fluxos()" class="botao" title="Criar fluxo"><i class="bi bi-check2"></i>Confirma</button>
+                <button onclick="cancelar_fluxos()" class="botao" title="Cancelar fluxo"><i class="bi bi-x-lg"></i>Cancelar</button>
+                <button class="botao" title="Escrever fluxo manualmente"><i class="bi bi-arrow-clockwise"></i>Criar fluxo manual</button>
+            </div>
         </div>
 
         <script src="portaria.js"></script>

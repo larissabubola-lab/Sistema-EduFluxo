@@ -10,8 +10,8 @@
         <!-- <h1>Aqui vai ter a opcao de ver os alunos e usuarios.</h1> -->
         <main id="pagina_lista">
             <div id="botoes">
-                <button id="mostra_os_alunos" onclick="mostra_alunos()" title="Mostrar alunos">Mostrar alunos</button>
-                <button id="mostra_os_usuarios" onclick="mostra_usuarios()">Mostrar usuarios</button>
+                <button id="mostra_os_alunos" onclick="mostra_alunos()" title="Mostrar alunos"><i class="bi bi-pencil-fill"></i>&nbsp;Mostrar alunos</button>
+                <button id="mostra_os_usuarios" onclick="mostra_usuarios()" title="Mostrar usuários"><i class="bi bi-person-fill"></i>&nbsp;Mostrar usuarios</button>
             </div>
             <div id="buscar_alunos">
                 <div id="input_alunos">
@@ -34,7 +34,10 @@
                 <button id='botao_add_alunos' onclick='mostra_add_alunos()' title="Adicionar um novo aluno">Adicionar Alunos</button>
             </div>
             <div id="buscar_usuarios" style="display: none;">
-                <input type="text" id="pesquisa_usuario" placeholder="Digite o nome do usuario">
+                <div id="input_usuarios">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="pesquisa_usuario" placeholder="Digite o nome do usuario">
+                </div>
                 <select>
                     <option value="">Todos os usuarios</option>
                     <option value="admin">Admin</option>
@@ -49,62 +52,132 @@
         </main>
 
         <div id="add_alunos" class="add" style="display: none;">
-            <label for="cgm">CGM:</label>
-            <input type="number" name="cgm" id="aluno_cgm" placeholder="escreva o cgm do aluno">
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="aluno_add_nome" placeholder="escreva o nome do aluno">
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email_aluno_add" placeholder="escreva o email do aluno">
-            <label for="serie">Serie:</label>
-            <select id="series">
-                <option value="">Selecione a série</option>
-                <option value="6°">6°</option>
-                <option value="7°">7°</option>
-                <option value="8°">8°</option>
-                <option value="9°">9°</option>
-                <option value="1°">1°</option>
-                <option value="2°">2°</option>
-                <option value="3°">3°</option>
-                <option value="outro_serie">outro</option>
-            </select>
-            <input type="text" id="outra_serie" placeholder="escreva a serie do aluno" style="display: none;">
+            <div>
+                <label for="cgm">CGM:</label>
+                <div name="cgm" class="inputs">
+                    <div class="a" >
+                        <i class="bi bi-person-vcard"></i>
+                        <input type="number"  id="aluno_cgm" placeholder="escreva o cgm do aluno">
+                    </div>
+                </div>
+            </div>
 
-            <select id="salas">
-                <option value="">Selecione a sala</option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
-                <option value="E">E</option>
-                <option value="TDS">TDS</option>
-                <option value="MKT">MKT</option>
-                <option value="outro">outro</option>    
-            </select>
-            <input type="text" id="sala_outro" placeholder="escreva a sala do aluno" style="display: none;">
+            <div>
+                <label for="nome">Nome:</label>
+                <div  name="nome" class="inputs">
+                    <div class="a">
+                        <i class="bi bi-pencil"></i>
+                        <input type="text"  id="aluno_add_nome" placeholder="escreva o nome do aluno">
+                    </div>
+                </div>
+            </div>
 
-            <button onclick="checar_add_alunos()">Confirma</button>
-            <button onclick="cancelar()">Cancelar</button>
+            <div >
+                <label for="email">Email:</label>
+                <div name="email" class="inputs">
+                    <div class="a" >
+                        <i class="bi bi-envelope"></i>
+                        <input type="email"  id="email_aluno_add" placeholder="escreva o email do aluno">
+                    </div>
+                </div>
+            </div>
+
+            <div >
+                <label for="serie">Serie:</label>
+                <div id="select_salas">
+                    <div class="serie_sala">
+                        <select id="series">
+                            <option value="">Selecione a série</option>
+                            <option value="6°">6°</option>
+                            <option value="7°">7°</option>
+                            <option value="8°">8°</option>
+                            <option value="9°">9°</option>
+                            <option value="1°">1°</option>
+                            <option value="2°">2°</option>
+                            <option value="3°">3°</option>
+                            <option value="outro_serie">outro</option>
+                        </select>
+                        <input type="text" id="outra_serie" placeholder="escreva a serie do aluno" style="display: none;">
+                    </div>
+                    <div class="serie_sala">
+                        <select id="salas">
+                            <option value="">Selecione a sala</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E</option>
+                            <option value="TDS">TDS</option>
+                            <option value="MKT">MKT</option>
+                            <option value="outro">outro</option>
+                        </select>
+                        <input type="text" id="sala_outro" placeholder="escreva a sala do aluno" style="display: none;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="os_botoes">
+                <button onclick="checar_add_alunos()" class="usa_botoes"><i class="bi bi-check2"></i>Confirmar</button>
+                <button onclick="cancelar()" class="usa_botoes"><i class="bi bi-x-lg"></i>Cancelar</button>
+            </div>
         </div>
 
 
         <div id="add_usuarios" class="add" style="display:none;">
-            <label for="cpf">CPF:</label>
-            <input type="text" name="cpf" id="cpf_usuario" placeholder="escreva o cpf">
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome_usuario" placeholder="escreva o nome">
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email_usuario" placeholder="escreva o email">
-            <label for="senha">Senha:</label>
-            <input type="text" name="senha" id="senha_usuario" placeholder="escreva a senha">
-            <label for="permissao">Permissao:</label>
-            <select id="permissoes" name="permissao">
-                <option value="">Selecione a permissão</option>
-                <option value="2">Professor</option>
-                <option value="1">Portaria</option>
-                <option value="0">Admin</option>
-            </select>
-            <button onclick="checar_add_usuarios()">Confirma</button>
-            <button onclick="cancelar_usuarios()">Cancelar</button>
+                <div>
+                    <label for="cpf">CPF:</label>
+                    <div name="cpf" class="inputs">
+                        <div class="a">
+                            <i class="bi bi-person-vcard"></i>
+                            <input type="text"  id="cpf_usuario" placeholder="escreva o cpf">
+                        </div>
+                    </div>
+                </div>
+          
+            <div>
+                <label for="nome">Nome:</label>
+                <div name="nome" class="inputs">
+                    <div class="a">
+                        <i class="bi bi-person"></i>
+                        <input type="text"  id="nome_usuario" placeholder="escreva o nome">
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label for="email">Email:</label>
+                <div  name="email" class="inputs">
+                    <div class="a">
+                        <i class="bi bi-envelope"></i>
+                        <input type="email" id="email_usuario" placeholder="escreva o email">
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label for="senha">Senha:</label>
+                <div name="senha" class="inputs">
+                    <div class="a">
+                        <i class="bi bi-lock"></i>
+                        <input type="text"  id="senha_usuario" placeholder="escreva a senha">
+                    </div>
+                </div>
+            </div>
+
+            <div id="div_permissao">
+                <label for="permissao">Permissao:</label>
+                <select id="permissoes" name="permissao">
+                    <option value="">Selecione a permissão</option>
+                    <option value="2">Professor</option>
+                    <option value="1">Portaria</option>
+                    <option value="0">Admin</option>
+                </select>
+            </div>
+
+            <div class="os_botoes">
+                <button class="usa_botoes" onclick="checar_add_usuarios()"><i class="bi bi-check2"></i>Confirma</button>
+                <button class="usa_botoes" onclick="cancelar_usuarios()"><i class="bi bi-x-lg"></i>Cancelar</button>
+            </div>
         </div> 
 
 

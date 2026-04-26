@@ -32,6 +32,7 @@
                     // $permissao_mostra = "Usuá";
                     break;
             }
+           
         ?>
 
         <div id="barra_tarefas">
@@ -62,7 +63,7 @@
                     <div id="permissao_usuario"><?php echo htmlspecialchars($permissao_mostra); ?></div>
                 </div>
                 
-                <i class="bi bi-box-arrow-right" title="Sair"></i>
+                <i class="bi bi-box-arrow-right" title="Sair" onclick="sair()"></i>
             </div>
         </aside>
 
@@ -134,6 +135,10 @@
                 alert("houve um problema!");
                 break;
         }
+        function sair(){
+            window.location.href = "sair.php";
+        }
+        
         </script>
         <script src="pagina.js"></script>
         <!-- <script src="ocorrencias.js"></script> -->

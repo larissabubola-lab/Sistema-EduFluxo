@@ -2,7 +2,7 @@ const botao_1 = document.getElementById("botao_add_alunos")
 const botao_2 = document.getElementById("botao_add_usuarios")
 
 function mostra_add_alunos(){
-    document.getElementById("add_alunos").style.display = "block";
+    document.getElementById("add_alunos").style.display = "grid";
     document.getElementById("add_usuarios").style.display = "none";
     botao_1.disabled = true;
     botao_2.disabled = false;
@@ -11,7 +11,7 @@ function mostra_add_alunos(){
 
 function mostra_add_usuarios(){
     document.getElementById("add_alunos").style.display = "none";
-    document.getElementById("add_usuarios").style.display = "block";
+    document.getElementById("add_usuarios").style.display = "grid";
     botao_1.disabled = false;
     botao_2.disabled = true;
     mostra_todos_usuarios();

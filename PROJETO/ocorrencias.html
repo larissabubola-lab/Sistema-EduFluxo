@@ -28,54 +28,74 @@
 
 
         <div id="ocorrencias" style="display: none;">
-            <label for="cgm"> CGM:</label>
-            <div name="cgm">
-                <i class="bi bi-person-vcard"></i>
-                <input type="number"  id="cgm_ocorrencias" placeholder="adcione o cgm do aluno" disabled>
+            <!-- <h2>Nova ocorrencia</h2> -->
+            <div id="div_cgm">
+                <label for="cgm"> CGM:</label>
+                <div name="cgm" id="input_de_cgm">
+                    <div class="a">
+                        <i class="bi bi-person-vcard"></i>
+                        <input type="number"  id="cgm_ocorrencias" placeholder="adcione o cgm do aluno" autocomplete="off" disabled>
+                    </div>
+                </div>
             </div>
 
-            <label for="nome_ocorrencia">Nome do aluno</label>
-            <div name="nome" id="input_de_nome">
-                <i class="bi bi-person"></i>
-                <input type="text" name="nome" id="nome_aluno_ocorrencias" placeholder="adcione o nome do aluno">
-                <div id="resultado" style="display: none;"></div>
+            <div id="div_nome">
+                <label for="nome_ocorrencia">Nome do aluno</label>
+                <div name="nome" id="input_de_nome">
+                    <div class="a">
+                        <i class="bi bi-pencil"></i>
+                        <input type="text" name="nome" id="nome_aluno_ocorrencias" placeholder="adcione o nome do aluno" autocomplete="off">
+                    </div>
+                    <div id="resultado" style="display: none;"></div>
+                </div>
             </div>
 
-            <!-- <label for="email">Email:</label>
-            <div name="email">
-                <i class="bi bi-envelope"></i>
-                <input type="email" placeholder="email do aluno" id="email_aluno" disabled>
-            </div> -->
-
-            <label for="serie">Serie:</label>
-            <div name="serie">
-                <i class="bi bi-backpack"></i>
-                <input type="text" placeholder="serie do aluno" id="serie_aluno" disabled>
+            <div id="div_serie">
+                <label for="serie">Serie:</label>
+                <div name="serie" id="input_de_serie">
+                    <div class="a">
+                        <i class="bi bi-backpack"></i>
+                        <input type="text" placeholder="serie do aluno" id="serie_aluno" autocomplete="off" disabled>
+                    </div>
+                </div>
             </div>
 
-            <label for="usuario">Usuario:</label>
-            <div name="usuario">
-                <i class="bi bi-person"></i>
-                <input type="text" placeholder="usuario" id="usuario_ocorrencia" disabled>
+            <div id="div_usuario">
+                <label for="usuario">Usuario:</label>
+                <div name="usuario" id="input_de_usuario">
+                    <div class="a">
+                        <i class="bi bi-person"></i>
+                        <input type="text" placeholder="usuario" id="usuario_ocorrencia" autocomplete="off" disabled>
+                    </div>
+                </div>
             </div>
 
-            <label for="bom_ou_ruim">Tipo de ocorrencia:</label>
-            <div id="bom_ou_ruim">
-                <label for="bom" id="label_bom" style="display: inline;">
-                    <input type="radio" id="bom" name="bom_ruim" value="positiva" class="radios">
-                    <div id="sorriso">😄</div>
-                </label>
+            <div id="div_tipo">
+                <label for="bom_ou_ruim">Tipo de ocorrencia:</label>
+                <div id="bom_ou_ruim">
+                    <label for="bom" id="label_bom" style="display: inline;">
+                        <input type="radio" id="bom" name="bom_ruim" value="positiva" class="radios">
+                        <div id="sorriso" title="Ocorrência positiva">😄</div>
+                    </label>
                 
-                <label for="ruim" id="label_ruim" style="display: inline;">
-                    <input type="radio" id="ruim" name="bom_ruim" value="negativa" class="radios">
-                    <div id="triste">😞</div>
-                </label>
+                    <label for="ruim" id="label_ruim" style="display: inline;">
+                        <input type="radio" id="ruim" name="bom_ruim" value="negativa" class="radios">
+                        <div id="triste" title="Ocorrência negativa">😞</div>
+                    </label>
+                </div>
             </div>
 
-            <label for="motivo">Motivo:</label>
-            <textarea name="motivo" id="motivo_ocorrencia" placeholder="escreva o motivo da ocorrencia"></textarea>
-            <button onclick="criar_ocorrencia()">Confirma</button>
-            <button onclick="cancelar_ocorrencia()">Cancelar</button>
+            <div id="div_motivo">
+                <label for="motivo">Motivo:</label>
+                <div id="input_de_motivo">
+                    <textarea name="motivo" id="motivo_ocorrencia" placeholder="Escreva o motivo da ocorrencia" autocomplete="off"></textarea>
+                </div>
+            </div>
+            <div id="os_botoes">
+                <button onclick="criar_ocorrencia()" title="Criar ocorrência"><i class="bi bi-check2"></i>Confirma</button>
+                <button onclick="cancelar_ocorrencia()" title="Cancelar ocorrência"><i class="bi bi-x-lg"></i>Cancelar</button>
+                <button title="Escrever ocorrência manualmente"><i class="bi bi-arrow-clockwise"></i>Criar ocorrencia manual</button>
+            </div>
         </div>
 
         <script src="ocorrencias.js"></script>

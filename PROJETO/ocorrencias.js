@@ -1,7 +1,18 @@
 const mostra_ocorrencias = document.getElementById("ocorrencias");
 
 function mostrar_formulario(){
-    mostra_ocorrencias.style.display = "block";
+    mostra_ocorrencias.style.display = "grid";
+    document.getElementById("cgm_ocorrencias").value = "";
+    document.getElementById("cgm_ocorrencias").disabled = true;
+    document.getElementById("nome_aluno_ocorrencias").value = "";
+    document.getElementById("serie_aluno").value = "";
+    document.getElementById("serie_aluno").disabled = true;
+    document.getElementById("usuario_ocorrencia").value = "";
+    document.getElementById("usuario_ocorrencia").disabled = true;
+    // document.getElementsByClassName("radios").value = "";
+    document.getElementById("bom").value = "";
+    document.getElementById("ruim").value = "";
+    document.getElementById("motivo_ocorrencia").value = "";
 }
 
 function cancelar_ocorrencia(){
@@ -83,6 +94,7 @@ function mostrar_resultados(){
         })
 }
 
+mostra_ocorrencias.addEventListener("mouseleave", limpar_resultados);
 resultados.addEventListener("mouseleave", limpar_resultados);
 
 function limpar_resultados(){
@@ -156,7 +168,7 @@ function criar_ocorrencia(){
     
     document.getElementById("motivo_ocorrencia").value = "";
 
-
+    mostra_ocorrencias.style.display = "none;"
     document.getElementById("cgm_ocorrencias").disabled = true;
     document.getElementById("serie_aluno").disabled = true;
     document.getElementById("usuario_ocorrencia").disabled = true;

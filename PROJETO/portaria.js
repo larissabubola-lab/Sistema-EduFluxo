@@ -1,7 +1,18 @@
 const pagina_add_portaria = document.getElementById("fluxos_saida");
 
 function mostrar_criar_portaria(){
-    pagina_add_portaria.style.display = "block";
+    pagina_add_portaria.style.display = "grid";
+    document.getElementById("cgm_fluxos").value = "";
+    document.getElementById("cgm_fluxos").disabled = true;
+    document.getElementById("nome_aluno_fluxo").value = "";
+    document.getElementById("serie_aluno_fluxo").value = "";
+    document.getElementById("serie_aluno_fluxo").disabled = true;
+    document.getElementById("usuario_fluxos").value = "";
+    document.getElementById("usuario_fluxos").disabled = true;
+    document.getElementById("motivo_fluxo").value = "";
+    document.getElementById("motivo_outro").value = "";
+    document.getElementById("motivo_outro").style.display = "none" ; 
+    
 }
 
 function cancelar_fluxos(){
@@ -11,7 +22,7 @@ function cancelar_fluxos(){
 const mostrar_portaria = document.getElementById("lugar_portaria");
 
 function mostrar_fluxos(){
-    let elementos = mostrar_portaria.querySelectorAll(".mostra_portaria")
+    let elementos = mostrar_portaria.querySelectorAll(".mostra_portaria");
     elementos.forEach(apaga=>{
         apaga.remove();
     })
@@ -38,8 +49,8 @@ const pagina_fluxos = document.getElementById("fluxos_saida");
 const input_fluxos = document.getElementById("nome_aluno_fluxo");
 const resultados_fluxos = document.getElementById("resultado_fluxos");
 
-input_fluxos.addEventListener("input", mostrar_resultados_fluxos)
-input_fluxos.addEventListener("click", mostrar_resultados_fluxos)
+input_fluxos.addEventListener("input", mostrar_resultados_fluxos);
+input_fluxos.addEventListener("click", mostrar_resultados_fluxos);
 
 function mostrar_resultados_fluxos(){
     if(!resultados_fluxos){

@@ -1,53 +1,197 @@
+@font-face {
+    font-family: bigshot;
+    src: url(assets/BigshotOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: bigshoulder;
+    src: url(assets/BigShoulders_36pt-Regular.ttf);
+}
+
 #pagina_ocorrencias{
     margin-top:150px;
 }
 
 label{
     display: block;
+    text-align:center;
+    text-decoration:underline;
+    font-style:italic;
+    font-size:25px;
+    color:white;
+    font-family:bigshot;
+    text-shadow: 5px 5px 5px white;
 }
 
 #ocorrencias{
     /* display: none; */
-    border:solid;
+    border:outset;
     border-radius: 15px;
-    display: inline-block;
+    /* display: inline-block; */
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    width:900px;
     position:fixed;
-    top:0;
-    left:30%;
+    top:130px;
+    left:15%;
     background:white;
+    padding:15px;
+    gap:20px 0px;
+    padding-top:30px;
+    padding-bottom:30px;
+    color:white;
+    border-color:black;
+    box-shadow: 5px 5px 15px grey, 10px 10px 20px black, inset 5px 5px 10px white;
+    background:black;
+}
+
+
+
+#input_de_cgm, #input_de_nome, #input_de_serie, #input_de_usuario, #input_de_motivo{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    height:fit-content;
+    justify-content:center;
+    align-items:center;
+     margin-top:15px;
+    font-size:18px;
+}
+#ocorrencias input{
+    font-size:18px;
+}
+
+.a{
+    width:fit-content;
+    height:fit-content;
+    border: solid;
+    border-radius:15px;
+    display:inline-block;
+    padding:5px;
+    background:white;
+    box-shadow: 5px 5px 5px grey inset, inset -3px -3px 5px grey;
+}
+
+.a i{
+    margin-left:5px;
+    color:grey;
+}
+
+.a input{
+    background:transparent;
+    border:none;
+    border-radius:18px;
+    
+}
+
+.a:has(input:disabled){
+    background:#c3c3c3;
+    cursor:not-allowed;
+    border:solid;
+    box-shadow: 5px 5px 5px #525050 inset, inset -3px -3px 5px #525050;
+}
+
+input:disabled{
+   /* background:#c3c3c3; */
+    cursor:not-allowed;
+}
+
+#motivo_ocorrencia{
+    font-size:18px;
     padding:10px;
-};
+    width:250px;
+    border-radius:15px;
+    border:solid white;
+    box-shadow: 10px 10px 5px grey inset, inset -6px -6px 5px grey;
+    /* box-shadow: -5px -5px 10px grey inset; */
+    
+}
+
+#os_botoes{
+    grid-column:span 2;
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    height:fit-content;
+    justify-content:space-evenly;
+    margin-top:15px;
+    /* border:outset */
+    /* font-size:26px; */
+    /* position:relative; */
+}
+
+#os_botoes button{
+    display:flex;
+    cursor:pointer;
+    font-size:18px;
+    background:transparent;
+    border:solid;
+    border-radius:10px;
+    padding:3px;
+    color:white;
+    /* border-color:black; */
+    box-shadow: 1px 1px 3px white inset, 5px 5px 8px grey;
+    transition:transform 200ms ease; 
+}
+
+#os_botoes button:hover{
+    transform:scale(1.1);
+}
+
+#bom_ou_ruim{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    height:fit-content;
+    justify-content:center;
+     margin-top:30px; 
+    gap:10%;
+}
     
 
 #label_bom{
     position:relative;
     display:inline;
-    margin-left:20px
+    /* margin-left:20px; */
+    font-size:40px;
+    text-shadow: 5px 5px 10px white;
     
 }
 #label_bom input{
     position:absolute;
     opacity:0;
     cursor:pointer;
+    /* top:50%;
+    left:50%; */
+    /* width:50px;
+    height:50px; */
+    /* font-size:40px; */
     
 }
 #label_ruim{
     position:relative;
     display:inline-block;
-     margin-left:20px;
+     /* margin-left:20px; */
+    font-size:40px;
+    text-shadow: 5px 5px 10px white;
 }
 #label_ruim input{
     position:absolute;
     opacity:0;
     cursor:pointer;
+    /* font-size:40px; */
+    /* width:50px;
+    height:50px; */
 }
 #sorriso{
     display:inline-block;
     cursor:pointer;
+    font-style:normal;
 }
 #triste{
     display:inline-block;
     cursor:pointer;
+     font-style:normal;
 }
 
 #label_bom input:hover{
@@ -66,11 +210,11 @@ label{
     transform:scale(1.5);
 }
 #label_bom:has(#sorriso:hover){
-    margin-left:25px;
+    /* margin-left:25px; */
 }
 
 #label_ruim:has(#triste:hover){
-    margin-left:25px;
+    /* margin-left:25px; */
 }
 
 #sorriso:active{
@@ -97,13 +241,49 @@ label{
 
 #input_de_nome #resultado{
     position:absolute;
-    width:200px;
-    top:30px;
-    left:10px;
-    border:solid;
+    width:300px;
+    /* width:40px; */
+    top:60px;
+    left:70px;
+    border:outset;
+    box-shadow:-5px -5px 10px grey inset;
     background-color: white;
     color:black;
     z-index:50;
+    font-size:18px;
+    text-align:center;
+    border-radius:20px;
+    border-top:none;
+    cursor:pointer;
+    overflow:auto;
+    padding:10px;
+}
+
+#resultado :first-child{
+    margin-top:10px;
+}
+
+#resultado::-webkit-scrollbar{
+    /* heigth:5px; */
+    /* width:5px; */
+    height:10px;
+    /* width:fit-content; */
+}
+ #resultado::-webkit-scrollbar-thumb{
+    background:black;
+    border-radius:45px;
+}
+
+ #resultado::-webkit-scrollbar-track{
+    background:grey;
+    border-radius:45px;
+}
+
+.nome_resultados{
+    transition:transform 200ms ease;
+}
+.nome_resultados:hover{
+    transform:scale(1.05);
 }
 
 #lugar_ocorrencias{
@@ -243,7 +423,7 @@ label{
     font-style:italic
 }
 
-.informaçao{
+.informaÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ao{
     display:flex;
     flex-direction: row;
 }
@@ -385,6 +565,6 @@ label{
 select{
     cursor:pointer;
     margin-left:50px;
-    
 }
+
 
