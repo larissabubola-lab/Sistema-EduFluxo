@@ -136,7 +136,7 @@
                 break;
         }
         function sair(){
-            window.location.href = "sair.php";
+            window.location.replace("sair.php");
         }
         
         </script>
