@@ -178,3 +178,62 @@ function criar_ocorrencia(){
 
     mostra_todas_ocorrencias();
 }
+
+
+
+function mostrar_tipos(){
+    let tudo = lugar_das_ocorrencias.querySelectorAll(".mostra_ocorrencias")
+    tudo.forEach(todos=>{
+        todos.remove()
+    })
+    let select_value = document.getElementById("select").value;
+
+    switch(select_value){
+        case "positivas":
+            fetch("banco_de_dados.php",{
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para: "buscar_ocorrencias_positivas"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+                lugar_das_ocorrencias.innerHTML += dados;
+            })
+            break;
+        case "negativas":
+            fetch("banco_de_dados.php",{
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para:"buscar_ocorrencias_negativas"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+                lugar_das_ocorrencias.innerHTML += dados;
+            })
+            break;
+        default:
+            fetch("banco_de_dados.php",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para:"buscar_ocorrencias"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+                lugar_das_ocorrencias.innerHTML += dados;
+            })
+            break;
+    }
+    
+}

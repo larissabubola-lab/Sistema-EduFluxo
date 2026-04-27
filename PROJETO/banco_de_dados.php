@@ -12,6 +12,78 @@
         exit("Dados inválidos");
     }
 
+    function template($info_1, $info_2, $info_3, $info_4){
+        echo "<div class='mostra_alunos'>";
+            echo "<div class='foto'><i class='bi bi-person-square'></i></div>";
+            echo "<div class='informacoes'>";
+                echo "<div class='cgms'>";
+                    echo "<div>Cgm:</div>";
+                    echo "<div>" . htmlspecialchars($info_1) . "</div>";
+                echo "</div>";
+                echo "<div class='nomes'>";
+                    echo "<div>Nome:</div>";
+                    echo "<div>" . htmlspecialchars($info_2) . "</div>";
+                echo "</div>";
+                echo "<div class='series'>";
+                    echo "<div>Série:</div>";
+                    echo "<div>" . htmlspecialchars($info_3) . "</div>";
+                echo "</div>";
+                echo "<div class='emails'>";
+                    echo "<div>Email:</div>";
+                    echo "<div>" . htmlspecialchars($info_4) . "</div>";
+                echo "</div>";
+                echo "<div class='botoes'>";
+                    echo "<button class='editar botao' title='Editar cadastro'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
+                    echo "<button class='apagar botao' title='Apagar cadastro'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
+                echo "</div>";
+            echo "</div>";
+        echo '</div>';
+    }
+
+    function template_ocorrencias($info_1, $info_2, $info_3, $info_4,$info_5,$info_6, $info_7, $info_8, $info_9, $info_10){
+         echo "<div class='mostra_ocorrencias $info_1'>"; // valores: bom e ruim
+            echo "<div class='parte_cima'>";        
+                echo "<div>$info_2</div>"; //😊 ou 🙁
+
+                echo "<div class='nome_cgm'>";
+                    echo "<div>" . htmlspecialchars($info_3) . "</div>";
+                    echo "<div>Cgm:&nbsp;" . htmlspecialchars($info_4) . "</div>";
+                echo "</div>";
+
+                echo "<div class='datas $info_5'>" . htmlspecialchars($info_6) . "</div>"; //valores: data_bom e data_ruim
+            echo "</div>";
+
+            echo "<div class='informaçao'>";
+                echo "<div class='auxiliar'>";
+                    echo "<div class='series'>";
+                        echo "<div><i class='bi bi-backpack2'></i>&nbsp;Série:</div>";
+                        echo "<div>" . htmlspecialchars($info_7) . "</div>";
+                    echo "</div>";
+
+                    echo "<div class='relatores'>";
+                        echo "<div><i class='bi bi-person'></i>&nbsp;Relator:</div>";
+                        echo "<div>" . htmlspecialchars($info_8) . "</div>";
+                    echo "</div>";
+
+                echo "</div>";
+
+                echo "<div class='auxiliar_motivo'>";
+                    echo "<div class='motivos $info_9'>"; //motivo_bom e motivo_ruim
+                        echo "<div class='titulo_motivo'>Motivo:</div>";
+                        echo "<div class='detalhes'>" . htmlspecialchars($info_10) . "</div>";
+                    echo "</div>";
+                echo "</div>";
+
+            echo "</div>";
+
+            echo "<div class='botoes'>";
+                echo "<button class='editar' title='Editar ocorrencia'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
+                echo "<button class='apagar' title='Apagar ocorrencia'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
+            echo "</div>";
+
+        echo "</div>";
+    }
+
     switch($data["para"]){
         case "alunos":
             $conexao->query("INSERT INTO alunos VALUES ('{$data["cgm"]}', '{$data["nome"]}', '{$data["email"]}', '{$data["serie"]}')");
@@ -38,42 +110,11 @@
 
         case "buscar_alunos":
             $informacoes = $conexao->query("SELECT * FROM alunos ORDER BY nome ASC");
-            // echo "<button id='botao_add_alunos' onclick='mostra_add_alunos()'>Adicionar Alunos</button>";
             while($linha = $informacoes->fetch_assoc()){
-                echo "<div class='mostra_alunos'>";
-                    echo "<div class='foto'><i class='bi bi-person-square'></i></div>";
-                    echo "<div class='informacoes'>";
-                        echo "<div class='cgms'>";
-                            echo "<div>Cgm:</div>";
-                            echo "<div>" . htmlspecialchars($linha["cgm"]) . "</div>";
-                        echo "</div>";
-                        echo "<div class='nomes'>";
-                            echo "<div>Nome:</div>";
-                            echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
-                        echo "</div>";
-                        echo "<div class='series'>";
-                            echo "<div>Série:</div>";
-                            echo "<div>" . htmlspecialchars($linha["sala"]) . "</div>";
-                        echo "</div>";
-                        echo "<div class='emails'>";
-                            echo "<div>Email:</div>";
-                            echo "<div>" . htmlspecialchars($linha["email"]) . "</div>";
-                        echo "</div>";
-                        echo "<div class='botoes'>";
-                            echo "<button class='editar botao' title='Editar cadastro'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
-                            echo "<button class='apagar botao' title='Apagar cadastro'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
-                        echo "</div>";
-                    echo "</div>";
-                echo '</div>';
-                // echo "<div class='mostra_alunos'>";
-                // echo "<div class='cgms'>" . htmlspecialchars($linha["cgm"]) . "</div><br>";
-                // echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div><br>";
-                // echo "<div class='emails'>" . htmlspecialchars($linha["email"]) . "</div><br>";
-                // echo "<div class='series'>" . htmlspecialchars($linha["sala"]) . "</div>";
-                // echo "</div>";
+                template($linha["cgm"], $linha["nome"], $linha["sala"], $linha["email"]);
             }
             break;
-
+    
         case "buscar_usuarios":
             $informacoes = $conexao->query("SELECT * FROM usuarios ORDER BY nome ASC");
             while($linha = $informacoes->fetch_assoc()){
@@ -116,93 +157,25 @@
             $informacoes = $conexao->query("SELECT * FROM ocorrencias ORDER BY id ASC");
             while($linha = $informacoes->fetch_assoc()){
                 if($linha["tipo"] === "positiva"){
-                    echo "<div class='mostra_ocorrencias bom'>";
-
-                        echo "<div class='parte_cima'>";        
-                            echo "<div>😊</div>";
-
-                            echo "<div class='nome_cgm'>";
-                                echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
-                                echo "<div>Cgm:&nbsp;" . htmlspecialchars($linha["cgm"]) . "</div>";
-                            echo "</div>";
-
-                            echo "<div class='datas data_bom'>" . htmlspecialchars($linha["data"]) . "</div>";
-                        echo "</div>";
-
-                        echo "<div class='informaçao'>";
-                            echo "<div class='auxiliar'>";
-                                echo "<div class='series'>";
-                                    echo "<div><i class='bi bi-backpack2'></i>&nbsp;Série:</div>";
-                                    echo "<div>" . htmlspecialchars($linha["serie"]) . "</div>";
-                                echo "</div>";
-
-                                echo "<div class='relatores'>";
-                                    echo "<div><i class='bi bi-person'></i>&nbsp;Relator:</div>";
-                                    echo "<div>" . htmlspecialchars($linha["relator"]) . "</div>";
-                                echo "</div>";
-
-                            echo "</div>";
-
-                            echo "<div class='auxiliar_motivo'>";
-                                echo "<div class='motivos motivo_bom'>";
-                                    echo "<div class='titulo_motivo'>Motivo:</div>";
-                                    echo "<div class='detalhes'>" . htmlspecialchars($linha["motivo"]) . "</div>";
-                                echo "</div>";
-                            echo "</div>";
-
-                        echo "</div>";
-
-                        echo "<div class='botoes'>";
-                            echo "<button class='editar' title='Editar ocorrencia'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
-                            echo "<button class='apagar' title='Apagar ocorrencia'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
-                        echo "</div>";
-
-                    echo "</div>";
+                   template_ocorrencias("bom", "😊", $linha["nome"], $linha["cgm"], "data_boa", $linha["data"], $linha["serie"],  $linha["relator"], "motivo_bom", $linha["motivo"] );
                 }
                 else{
-                    echo "<div class='mostra_ocorrencias ruim'>";
-
-                        echo "<div class='parte_cima'>";        
-                            echo "<div>🙁</div>";
-
-                            echo "<div class='nome_cgm'>";
-                                echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
-                                echo "<div>Cgm:&nbsp;" . htmlspecialchars($linha["cgm"]) . "</div>";
-                            echo "</div>";
-
-                            echo "<div class='datas data_ruim'>" . htmlspecialchars($linha["data"]) . "</div>";
-                        echo "</div>";
-
-                        echo "<div class='informaçao'>";
-                            echo "<div class='auxiliar'>";
-                                echo "<div class='series'>";
-                                    echo "<div><i class='bi bi-backpack2'></i>&nbsp;Série:</div>";
-                                    echo "<div>" . htmlspecialchars($linha["serie"]) . "</div>";
-                                echo "</div>";
-
-                                echo "<div class='relatores'>";
-                                    echo "<div><i class='bi bi-person'></i>&nbsp;Relator:</div>";
-                                    echo "<div>" . htmlspecialchars($linha["relator"]) . "</div>";
-                                echo "</div>";
-
-                            echo "</div>";
-
-                            echo "<div class='auxiliar_motivo'>";
-                                echo "<div class='motivos motivo_ruim'>";
-                                    echo "<div class='titulo_motivo'>Motivo:</div>";
-                                    echo "<div class='detalhes'>" . htmlspecialchars($linha["motivo"]) . "</div>";
-                                echo "</div>";
-                            echo "</div>";
-
-                        echo "</div>";
-
-                        echo "<div class='botoes'>";
-                            echo "<button class='editar' title='Editar ocorrencia'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
-                            echo "<button class='apagar' title='Apagar ocorrencia'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
-                        echo "</div>";
-
-                    echo "</div>";
+                    template_ocorrencias("ruim", "🙁", $linha["nome"], $linha["cgm"], "data_ruim", $linha["data"], $linha["serie"],  $linha["relator"], "motivo_ruim", $linha["motivo"] );
                 }
+            }
+            break;
+
+        case "buscar_ocorrencias_positivas":
+            $informacoes = $conexao->query("SELECT * FROM ocorrencias WHERE tipo = 'positiva'");
+            while($linha = $informacoes->fetch_assoc()){
+                template_ocorrencias("bom", "😊", $linha["nome"], $linha["cgm"], "data_boa", $linha["data"], $linha["serie"],  $linha["relator"], "motivo_bom", $linha["motivo"] );
+            }
+            break;
+
+        case "buscar_ocorrencias_negativas":
+            $informacoes = $conexao->query("SELECT * FROM ocorrencias WHERE tipo = 'negativa'");
+            while($linha = $informacoes->fetch_assoc()){
+                template_ocorrencias("ruim", "🙁", $linha["nome"], $linha["cgm"], "data_ruim", $linha["data"], $linha["serie"],  $linha["relator"], "motivo_ruim", $linha["motivo"] );
             }
             break;
         

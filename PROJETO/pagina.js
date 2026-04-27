@@ -42,7 +42,7 @@ function abrir_cadastros(){
 }
 
 function abrir_ajuda(){
-    iframe.src = "";
+    iframe.src = "como_usar.php";
     paginaprincipal.style.display = "none";
     pagina_ajuda.style.display = "block";
     pagina_configuracoes.style.display = "none";
