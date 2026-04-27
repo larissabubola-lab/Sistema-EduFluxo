@@ -183,3 +183,77 @@ function criar_fluxos(){
 
     mostrar_fluxos();
 }
+
+
+function mostrar_motivos(){
+    let elementos = mostrar_portaria.querySelectorAll(".mostra_portaria");
+    elementos.forEach(apaga=>{
+        apaga.remove();
+    })
+
+    
+    let select_value = document.getElementById("select_portaria").value;
+
+    switch(select_value){
+        case "entrada":
+            fetch("banco_de_dados.php",{
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para:"buscar_portaria_entrada"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+                mostrar_portaria.innerHTML += dados;
+            })
+            break;
+        case "saida":
+            fetch("banco_de_dados.php",{
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para:"buscar_portaria_saida"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+                mostrar_portaria.innerHTML += dados;
+            })
+            break;
+        case "outros":
+            fetch("banco_de_dados.php",{
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para:"buscar_portaria_outros"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+                mostrar_portaria.innerHTML += dados;
+            })
+            break;
+        default:
+            fetch("banco_de_dados.php",{
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para:"buscar_portaria"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+                mostrar_portaria.innerHTML += dados;
+            })
+            break;
+    }
+}

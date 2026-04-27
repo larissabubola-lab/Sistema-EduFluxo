@@ -40,6 +40,34 @@
         echo '</div>';
     }
 
+    function template_usuarios($info_1,$info_2,$info_3, $info_4){
+        echo "<div class='mostra_usuarios'>";
+            echo "<div class='foto'><i class='bi bi-person-square'></i></div>";
+            echo "<div class='informacoes'>";
+                echo "<div class='cpfs'>";
+                    echo "<div>Cpf:</div>";
+                    echo "<div>" . htmlspecialchars($info_1) . "</div>";
+                echo "</div>";
+                echo "<div class='nomes'>";
+                    echo "<div>Nome:</div>";
+                    echo "<div>" . htmlspecialchars($info_2) . "</div>";
+                echo "</div>";
+                echo "<div class='emails'>";
+                    echo "<div>Email:</div>";
+                    echo "<div>" . htmlspecialchars($info_3) . "</div>";
+                echo "</div>";
+                echo "<div class='permissao_usuario'>";
+                    echo "<div>Permissão:</div>";
+                    echo "<div class='permissoes'>" . htmlspecialchars($info_4) . "</div>";
+                echo "</div>";
+                echo "<div class='botoes'>";
+                    echo "<button class='editar botao' title='Editar cadastro'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
+                    echo "<button class='apagar botao' title='Apagar cadastro'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
+                echo "</div>";
+            echo "</div>";
+        echo '</div>';
+    }
+
     function template_ocorrencias($info_1, $info_2, $info_3, $info_4,$info_5,$info_6, $info_7, $info_8, $info_9, $info_10){
          echo "<div class='mostra_ocorrencias $info_1'>"; // valores: bom e ruim
             echo "<div class='parte_cima'>";        
@@ -84,6 +112,37 @@
         echo "</div>";
     }
 
+    function template_portaria($info_1, $info_2,$info_3,$info_4,$info_5, $info_6){
+        echo "<div class='mostra_portaria'>";
+            echo "<div class='parte_cima'>";
+                echo "<i class='bi bi-person-circle'></i>";
+                echo "<div class='nome_cgm'>";
+                    echo "<div>" . htmlspecialchars($info_1) . "</div>";
+                    echo "<div>Cgm:&nbsp;" . htmlspecialchars($info_2) . "</div>";
+                echo "</div>";
+                echo "<div class='datas'>" . htmlspecialchars($info_3) . "</div>";
+            echo "</div>";
+            echo "<div class='informacoes'>";
+                echo "<div class='auxiliar'>";
+                    echo "<div class='series'>";
+                        echo  "<div>Série:</div>";
+                        echo "<div>" . htmlspecialchars($info_4) . "</div>";
+                    echo "</div>";
+                    echo "<div class='relatores'>";
+                        echo "<div>Relator:</div>";
+                        echo "<div>" . htmlspecialchars($info_5) . "</div>";
+                    echo "</div>";
+                echo "</div>";
+                echo "<div class='motivo_auxiliar'>";
+                    echo "<div class='motivos'>";
+                        echo "<div>Motivo:</div>";
+                        echo "<div>" . htmlspecialchars($info_6). "</div>";
+                    echo "</div>";
+                echo "</div>";
+            echo "</div>";
+        echo "</div>";
+    }
+
     switch($data["para"]){
         case "alunos":
             $conexao->query("INSERT INTO alunos VALUES ('{$data["cgm"]}', '{$data["nome"]}', '{$data["email"]}', '{$data["serie"]}')");
@@ -118,38 +177,33 @@
         case "buscar_usuarios":
             $informacoes = $conexao->query("SELECT * FROM usuarios ORDER BY nome ASC");
             while($linha = $informacoes->fetch_assoc()){
-                echo "<div class='mostra_usuarios'>";
-                    echo "<div class='foto'><i class='bi bi-person-square'></i></div>";
-                    echo "<div class='informacoes'>";
-                        echo "<div class='cpfs'>";
-                            echo "<div>Cpf:</div>";
-                            echo "<div>" . htmlspecialchars($linha["cpf"]) . "</div>";
-                        echo "</div>";
-                        echo "<div class='nomes'>";
-                            echo "<div>Nome:</div>";
-                            echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
-                        echo "</div>";
-                        echo "<div class='emails'>";
-                            echo "<div>Email:</div>";
-                            echo "<div>" . htmlspecialchars($linha["email"]) . "</div>";
-                        echo "</div>";
-                        echo "<div class='permissao_usuario'>";
-                            echo "<div>Permissão:</div>";
-                            echo "<div class='permissoes'>" . htmlspecialchars($linha["permissao"]) . "</div>";
-                        echo "</div>";
-                        echo "<div class='botoes'>";
-                            echo "<button class='editar botao' title='Editar cadastro'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
-                            echo "<button class='apagar botao' title='Apagar cadastro'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
-                        echo "</div>";
-                    echo "</div>";
-                echo '</div>';
-                
+                template_usuarios($linha["cpf"], $linha["nome"], $linha["email"], $linha["permissao"]);
                 // echo "<div class='mostra_usuarios'>";
-                // echo "<div class='cpfs'>" . htmlspecialchars($linha["cpf"]) . "</div><br>";
-                // echo "<div class='nomes'>" . htmlspecialchars($linha["nome"]) . "</div><br>";
-                // echo "<div class='emails'>" . htmlspecialchars($linha["email"]) . "</div><br>";
-                // echo "<div class='permissoes'>" . htmlspecialchars($linha["permissao"]) . "</div>";
-                // echo "</div>";
+                //     echo "<div class='foto'><i class='bi bi-person-square'></i></div>";
+                //     echo "<div class='informacoes'>";
+                //         echo "<div class='cpfs'>";
+                //             echo "<div>Cpf:</div>";
+                //             echo "<div>" . htmlspecialchars($linha["cpf"]) . "</div>";
+                //         echo "</div>";
+                //         echo "<div class='nomes'>";
+                //             echo "<div>Nome:</div>";
+                //             echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
+                //         echo "</div>";
+                //         echo "<div class='emails'>";
+                //             echo "<div>Email:</div>";
+                //             echo "<div>" . htmlspecialchars($linha["email"]) . "</div>";
+                //         echo "</div>";
+                //         echo "<div class='permissao_usuario'>";
+                //             echo "<div>Permissão:</div>";
+                //             echo "<div class='permissoes'>" . htmlspecialchars($linha["permissao"]) . "</div>";
+                //         echo "</div>";
+                //         echo "<div class='botoes'>";
+                //             echo "<button class='editar botao' title='Editar cadastro'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
+                //             echo "<button class='apagar botao' title='Apagar cadastro'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
+                //         echo "</div>";
+                //     echo "</div>";
+                // echo '</div>';
+                
             }
             break;
 
@@ -182,36 +236,27 @@
         case "buscar_portaria":
             $informacoes = $conexao->query("SELECT * FROM fluxo_saidas ORDER BY id ASC");
             while($linha = $informacoes->fetch_assoc()){
-                echo "<div class='mostra_portaria'>";
-                    echo "<div class='parte_cima'>";
-                        echo "<i class='bi bi-person-circle'></i>";
-                        echo "<div class='nome_cgm'>";
-                            echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
-                            echo "<div>Cgm:&nbsp;" . htmlspecialchars($linha["cgm"]) . "</div>";
-                        echo "</div>";
-                        echo "<div class='datas'>" . htmlspecialchars($linha["data"]) . "</div>";
-                    echo "</div>";
-                    echo "<div class='informacoes'>";
-                        echo "<div class='auxiliar'>";
-                            echo "<div class='series'>";
-                                echo  "<div>Série:</div>";
-                                echo "<div>" . htmlspecialchars($linha["serie"]) . "</div>";
-                            echo "</div>";
-                            echo "<div class='relatores'>";
-                                echo "<div>Relator:</div>";
-                                echo "<div>" . htmlspecialchars($linha["usuario"]) . "</div>";
-                            echo "</div>";
-                        echo "</div>";
-                        echo "<div class='motivo_auxiliar'>";
-                            echo "<div class='motivos'>";
-                                echo "<div>Motivo:</div>";
-                                echo "<div>" . htmlspecialchars($linha["motivo"]). "</div>";
-                            echo "</div>";
-                        echo "</div>";
-                    echo "</div>";
-                echo "</div>";
+               template_portaria($linha["nome"], $linha["cgm"],$linha["data"],  $linha["serie"], $linha["usuario"], $linha["motivo"]);
             }
             break;
+        case "buscar_portaria_entrada":
+            $informacoes = $conexao->query("SELECT * FROM fluxo_saidas WHERE motivo = 'O aluno chegou atrasado'");
+            while($linha = $informacoes->fetch_assoc()){
+                template_portaria($linha["nome"], $linha["cgm"],$linha["data"],  $linha["serie"], $linha["usuario"], $linha["motivo"]);
+             }
+             break;
+        case "buscar_portaria_saida":
+            $informacoes = $conexao->query("SELECT * FROM fluxo_saidas WHERE motivo = 'O aluno saiu mais cedo'");
+            while($linha = $informacoes->fetch_assoc()){
+                template_portaria($linha["nome"], $linha["cgm"],$linha["data"],  $linha["serie"], $linha["usuario"], $linha["motivo"]);
+             }
+             break;
+        case "buscar_portaria_outros":
+            $informacoes = $conexao->query("SELECT * FROM fluxo_saidas WHERE motivo != 'O aluno saiu mais cedo' && motivo != 'O aluno chegou atrasado'");
+            while($linha = $informacoes->fetch_assoc()){
+                template_portaria($linha["nome"], $linha["cgm"],$linha["data"],  $linha["serie"], $linha["usuario"], $linha["motivo"]);
+             }
+             break;
         default:
             http_response_code(400);
             die("Dados inválidos");

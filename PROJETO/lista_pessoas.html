@@ -18,15 +18,15 @@
                     <i class="bi bi-search"></i>
                     <input type="text" id="pesquisa" placeholder="Digite o nome do aluno">
                 </div>
-                <select>
-                    <option value="">Todos os alunos</option>
-                    <option value="6°">6°</option>
-                    <option value="7°">7°</option>
-                    <option value="8°">8°</option>
-                    <option value="9°">9°</option>
-                    <option value="1°">1°</option>
-                    <option value="2°">2°</option>
-                    <option value="3°">3°</option>
+                <select onchange="mostra_salas()" id="select_salas">
+                    <option value="*">Todos os alunos</option>
+                    <option value="6">6°</option>
+                    <option value="7">7°</option>
+                    <option value="8">8°</option>
+                    <option value="9">9°</option>
+                    <option value="1">1°</option>
+                    <option value="2">2°</option>
+                    <option value="3">3°</option>
                 </select>
             </div>
             
@@ -38,7 +38,8 @@
                     <i class="bi bi-search"></i>
                     <input type="text" id="pesquisa_usuario" placeholder="Digite o nome do usuario">
                 </div>
-                <select>
+
+                <select onchange="mostra_permissoes()" id="select_permissoes">
                     <option value="">Todos os usuarios</option>
                     <option value="admin">Admin</option>
                     <option value="portaria">Portaria</option>

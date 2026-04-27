@@ -14,8 +14,8 @@
                     <i class="bi bi-search"></i>
                     <input type="text" placeholder="Buscar registro">
                 </div>
-                <select>
-                    <option value="">Todos os registros</option>
+                <select onchange="mostrar_motivos()" id="select_portaria">
+                    <option value="*">Todos os registros</option>
                     <option value="entrada">Atrasos</option>
                     <option value="saida">Saiu mais cedo</option>
                     <option value="outros">Outros</option>

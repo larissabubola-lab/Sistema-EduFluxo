@@ -269,4 +269,48 @@ function checar_add_usuarios(){
     mostra_todos_usuarios();
 }
 
+function mostra_salas(){
+    let apaga_itens = usuarios.querySelectorAll(".mostra_usuarios");
+    apaga_itens.forEach(apaga=>{
+        apaga.remove();
+    })
 
+    let select_value = document.getElementById("select_salas").value
+
+    switch(select_value){
+        case "6":
+            fetch("banco-de_dados.php",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para:"buscar_alunos_sexto
+                })
+            })
+            break;
+        case "7":
+            break;
+        case "8":
+            break;
+        case "9":
+            break;
+        case "1":
+            break;
+        case "2":
+            break;
+        case "3":
+            break;
+        default:
+            break;
+    }
+}
+
+function mostra_permissoes(){
+    let apaga_itens = usuarios.querySelectorAll(".mostra_usuarios");
+    apaga_itens.forEach(apaga=>{
+        apaga.remove();
+    })
+
+    let select_value = document.getElementById("select_permissoes").value
+}
