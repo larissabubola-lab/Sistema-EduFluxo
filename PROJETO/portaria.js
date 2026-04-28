@@ -12,7 +12,8 @@ function mostrar_criar_portaria(){
     document.getElementById("motivo_fluxo").value = "";
     document.getElementById("motivo_outro").value = "";
     document.getElementById("motivo_outro").style.display = "none" ; 
-    
+    clicou = true;
+    manual();
 }
 
 function cancelar_fluxos(){
@@ -50,7 +51,7 @@ const input_fluxos = document.getElementById("nome_aluno_fluxo");
 const resultados_fluxos = document.getElementById("resultado_fluxos");
 
 input_fluxos.addEventListener("input", mostrar_resultados_fluxos);
-input_fluxos.addEventListener("click", mostrar_resultados_fluxos);
+// input_fluxos.addEventListener("click", mostrar_resultados_fluxos);
 
 function mostrar_resultados_fluxos(){
     if(!resultados_fluxos){
@@ -93,6 +94,29 @@ function mostrar_resultados_fluxos(){
                 })
             })
         })
+}
+
+let clicou = false;
+
+function manual(){
+    clicou = !clicou;
+    if(clicou){
+        document.getElementById("cgm_fluxos").disabled = false;
+        document.getElementById("nome_aluno_fluxo").removeEventListener("input", mostrar_resultados_fluxos);
+        document.getElementById("serie_aluno_fluxo").disabled = false;
+        document.getElementById("usuario_fluxos").disabled = false;
+        document.getElementById("botao_manual").innerHTML = "<i class='bi bi-arrow-counterclockwise'></i>Desativar escrita manual";
+        document.getElementById("botao_manual").title="Desativar a escrita manual";
+    }
+    else{
+        document.getElementById("cgm_fluxos").disabled = true;
+        document.getElementById("nome_aluno_fluxo").removeEventListener("input", mostrar_resultados_fluxos);
+        document.getElementById("serie_aluno_fluxo").disabled = true;
+        document.getElementById("usuario_fluxos").disabled = true;
+        document.getElementById("botao_manual").innerHTML = "<i class='bi bi-arrow-clockwise'></i>Criar fluxo manual";    
+        document.getElementById("botao_manual").title="Escrever o fluxo manualmente";
+    }
+    
 }
 
 pagina_fluxos.addEventListener("mouseleave", limpar_resultados_fluxos);
@@ -178,6 +202,7 @@ function criar_fluxos(){
     document.getElementById("motivo_fluxo").value = "";
     document.getElementById("motivo_outro").value = "";
     document.getElementById("motivo_outro").style.display = "none";
+    pagina_add_portaria.style.display = "none";
 
     alert("Documentação de fluxo criado com sucesso!");
 

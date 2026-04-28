@@ -15,6 +15,8 @@ function mostrar_formulario(){
         radio.checked = false;
     })
     document.getElementById("motivo_ocorrencia").value = "";
+    clicou = true;
+    manual();
 }
 
 function cancelar_ocorrencia(){
@@ -52,7 +54,7 @@ const input_ocorrencias = document.getElementById("nome_aluno_ocorrencias");
 const resultados = document.getElementById("resultado");
 
 input_ocorrencias.addEventListener("input", mostrar_resultados);
-input_ocorrencias.addEventListener("click", mostrar_resultados);
+// input_ocorrencias.addEventListener("click", mostrar_resultados);
 
 function mostrar_resultados(){ 
     if (!resultados) {
@@ -102,6 +104,30 @@ resultados.addEventListener("mouseleave", limpar_resultados);
 function limpar_resultados(){
     resultados.style.display = "none";
 }
+
+let clicou = false;
+
+function manual(){
+    clicou = !clicou;
+    if(clicou){
+        document.getElementById("cgm_ocorrencias").disabled = false;
+        document.getElementById("nome_aluno_ocorrencias").removeEventListener("input", mostrar_resultados);
+        document.getElementById("serie_aluno").disabled = false;
+        document.getElementById("usuario_ocorrencia").disabled = false;
+        document.getElementById("botao_manual").innerHTML = "<i class='bi bi-arrow-counterclockwise'></i>Desativar escrita manual";
+        document.getElementById("botao_manual").title="Desativar a escrita manual";
+    }
+    else{
+        document.getElementById("cgm_ocorrencias").disabled = true;
+        document.getElementById("nome_aluno_ocorrencias").addEventListener("input", mostrar_resultados);
+        document.getElementById("serie_aluno").disabled = true;
+        document.getElementById("usuario_ocorrencia").disabled = true;
+        document.getElementById("botao_manual").innerHTML = "<i class='bi bi-arrow-clockwise'></i>Criar ocorrencia manual";    
+        document.getElementById("botao_manual").title="Escrever ocorrência manualmente";
+    }
+    
+}
+
 
 
 function criar_ocorrencia(){
