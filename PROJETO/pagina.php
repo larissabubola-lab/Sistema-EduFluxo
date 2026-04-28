@@ -51,11 +51,11 @@
                 <div class="opcoes" id="ocorrencias" onclick="abrir_ocorrencias()" title="Abrir ocorrências">Ocorrências</div>
                 <div class="opcoes" id="portaria" onclick="abrir_portaria()" title="Abrir portaria">Portaria</div>
                 <div class="opcoes" id="cadastros" onclick="abrir_cadastros()" title="Abrir cadastros">Cadastros</div>
-                <div class="opcoes" id="como_usar" onclick="abrir_ajuda()" title="Como usar">Como usar</div>
-                <div class="opcoes" id="configuracoes" onclick="abrir_configuracoes()" title="Abrir configurações">Configurações</div>
+                <!-- <div class="opcoes" id="como_usar" onclick="abrir_ajuda()" title="Como usar">Como usar</div>
+                <div class="opcoes" id="configuracoes" onclick="abrir_configuracoes()" title="Abrir configurações">Configurações</div> -->
             </div>
             <div id="voltar" title="Voltar para tela inicial" onclick="abrir_pagina_principal()">▶ Voltar para tela inicial</div>
-            <button id="muda_tema" onclick="mudar_tema()">Tema escuro 🌙</button>
+            <!-- <button id="muda_tema" onclick="mudar_tema()">Tema escuro 🌙</button> -->
             <div id="usuario">
                 <i class="bi bi-person-circle"></i>
                 <div id="perfil">
@@ -69,18 +69,18 @@
 
         <main id="pagina_principal">
             <h1>Bem-vindo ao Sistema EduFluxo!</h1>
-            <p>Aqui vai aparecer um conteudo de inicio</p>
+            <!-- <p>Aqui vai aparecer um conteudo de inicio</p> -->
         </main>
 
         <iframe id="iframes" src=""></iframe>
-
+<!-- 
         <div id="ajuda" class="outros" style="display:none">
             <h1>Como usar o sistema EduFluxo</h1>
         </div>
 
         <div id="configuracoes_pagina" class="outros" style="display:none">
             <h1>Configurações do sistema EduFluxo</h1>
-        </div>
+        </div> -->
         <!-- <iframe id="pagina_portaria" src="portaria.html"></iframe> -->
         <!-- <iframe id="pagina_cadastros" src="lista_pessoas.html"></iframe>  -->
 
@@ -120,13 +120,13 @@
                 mostra_cadastros.style.display = "inline-block";
                 break;
             case 1:
-                mostra_dashboard.style.display = "none";
+                mostra_dashboard.style.display = "inlinw=block";
                 mostra_ocorrencias.style.display = "none";
                 mostra_portaria.style.display = "inline-block";
                 mostra_cadastros.style.display = "none"
                 break;
             case 2:
-                mostra_dashboard.style.display = "none";
+                mostra_dashboard.style.display = "inline-block";
                 mostra_ocorrencias.style.display = "inline-block";
                 mostra_portaria.style.display = "none";
                 mostra_cadastros.style.display = "none";

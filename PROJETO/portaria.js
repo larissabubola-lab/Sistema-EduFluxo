@@ -67,7 +67,7 @@ function mostrar_resultados_fluxos(){
                 classe.dataset.nome = classe.textContent.trim();
                 
                 classe.addEventListener("click",()=>{
-                    alert("ola" + classe.dataset.nome + "!" );
+                    // alert("ola" + classe.dataset.nome + "!" );
                     fetch("banco_de_dados.php",{
                         method: "POST",
                         headers: {
