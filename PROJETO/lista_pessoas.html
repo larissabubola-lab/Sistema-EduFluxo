@@ -14,8 +14,8 @@
                 <button id="mostra_os_usuarios" onclick="mostra_usuarios()" title="Mostrar usuários"><i class="bi bi-person-fill"></i>&nbsp;Mostrar usuarios</button>
             </div>
             <div id="buscar_alunos">
-                <div id="input_alunos">
-                    <i class="bi bi-search"></i>
+                <div id="input_alunos__buscar">
+                    <i class="bi bi-search"></i>&nbsp;
                     <input type="text" id="pesquisa" placeholder="Digite o nome do aluno">
                 </div>
                 <select onchange="mostra_salas()" id="select_salas">
@@ -40,7 +40,7 @@
                 </div>
 
                 <select onchange="mostra_permissoes()" id="select_permissoes">
-                    <option value="">Todos os usuarios</option>
+                    <option value="*">Todos os usuarios</option>
                     <option value="admin">Admin</option>
                     <option value="portaria">Portaria</option>
                     <option value="professor">Professor</option>

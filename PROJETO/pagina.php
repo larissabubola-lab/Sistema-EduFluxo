@@ -38,7 +38,7 @@
         <div id="barra_tarefas">
             <button id="hamburguer" onclick="mostrar_barra_lateral()" title="Abrir barra lateral">☰</button>
             <!-- <i class="" -->
-            <h1 id="h1">Sistema EduFluxo</h1>
+            <h1 id="h1">Sistema&nbsp;EduFluxo</h1>
         </div>
 
         <aside id="barra_lateral" style="display: none;">

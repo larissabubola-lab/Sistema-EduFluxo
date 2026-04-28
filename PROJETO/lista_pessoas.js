@@ -270,7 +270,7 @@ function checar_add_usuarios(){
 }
 
 function mostra_salas(){
-    let apaga_itens = usuarios.querySelectorAll(".mostra_usuarios");
+    let apaga_itens = alunos.querySelectorAll(".mostra_alunos");
     apaga_itens.forEach(apaga=>{
         apaga.remove();
     })
@@ -279,29 +279,131 @@ function mostra_salas(){
 
     switch(select_value){
         case "6":
-            fetch("banco-de_dados.php",{
+            fetch("banco_de_dados.php",{
                 method: "POST",
                 headers:{
                     "Content-Type": "application/json"
                 },
                 body:JSON.stringify({
-                    para:"buscar_alunos_sexto
+                    para: "buscar_alunos_6"
                 })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+                
+                alunos.innerHTML += dados;
             })
             break;
         case "7":
+            fetch("banco_de_dados.php",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para: "buscar_alunos_7"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+                
+                alunos.innerHTML += dados;
+            })
             break;
         case "8":
+            fetch("banco_de_dados.php",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para: "buscar_alunos_8"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+                
+                alunos.innerHTML += dados;
+            })
             break;
         case "9":
+            fetch("banco_de_dados.php",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para: "buscar_alunos_9"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+                alunos.innerHTML += dados;
+            })
             break;
         case "1":
+            fetch("banco_de_dados.php",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para: "buscar_alunos_1"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+              
+                alunos.innerHTML += dados;
+            })
             break;
         case "2":
+            fetch("banco_de_dados.php",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para: "buscar_alunos_2"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+               
+                alunos.innerHTML += dados;
+            })
             break;
         case "3":
+            fetch("banco_de_dados.php",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para: "buscar_alunos_3"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+        
+                alunos.innerHTML += dados;
+            })
             break;
         default:
+            fetch("banco_de_dados.php",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para: "buscar_alunos"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+              
+                alunos.innerHTML += dados;
+            })
             break;
     }
 }
@@ -313,4 +415,135 @@ function mostra_permissoes(){
     })
 
     let select_value = document.getElementById("select_permissoes").value
+
+    switch(select_value){
+        case "admin":
+            fetch("banco_de_dados.php",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para: "buscar_usuarios_admin"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+                usuarios.innerHTML += dados;
+                let permissoes_usuarios = document.querySelectorAll(".permissoes");
+                permissoes_usuarios.forEach(permissoes=>{
+                    switch(permissoes.textContent){
+                        case "0":
+                            permissoes.textContent = "Admin";
+                            break;
+                        case "1":
+                            permissoes.textContent = "Portaria";
+                            break;
+                        case "2":
+                            permissoes.textContent = "Professor";
+                            break;
+                        default:
+                            permissoes.textContent = "Erro";
+                            break;
+                    }
+                })
+            })
+            break;
+        case "portaria":
+            fetch("banco_de_dados.php",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para: "buscar_usuarios_portaria"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+                usuarios.innerHTML += dados;
+                let permissoes_usuarios = document.querySelectorAll(".permissoes");
+                permissoes_usuarios.forEach(permissoes=>{
+                    switch(permissoes.textContent){
+                        case "0":
+                            permissoes.textContent = "Admin";
+                            break;
+                        case "1":
+                            permissoes.textContent = "Portaria";
+                            break;
+                        case "2":
+                            permissoes.textContent = "Professor";
+                            break;
+                        default:
+                            permissoes.textContent = "Erro";
+                            break;
+                    }
+                })
+            })
+            break;
+        case "professor":
+            fetch("banco_de_dados.php",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para: "buscar_usuarios_professor"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+                usuarios.innerHTML += dados;
+                let permissoes_usuarios = document.querySelectorAll(".permissoes");
+                permissoes_usuarios.forEach(permissoes=>{
+                    switch(permissoes.textContent){
+                        case "0":
+                            permissoes.textContent = "Admin";
+                            break;
+                        case "1":
+                            permissoes.textContent = "Portaria";
+                            break;
+                        case "2":
+                            permissoes.textContent = "Professor";
+                            break;
+                        default:
+                            permissoes.textContent = "Erro";
+                            break;
+                    }
+                })
+            })
+            break;
+        default:
+            fetch("banco_de_dados.php",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    para: "buscar_usuarios"
+                })
+            })
+            .then(resposta=>resposta.text())
+            .then(dados=>{
+                usuarios.innerHTML += dados;
+                let permissoes_usuarios = document.querySelectorAll(".permissoes");
+                permissoes_usuarios.forEach(permissoes=>{
+                    switch(permissoes.textContent){
+                        case "0":
+                            permissoes.textContent = "Admin";
+                            break;
+                        case "1":
+                            permissoes.textContent = "Portaria";
+                            break;
+                        case "2":
+                            permissoes.textContent = "Professor";
+                            break;
+                        default:
+                            permissoes.textContent = "Erro";
+                            break;
+                    }
+                })
+            })
+            break;
+    }
 }

@@ -10,8 +10,10 @@ function mostrar_formulario(){
     document.getElementById("usuario_ocorrencia").value = "";
     document.getElementById("usuario_ocorrencia").disabled = true;
     // document.getElementsByClassName("radios").value = "";
-    document.getElementById("bom").value = "";
-    document.getElementById("ruim").value = "";
+    let os_radios = document.querySelectorAll(".radios");
+    os_radios.forEach(radio=>{
+        radio.checked = false;
+    })
     document.getElementById("motivo_ocorrencia").value = "";
 }
 
@@ -163,7 +165,7 @@ function criar_ocorrencia(){
 
     let radio = document.querySelectorAll(".radios")
     radio.forEach(apaga=>{
-        apaga.value = "";
+        apaga.checked = false;
     })
     
     document.getElementById("motivo_ocorrencia").value = "";
@@ -236,4 +238,26 @@ function mostrar_tipos(){
             break;
     }
     
+}
+
+function mostra_o_input(){
+   
+
+    let input = document.getElementById("input_buscar").value;
+
+    fetch("banco_de_dados.php",{
+        method: "POST",
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+            para: "input_ocorrencias",
+            busca: input
+        })
+    })
+    .then(resposta=>resposta.text())
+    .then(dados=>{
+        lugar_das_ocorrencias.innerHTML += dados;
+    })
+    .catch(e => console.log("ERRO FETCH:", e));
 }

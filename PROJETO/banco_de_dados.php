@@ -173,40 +173,88 @@
                 template($linha["cgm"], $linha["nome"], $linha["sala"], $linha["email"]);
             }
             break;
+
+        case "buscar_alunos_6":
+            $informacoes = $conexao->query("SELECT * FROM alunos WHERE sala LIKE '6%'");
+            while($linha = $informacoes->fetch_assoc()){
+                template($linha["cgm"], $linha["nome"], $linha["sala"], $linha["email"]);
+            }
+            break;
+        
+        case "buscar_alunos_7":
+            $informacoes = $conexao->query("SELECT * FROM alunos WHERE sala LIKE '7%'");
+            while($linha = $informacoes->fetch_assoc()){
+                template($linha["cgm"], $linha["nome"], $linha["sala"], $linha["email"]);
+            }
+            break;
+
+        case "buscar_alunos_8":
+            $informacoes = $conexao->query("SELECT * FROM alunos WHERE sala LIKE '8%'");
+            while($linha = $informacoes->fetch_assoc()){
+                template($linha["cgm"], $linha["nome"], $linha["sala"], $linha["email"]);
+            }
+            break;
+
+        case "buscar_alunos_9":
+            $informacoes = $conexao->query("SELECT * FROM alunos WHERE sala LIKE '9%'");
+            while($linha = $informacoes->fetch_assoc()){
+                template($linha["cgm"], $linha["nome"], $linha["sala"], $linha["email"]);
+            }
+            break;
+
+        case "buscar_alunos_1":
+            $informacoes = $conexao->query("SELECT * FROM alunos WHERE sala LIKE '1%'");
+            while($linha = $informacoes->fetch_assoc()){
+                template($linha["cgm"], $linha["nome"], $linha["sala"], $linha["email"]);
+            }
+            break;
+
+        case "buscar_alunos_2":
+            $informacoes = $conexao->query("SELECT * FROM alunos WHERE sala LIKE '2%'");
+            while($linha = $informacoes->fetch_assoc()){
+                template($linha["cgm"], $linha["nome"], $linha["sala"], $linha["email"]);
+            }
+            break;
+
+        case "buscar_alunos_3":
+            $informacoes = $conexao->query("SELECT * FROM alunos WHERE sala LIKE '3%'");
+            while($linha = $informacoes->fetch_assoc()){
+                template($linha["cgm"], $linha["nome"], $linha["sala"], $linha["email"]);
+            }
+            break;
     
         case "buscar_usuarios":
             $informacoes = $conexao->query("SELECT * FROM usuarios ORDER BY nome ASC");
             while($linha = $informacoes->fetch_assoc()){
                 template_usuarios($linha["cpf"], $linha["nome"], $linha["email"], $linha["permissao"]);
-                // echo "<div class='mostra_usuarios'>";
-                //     echo "<div class='foto'><i class='bi bi-person-square'></i></div>";
-                //     echo "<div class='informacoes'>";
-                //         echo "<div class='cpfs'>";
-                //             echo "<div>Cpf:</div>";
-                //             echo "<div>" . htmlspecialchars($linha["cpf"]) . "</div>";
-                //         echo "</div>";
-                //         echo "<div class='nomes'>";
-                //             echo "<div>Nome:</div>";
-                //             echo "<div>" . htmlspecialchars($linha["nome"]) . "</div>";
-                //         echo "</div>";
-                //         echo "<div class='emails'>";
-                //             echo "<div>Email:</div>";
-                //             echo "<div>" . htmlspecialchars($linha["email"]) . "</div>";
-                //         echo "</div>";
-                //         echo "<div class='permissao_usuario'>";
-                //             echo "<div>Permissão:</div>";
-                //             echo "<div class='permissoes'>" . htmlspecialchars($linha["permissao"]) . "</div>";
-                //         echo "</div>";
-                //         echo "<div class='botoes'>";
-                //             echo "<button class='editar botao' title='Editar cadastro'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
-                //             echo "<button class='apagar botao' title='Apagar cadastro'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
-                //         echo "</div>";
-                //     echo "</div>";
-                // echo '</div>';
+                
+            }
+            break;
+        
+        case "buscar_usuarios_admin":
+            $informacoes = $conexao->query("SELECT * FROM usuarios WHERE permissao = 0");
+            while($linha = $informacoes->fetch_assoc()){
+                template_usuarios($linha["cpf"], $linha["nome"], $linha["email"], $linha["permissao"]);
+                
+            }
+            break;
+        
+        case "buscar_usuarios_portaria":
+            $informacoes = $conexao->query("SELECT * FROM usuarios WHERE permissao = 1");
+            while($linha = $informacoes->fetch_assoc()){
+                template_usuarios($linha["cpf"], $linha["nome"], $linha["email"], $linha["permissao"]);
                 
             }
             break;
 
+        case "buscar_usuarios_professor":
+            $informacoes = $conexao->query("SELECT * FROM usuarios WHERE permissao = 2");
+            while($linha = $informacoes->fetch_assoc()){
+                template_usuarios($linha["cpf"], $linha["nome"], $linha["email"], $linha["permissao"]);
+                
+            }
+            break;
+        
         case "buscar_ocorrencias":
             $informacoes = $conexao->query("SELECT * FROM ocorrencias ORDER BY id ASC");
             while($linha = $informacoes->fetch_assoc()){
@@ -257,6 +305,7 @@
                 template_portaria($linha["nome"], $linha["cgm"],$linha["data"],  $linha["serie"], $linha["usuario"], $linha["motivo"]);
              }
              break;
+            
         default:
             http_response_code(400);
             die("Dados inválidos");

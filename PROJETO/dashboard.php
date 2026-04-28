@@ -285,7 +285,7 @@
                 </div>
             </div>
 
-            <div id="ocorrencias_salas" class="espacos">
+            <!-- <div id="ocorrencias_salas" class="espacos">
                 <div class="a" id="ocorrencias_em_salas">
                     <i class="bi bi-exclamation-triangle"></i>
                     <div id="numero_ocorrencias_salas">Salas com mais ocorrencias:</div>
@@ -305,9 +305,9 @@
                     <div>Manhã:</div>
                     <div>Tarde:</div>
                 </div>
-            </div>
+            </div> -->
 
-            <div id="portaria_salas" class="espacos">
+            <!-- <div id="portaria_salas" class="espacos">
                 <div class="a" id="portaria_em_salas">
                     <i class="bi bi-person-walking"></i>
                     <div>Salas com mais atrasos:<div>
@@ -317,7 +317,7 @@
                     <div>Tarde:</div>
                 </div>
 
-            </div>
+            </div> -->
             
         </main>
 

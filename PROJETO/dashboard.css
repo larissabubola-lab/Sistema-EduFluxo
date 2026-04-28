@@ -14,7 +14,10 @@
     height:fit-content;
     /* justify-items:center;
     align-items:center; */
-    gap:20px 0;
+    /* gap:20px 0; */
+    gap: 2vw 0;
+
+    margin-top:25vh;
     grid-template-columns: auto auto;
     grid-auto-rows:min-content;
     /* grid-template-rows:auto auto; */
@@ -24,24 +27,34 @@
     border:solid;
     display:flex;
     flex-direction:column;
-    width:500px;
+    /* width:500px; */
+    /* width:37vw; */
+    /* width:80vh; */
+    width:calc(40vh + 18.5vw);
     /* height:100px; */
     height:fit-content;
     justify-content:center;
     align-items:center;
     /* display:inline-block; */
     margin:0 auto;
-    padding:40px;
+    /* padding:40px; */
+    /* padding:3vw; */
+    /* padding:6.5vh; */
+    padding:calc(1.5vw + 3.25vh);
     border-radius:20px;
 }
 
 
 .botoes{
-    font-size:25px;
+    /* font-size:25px; */
+    /* font-size:1.8vw; */
+    /* font-size:4vh; */
+    font-size:calc(2vh + 0.9vw);
     cursor:pointer;
     border:none;
     background:transparent;
-    margin-top:10px;
+    /* margin-top:10px; */
+    margin-top:1.5vh;
 }
 
 #numero_alunos{
@@ -81,7 +94,10 @@
 .a{
     display:flex;
     flex-direction:row;
-    font-size:40px;
+    /* font-size:40px; */
+    /* font-size:6.5vh; */
+    /* font-size:3vw; */
+    font-size:calc(1.5vw + 3.25vh);
     width:100%;
     height:100%;
     align-items:center;
@@ -96,7 +112,8 @@
 
 
 .totais{
-    margin-left:10px;
+    /* margin-left:10px; */
+    margin-left:1vw;
 }
 
 .mostrar_mais{
@@ -106,19 +123,26 @@
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    gap:10px;
+    /* gap:10px; */
+    gap:1.5vh;
     font-size:23px;
+    /* font-size:3.5vh; */
+    /* font-size:1.66vw; */
+    font-size:calc(1.75vh + 0.83vw);
     border-top:solid;
-    margin-top:10px;
-    padding-top:10px;
+    /* margin-top:10px; */
+    margin-top:1.5vh;
+    /* padding-top:10px; */
+    padding-top:1.5vh;
     /* display:none; */
 }
 
-#ocorrencias_em_salas{
+/* #ocorrencias_em_salas{
     font-size:35px;
+    font-size:5vh;
 }
-
-#numero_ocorrencias_salas{
+ */
+/* #numero_ocorrencias_salas{
     margin-left:10px;
 }
 
@@ -135,10 +159,9 @@
     font-style:italic;
     font-weight:bold;
     text-decoration:underline;
-}
+} */
 
-#ocorrencias_salas button{
+/* #ocorrencias_salas button{
     margin-top:20px;
     /* color:red; */
         /* text-decoration:underline wavy; */
-}
