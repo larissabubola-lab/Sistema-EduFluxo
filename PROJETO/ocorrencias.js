@@ -111,7 +111,7 @@ function manual(){
     clicou = !clicou;
     if(clicou){
         document.getElementById("cgm_ocorrencias").disabled = false;
-        document.getElementById("nome_aluno_ocorrencias").removeEventListener("input", mostrar_resultados);
+        // document.getElementById("nome_aluno_ocorrencias").removeEventListener("input", mostrar_resultados);
         document.getElementById("serie_aluno").disabled = false;
         document.getElementById("usuario_ocorrencia").disabled = false;
         document.getElementById("botao_manual").innerHTML = "<i class='bi bi-arrow-counterclockwise'></i>Desativar escrita manual";
@@ -119,7 +119,7 @@ function manual(){
     }
     else{
         document.getElementById("cgm_ocorrencias").disabled = true;
-        document.getElementById("nome_aluno_ocorrencias").addEventListener("input", mostrar_resultados);
+        // document.getElementById("nome_aluno_ocorrencias").addEventListener("input", mostrar_resultados);
         document.getElementById("serie_aluno").disabled = true;
         document.getElementById("usuario_ocorrencia").disabled = true;
         document.getElementById("botao_manual").innerHTML = "<i class='bi bi-arrow-clockwise'></i>Criar ocorrencia manual";    

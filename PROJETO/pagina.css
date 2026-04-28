@@ -357,3 +357,9 @@ html, body, iframe{
 iframe{
     border:none;
 }
+
+input:focus{
+    outline:none;
+    border:none;
+    box-shadow:none;
+}

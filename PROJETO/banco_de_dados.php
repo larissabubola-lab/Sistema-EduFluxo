@@ -32,10 +32,10 @@
                     echo "<div>Email:</div>";
                     echo "<div>" . htmlspecialchars($info_4) . "</div>";
                 echo "</div>";
-                echo "<div class='botoes'>";
-                    echo "<button class='editar botao' title='Editar cadastro'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
-                    echo "<button class='apagar botao' title='Apagar cadastro'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
-                echo "</div>";
+                // echo "<div class='botoes'>";
+                //     echo "<button class='editar botao' title='Editar cadastro'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
+                //     echo "<button class='apagar botao' title='Apagar cadastro'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
+                // echo "</div>";
             echo "</div>";
         echo '</div>';
     }
@@ -60,10 +60,10 @@
                     echo "<div>Permissão:</div>";
                     echo "<div class='permissoes'>" . htmlspecialchars($info_4) . "</div>";
                 echo "</div>";
-                echo "<div class='botoes'>";
-                    echo "<button class='editar botao' title='Editar cadastro'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
-                    echo "<button class='apagar botao' title='Apagar cadastro'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
-                echo "</div>";
+                // echo "<div class='botoes'>";
+                //     echo "<button class='editar botao' title='Editar cadastro'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
+                //     echo "<button class='apagar botao' title='Apagar cadastro'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
+                // echo "</div>";
             echo "</div>";
         echo '</div>';
     }
@@ -105,10 +105,10 @@
 
             echo "</div>";
 
-            echo "<div class='botoes'>";
-                echo "<button class='editar' title='Editar ocorrencia'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
-                echo "<button class='apagar' title='Apagar ocorrencia'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
-            echo "</div>";
+            // echo "<div class='botoes'>";
+            //     echo "<button class='editar' title='Editar ocorrencia'><i class='bi bi-pencil-square'></i>&nbsp;Editar</button>";
+            //     echo "<button class='apagar' title='Apagar ocorrencia'><i class='bi bi-trash-fill'></i>&nbsp;Apagar</button>";
+            // echo "</div>";
 
         echo "</div>";
     }
@@ -284,10 +284,10 @@
             break;
         
         case "buscar_ocorrencias":
-            $informacoes = $conexao->query("SELECT * FROM ocorrencias ORDER BY id ASC");
+            $informacoes = $conexao->query("SELECT * FROM ocorrencias ORDER BY nome ASC");
             while($linha = $informacoes->fetch_assoc()){
                 if($linha["tipo"] === "positiva"){
-                   template_ocorrencias("bom", "😊", $linha["nome"], $linha["cgm"], "data_boa", $linha["data"], $linha["serie"],  $linha["relator"], "motivo_bom", $linha["motivo"] );
+                   template_ocorrencias("bom", "😊", $linha["nome"], $linha["cgm"], "data_bom", $linha["data"], $linha["serie"],  $linha["relator"], "motivo_bom", $linha["motivo"] );
                 }
                 else{
                     template_ocorrencias("ruim", "🙁", $linha["nome"], $linha["cgm"], "data_ruim", $linha["data"], $linha["serie"],  $linha["relator"], "motivo_ruim", $linha["motivo"] );
@@ -298,7 +298,7 @@
         case "buscar_ocorrencias_positivas":
             $informacoes = $conexao->query("SELECT * FROM ocorrencias WHERE tipo = 'positiva'");
             while($linha = $informacoes->fetch_assoc()){
-                template_ocorrencias("bom", "😊", $linha["nome"], $linha["cgm"], "data_boa", $linha["data"], $linha["serie"],  $linha["relator"], "motivo_bom", $linha["motivo"] );
+                template_ocorrencias("bom", "😊", $linha["nome"], $linha["cgm"], "data_bom", $linha["data"], $linha["serie"],  $linha["relator"], "motivo_bom", $linha["motivo"] );
             }
             break;
 
@@ -316,7 +316,7 @@
             $resultado = $informacoes->get_result();
             while($linha = $resultado->fetch_assoc()){
                 if($linha["tipo"] === "positiva"){
-                   template_ocorrencias("bom", "😊", $linha["nome"], $linha["cgm"], "data_boa", $linha["data"], $linha["serie"],  $linha["relator"], "motivo_bom", $linha["motivo"] );
+                   template_ocorrencias("bom", "😊", $linha["nome"], $linha["cgm"], "data_bom", $linha["data"], $linha["serie"],  $linha["relator"], "motivo_bom", $linha["motivo"] );
                 }
                 else{
                     template_ocorrencias("ruim", "🙁", $linha["nome"], $linha["cgm"], "data_ruim", $linha["data"], $linha["serie"],  $linha["relator"], "motivo_ruim", $linha["motivo"] );
@@ -325,7 +325,7 @@
             break;
         
         case "buscar_portaria":
-            $informacoes = $conexao->query("SELECT * FROM fluxo_saidas ORDER BY id ASC");
+            $informacoes = $conexao->query("SELECT * FROM fluxo_saidas ORDER BY nome ASC");
             while($linha = $informacoes->fetch_assoc()){
                template_portaria($linha["nome"], $linha["cgm"],$linha["data"],  $linha["serie"], $linha["usuario"], $linha["motivo"]);
             }
