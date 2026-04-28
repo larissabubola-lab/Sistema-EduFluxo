@@ -257,3 +257,42 @@ function mostrar_motivos(){
             break;
     }
 }
+
+function mostrar_pesquisa(){
+    let elementos = mostrar_portaria.querySelectorAll(".mostra_portaria");
+    elementos.forEach(apaga=>{
+        apaga.remove();
+    })
+
+    let input = document.getElementById("pesquisa").value;
+    if(input === ""){
+        fetch("banco_de_dados.php",{
+            method: "POST",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body:JSON.stringify({
+                para:"buscar_portaria"
+            })
+        })
+        .then(resposta=>resposta.text())
+        .then(dados=>{
+            mostrar_portaria.innerHTML += dados;
+        })
+        return;
+    }
+    fetch("banco_de_dados.php",{
+        method:"para",
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+            para:"input_portaria",
+            buscar:input
+        })
+    })
+    .then(resposta=>resposta.text())
+    .then(dados=>{
+        mostrar_portaria.innerHTML += dados;
+    })
+}

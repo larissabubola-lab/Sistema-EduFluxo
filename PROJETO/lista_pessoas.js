@@ -1,6 +1,6 @@
 const botao_1 = document.getElementById("botao_add_alunos")
 const botao_2 = document.getElementById("botao_add_usuarios")
-
+// alert
 function mostra_add_alunos(){
     document.getElementById("add_alunos").style.display = "grid";
     document.getElementById("add_usuarios").style.display = "none";
@@ -546,4 +546,117 @@ function mostra_permissoes(){
             })
             break;
     }
+}
+
+function pesquisar_alunos(){
+    let apaga_itens = alunos.querySelectorAll(".mostra_alunos");
+    apaga_itens.forEach(apaga=>{
+        apaga.remove();
+    })
+    
+    let input_alunos = document.getElementById("pesquisa").value;
+    if(input_alunos === ""){
+        fetch("banco_de_dados.php",{
+            method:"POST",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body:JSON.stringify({
+                para:"buscar_alunos"
+            })
+        })
+        .then(resposta=>resposta.text())
+        .then(dados=>{
+            alunos.innerHTML += dados;
+        })
+        return;
+    }
+    fetch("banco_de_dados.php",{
+        method:"POST",
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+            para:"input_alunos",
+            buscar: input_alunos
+        })
+    })
+    .then(resposta=>resposta.text())
+    .then(dados=>{
+        alunos.innerHTML += dados;
+    })
+}
+
+function pesquisar_usuarios(){
+    let apaga_itens = usuarios.querySelectorAll(".mostra_usuarios");
+    apaga_itens.forEach(apaga=>{
+        apaga.remove();
+    });
+
+    let input_usuario = document.getElementById("pesquisa_usuario").value;
+    if(input_usuario === ""){
+        fetch("banco_de_dados.php",{
+            method:"POST",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body:JSON.stringify({
+                para:"buscar_usuarios"
+            })
+        })
+        .then(resposta=>resposta.text())
+        .then(dados=>{
+            usuarios.innerHTML += dados;
+            let permissoes_usuarios = document.querySelectorAll(".permissoes");
+            permissoes_usuarios.forEach(permissoes=>{
+                switch(permissoes.textContent){
+                    case "0":
+                        permissoes.textContent = "Admin";
+                        break;
+                    case "1":
+                        permissoes.textContent = "Portaria";
+                        break;
+                    case "2":
+                        permissoes.textContent = "Professor";
+                        break;
+                    default:
+                        permissoes.textContent = "Erro";
+                        break;
+                }
+            })
+        })
+        return;
+    }
+
+    fetch("banco_de_dados.php",{
+        method:"POST",
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+            para:"input_usuarios",
+            buscar:input_usuario
+        })
+    })
+    .then(resposta=>resposta.text())
+    .then(dados=>{
+        usuarios.innerHTML += dados;
+        let permissoes_usuarios = document.querySelectorAll(".permissoes");
+        permissoes_usuarios.forEach(permissoes=>{
+            switch(permissoes.textContent){
+                case "0":
+                    permissoes.textContent = "Admin";
+                    break;
+                case "1":
+                    permissoes.textContent = "Portaria";
+                    break;
+                case "2":
+                    permissoes.textContent = "Professor";
+                    break;
+                default:
+                    permissoes.textContent = "Erro";
+                    break;
+            }
+        })
+    })
 }

@@ -419,3 +419,46 @@ select{
     /* filter:brightness(150%); */
     transform:scale(1.1);
 }
+
+#buscar_alunos{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    height:fit-content;
+    justify-content:space-center;
+}
+
+#buscar_alunos select{
+    width:fit-content;
+}
+
+#input_alunos__buscar{
+    display:flex;
+    flex-direction:row; 
+    width:fit-content;
+    height:fit-content;
+    align-items:center;
+    justify-content:center;
+    border:2px solid;
+    border-radius:15px;
+    background:white;
+    
+    /* padding-left:10px; */
+    padding:5px;
+
+    
+}
+
+#input_alunos__buscar input{
+    border-radius:15px;
+    border:none;
+    font-size:20px;
+    
+}
+
+#input_alunos__buscar select{
+    /* border-radius:15px;
+    border:none; */
+    font-size:20px !important;
+    
+}

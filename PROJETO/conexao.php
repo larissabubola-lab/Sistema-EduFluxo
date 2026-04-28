@@ -10,7 +10,7 @@
     if($mysqli->connect_errno){
         echo "falha ao conectar:(" . $mysqli->connect_errno . ")" . $mysqli->connect_errno;
     }
-    else echo "conectado ao banco de dados"
+    // else echo "conectado ao banco de dados"
 
      //! COMANDOS SQL NO PHP:
             

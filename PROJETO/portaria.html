@@ -12,7 +12,7 @@
             <div id="buscar">
                 <div id="input_busca">
                     <i class="bi bi-search"></i>
-                    <input type="text" placeholder="Buscar registro">
+                    <input type="text" placeholder="Buscar registro" oninput="mostrar_pesquisa()" id="pesquisa">
                 </div>
                 <select onchange="mostrar_motivos()" id="select_portaria">
                     <option value="*">Todos os registros</option>

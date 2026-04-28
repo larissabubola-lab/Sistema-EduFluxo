@@ -69,6 +69,7 @@
     }
 
     function template_ocorrencias($info_1, $info_2, $info_3, $info_4,$info_5,$info_6, $info_7, $info_8, $info_9, $info_10){
+        // echo "<button id='adcionar_ocorrencias' onclick='mostrar_formulario()' title='Criar uma nova ocorrencia'>Criar nova ocorrencia</button>";
          echo "<div class='mostra_ocorrencias $info_1'>"; // valores: bom e ruim
             echo "<div class='parte_cima'>";        
                 echo "<div>$info_2</div>"; //😊 ou 🙁
@@ -222,6 +223,19 @@
                 template($linha["cgm"], $linha["nome"], $linha["sala"], $linha["email"]);
             }
             break;
+        case "input_alunos":
+            $busca = "%" . $data["buscar"] . "%";
+
+            $informacoes = $conexao->prepare("SELECT * FROM alunos WHERE cgm LIKE ? OR nome LIKE ?");
+            $informacoes->bind_param("ss", $busca, $busca);
+            $informacoes->execute();
+
+            $resultado = $informacoes->get_result();
+            
+            while($linha = $resultado->fetch_assoc()){
+                template($linha["cgm"], $linha["nome"], $linha["sala"], $linha["email"]);
+            }
+            break;
     
         case "buscar_usuarios":
             $informacoes = $conexao->query("SELECT * FROM usuarios ORDER BY nome ASC");
@@ -254,6 +268,20 @@
                 
             }
             break;
+
+         case "input_usuarios":
+            $busca = "%" . $data["buscar"] . "%";
+
+            $informacoes = $conexao->prepare("SELECT * FROM usuarios WHERE cpf LIKE ? OR nome LIKE ?");
+            $informacoes->bind_param("ss", $busca, $busca);
+            $informacoes->execute();
+
+            $resultado = $informacoes->get_result();
+            
+            while($linha = $resultado->fetch_assoc()){
+                template_usuarios($linha["cpf"], $linha["nome"], $linha["email"], $linha["permissao"]);
+            }
+            break;
         
         case "buscar_ocorrencias":
             $informacoes = $conexao->query("SELECT * FROM ocorrencias ORDER BY id ASC");
@@ -278,6 +306,21 @@
             $informacoes = $conexao->query("SELECT * FROM ocorrencias WHERE tipo = 'negativa'");
             while($linha = $informacoes->fetch_assoc()){
                 template_ocorrencias("ruim", "🙁", $linha["nome"], $linha["cgm"], "data_ruim", $linha["data"], $linha["serie"],  $linha["relator"], "motivo_ruim", $linha["motivo"] );
+            }
+            break;
+        case "input_ocorrencias":
+            $pesquisa = "%" . $data["busca"] . "%";
+            $informacoes = $conexao->prepare("SELECT * FROM ocorrencias WHERE nome LIKE ? OR cgm LIKE ?");
+            $informacoes->bind_param("ss", $pesquisa, $pesquisa);
+            $informacoes->execute();
+            $resultado = $informacoes->get_result();
+            while($linha = $resultado->fetch_assoc()){
+                if($linha["tipo"] === "positiva"){
+                   template_ocorrencias("bom", "😊", $linha["nome"], $linha["cgm"], "data_boa", $linha["data"], $linha["serie"],  $linha["relator"], "motivo_bom", $linha["motivo"] );
+                }
+                else{
+                    template_ocorrencias("ruim", "🙁", $linha["nome"], $linha["cgm"], "data_ruim", $linha["data"], $linha["serie"],  $linha["relator"], "motivo_ruim", $linha["motivo"] );
+                }
             }
             break;
         
@@ -305,7 +348,17 @@
                 template_portaria($linha["nome"], $linha["cgm"],$linha["data"],  $linha["serie"], $linha["usuario"], $linha["motivo"]);
              }
              break;
-            
+        case "input_portaria":
+            $busca = "%" .  $data["buscar"] . "%";
+            $informacoes = $conexao->prepare("SELECT * FROM fluxo_saidas WHERE cgm LIKE ? OR nome LIKE ? ");
+            $informacoes->bind_param("ss", $busca, $busca);
+            $informacoes->execute();
+            $resultados = $informacoes->get_result();
+
+            while($linha = $resultados->fetch_assoc()){
+                template_portaria($linha["nome"], $linha["cgm"],$linha["data"],  $linha["serie"], $linha["usuario"], $linha["motivo"]);
+            }
+            break;
         default:
             http_response_code(400);
             die("Dados inválidos");

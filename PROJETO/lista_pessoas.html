@@ -16,7 +16,7 @@
             <div id="buscar_alunos">
                 <div id="input_alunos__buscar">
                     <i class="bi bi-search"></i>&nbsp;
-                    <input type="text" id="pesquisa" placeholder="Digite o nome do aluno">
+                    <input type="text" id="pesquisa" placeholder="Digite o nome do aluno" oninput="pesquisar_alunos()">
                 </div>
                 <select onchange="mostra_salas()" id="select_salas">
                     <option value="*">Todos os alunos</option>
@@ -36,7 +36,7 @@
             <div id="buscar_usuarios" style="display: none;">
                 <div id="input_usuarios">
                     <i class="bi bi-search"></i>
-                    <input type="text" id="pesquisa_usuario" placeholder="Digite o nome do usuario">
+                    <input type="text" id="pesquisa_usuario" placeholder="Digite o nome do usuario" oninput="pesquisar_usuarios()">
                 </div>
 
                 <select onchange="mostra_permissoes()" id="select_permissoes">

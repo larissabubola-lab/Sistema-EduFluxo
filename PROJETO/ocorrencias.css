@@ -423,7 +423,7 @@ input:disabled{
     font-style:italic
 }
 
-.informaÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ao{
+.informaÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§ao{
     display:flex;
     flex-direction: row;
 }
@@ -568,3 +568,14 @@ select{
 }
 
 
+
+#input_buscar{
+    height:25px;
+    
+    
+}
+
+#input_buscar input{
+    height:25px;
+    width:400px;
+}

@@ -68,7 +68,7 @@ function mostrar_resultados(){
             elementos.forEach(classe=>{
                 classe.dataset.nome = classe.textContent.trim();
                 classe.addEventListener("click", ()=>{
-                    alert("ola " + classe.dataset.nome + "!");
+                    // alert("ola " + classe.dataset.nome + "!");
                     // input_ocorrencias.value = classe.dataset.nome;
                     fetch("banco_de_dados.php",{
                         method: "POST",
@@ -240,11 +240,28 @@ function mostrar_tipos(){
     
 }
 
-function mostra_o_input(){
-   
-
-    let input = document.getElementById("input_buscar").value;
-
+function mostrar_pesquisa(){
+    let tudo = lugar_das_ocorrencias.querySelectorAll(".mostra_ocorrencias")
+    tudo.forEach(todos=>{
+        todos.remove()
+    })
+    let input = document.getElementById("pesquisa").value;
+    if(input === ""){
+        fetch("banco_de_dados.php",{
+            method: "POST",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body:JSON.stringify({
+                para: "buscar_ocorrencias"
+            })
+        })
+        .then(resposta=>resposta.text())
+        .then(dados=>{
+            lugar_das_ocorrencias.innerHTML += dados;
+        })
+        return;
+    }
     fetch("banco_de_dados.php",{
         method: "POST",
         headers:{
@@ -259,5 +276,11 @@ function mostra_o_input(){
     .then(dados=>{
         lugar_das_ocorrencias.innerHTML += dados;
     })
-    .catch(e => console.log("ERRO FETCH:", e));
+    
 }
+   
+
+//     
+
+    
+// }
