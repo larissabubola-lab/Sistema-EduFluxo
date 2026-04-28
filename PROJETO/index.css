@@ -1,18 +1,113 @@
+@font-face {
+    font-family: bigshot;
+    src: url(assets/BigshotOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: bigshoulder;
+    src: url(assets/BigShoulders_36pt-Regular.ttf);
+}
+
+@font-face {
+    font-family: sekuya;
+    src: url(assets/Sekuya-Regular.ttf);
+}
+
+body{
+    overflow:hidden;
+    width:100%;
+    min-height:100vh;
+    background:radial-gradient(circle at 20% 80%,#363636, transparent 20%), radial-gradient(circle at 80% 20%,	#4F4F4F, transparent 11%),  radial-gradient(circle at left top,#696969, transparent 15%), radial-gradient(circle at 50% 60%,	#3c3737, transparent 5%),  radial-gradient(circle at center bottom,#2f2c2c, transparent 14%), radial-gradient(circle at 30% 20%,	#363636, transparent 12%), radial-gradient(circle at 80% 80%,	#363636, transparent 13%),radial-gradient(circle at 60% 20%, #2a2a2a, transparent 15%), black ;
+    background-repeat:no-repeat;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    
+}
+
 label{
     display: block;
-}
-#ocorrencias{
-    display: none;
-}
-
-#fluxos_saida{
-    display: none;
-}
-
-#add_alunos{
-    display: none;
+    font-size:25px;
+    margin-top:20px;
+    font-weight:bold;
+    
+    text-decoration:underline;
+    /* text-align:left; */
+    
 }
 
-#add_usuarios{
-    display: none;
+#login{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    height:fit-content;
+    justify-content:center;
+    align-items:center;
+    
+}
+
+form{
+    border:solid;
+    display:flex;
+    flex-direction:column;
+    padding:10px;
+    width:450px;
+    height:fit-content;
+    align-items:center;
+    justify-content:center;
+    background:white;
+    border-color:white;
+    box-shadow:10px 10px 10px grey, 5px 5px 10px grey inset;
+    
+}
+
+
+.inputs{
+    border:solid;
+    border-radius:15px;
+    padding:5px;
+    padding-left:10px;
+    margin-top:10px;
+    
+}
+.inputs input{
+    border:none;
+    /* font-family:bigshot; */
+    border-radius:15px;
+    font-size:20px;
+    
+    
+}
+
+.inputs i{
+    font-size:20px;
+    
+}
+
+button{
+    width:fit-content;
+    font-size:20px;
+    margin-top:20px;
+    border:2px solid;
+    border-radius:10px;
+    padding:5px;
+    padding-left:10px;
+    padding-right:10px;
+    cursor:pointer;
+    /* width:100px;
+    height:40px; */
+    background:transparent; 
+    font-family:bigshot;
+    
+    transition:transform 200ms ease;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+h1{
+    color:white;
+    font-family:sekuya;
 }

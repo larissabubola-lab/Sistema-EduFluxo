@@ -7,7 +7,7 @@
 
     header("Location: http://localhost/Sistema-EduFluxo/PROJETO/");
 
-    die();
+    exit;
 
 
 ?>

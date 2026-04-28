@@ -301,12 +301,14 @@ iframe{
 }
 
 #pagina_principal{
-    margin-top:120px;
-    /* display:flex; */
-    /* flex-direction:column; */
+    margin-top:90px;
+    display:flex; 
+    flex-direction:column;
     width:100%;
     height:fit-content;
     text-align:center;
+    justify-content:center;
+    align-items:center;
 }
 
 #pagina_principal h1{
@@ -319,8 +321,26 @@ iframe{
     -webkit-background-clip:text;
     color:transparent;
     /* font-family:'Times New Roman', Times, serif */
-    
-    
+      
+}
+
+#pagina_principal p{
+    text-align:center;
+    width:80%;
+    font-size:20px;
+    font-style:italic;
+    font-family:monospace;
+    text-decoration:underline;
+    color:white;
+    background:black;
+    padding:10px;
+    border-radius:15px;
+    cursor:default;
+    transition:transform 500ms ease; 
+}
+
+#pagina_principal p:hover{
+    transform:scale(1.1);
 }
 
 html, body{

@@ -69,7 +69,8 @@
 
         <main id="pagina_principal">
             <h1>Bem-vindo ao Sistema EduFluxo!</h1>
-            <!-- <p>Aqui vai aparecer um conteudo de inicio</p> -->
+            <p>O <b>EduFluxo</b> é uma plataforma criada pra ajudar a escola a se organizar melhor no dia a dia. Com ela, dá pra <b>registrar ocorrências</b> de um jeito mais simples e também <b>acompanhar fluxos de emtrada e saída</b>.</p>
+            <p>A ideia é <b>facilitar o controle interno</b>, deixando tudo mais seguro e com as informações bem registradas, pra quando precisar consultar depois.</p>
         </main>
 
         <iframe id="iframes" src=""></iframe>
